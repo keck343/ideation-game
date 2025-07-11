@@ -13,7 +13,7 @@ An existential crisis in the form of a python script. Enjoy!
 """
 
 # for debugging
-use_default_idea = Falseju
+use_default_idea = False
 
 
 def game_step_up():
