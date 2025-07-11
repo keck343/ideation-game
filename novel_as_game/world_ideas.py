@@ -44,17 +44,18 @@ BFFIdea = IdeaObjectified(name="BFF",
 BFFIdea.status = "Generic"
 
 
-Hope_001 = IdeaObjectified(name="Hope 365.25",
-                           description="Each cycle we spiral outwards into new growth.",
-                           creator="Earth person 365")
+Inspiration_001 = IdeaObjectified(name="Story 365.1",
+                                  description="I want to write a tale that is about my cat but also deeply profound.",
+                                  creator="Earth person 365")
 
-Hope_001.status = "Number Structure Needed"
+Inspiration_001.status = "Number Structure Needed"
 
-Fear_001 = IdeaObjectified(name="Fear 365.25",
-                           description="Each cycle is the same horrible history repeated.",
-                           creator="Earth person 365")
+Overwhelm_001 = IdeaObjectified(name="Nihilism 365.15",
+                                description="""We are at the end of history.
+                                            "Each cycle is the same horrible history repeated.""",
+                                creator="Earth person 365")
 
-Fear_001.status = "Number Structure Needed"
+Overwhelm_001.status = "Number Structure Needed"
 
 MarxismStickerIdeas = IdeaObjectified(name="Cheery Marxist Sticker",
                                       description="When life gives you lemons, destroy capitalism!",

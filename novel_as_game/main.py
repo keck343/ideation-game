@@ -4,7 +4,7 @@ from world_ideas import DefaultIdea, IdeaObjectified
 from levels import ChapterOne, ChapterTwo
 from typing import Dict
 from chapter_structure import LevelofStory
-from world_ideas import BFFIdea, Hope_001
+from world_ideas import BFFIdea, Inspiration_001, Overwhelm_001
 
 """ 
 Lore of Lusturies 
@@ -13,7 +13,7 @@ An existential crisis in the form of a python script. Enjoy!
 """
 
 # for debugging
-use_default_idea = False
+use_default_idea = True
 
 
 def game_step_up():
@@ -104,7 +104,7 @@ if __name__ == '__main__':
 
     narrative_mappings: Dict = {
         1: ChapterOne(number=1, main_character=PlayerIdea,
-                      supporting_characters=[Hope_001],
+                      supporting_characters=[Inspiration_001, Overwhelm_001],
                       next_chapter=2),
         2: ChapterTwo(number=2, main_character=PlayerIdea,
                       supporting_characters=[],

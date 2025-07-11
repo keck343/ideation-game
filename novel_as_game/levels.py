@@ -122,7 +122,7 @@ class ChapterOne(LevelofStory):
         time.sleep(1)
         print(f"""Just as soon as they appear, a new being calls for {numberless_concept} 6.28.""")
         self.transition_as_typewriter(f"""
-              They scamper off saying, 'Yes Fear 6.28, I'm coming! 
+              They scamper off saying, 'Yes {self.supporting_characters[1].name}, I'm coming! 
               Sorry to  be so brief {known_player_name} -  you should come to our dinner party!'
               """)
 
