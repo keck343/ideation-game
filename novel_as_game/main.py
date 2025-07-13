@@ -5,23 +5,30 @@ from levels import ChapterOne, ChapterTwo
 from typing import Dict
 from chapter_structure import LevelofStory
 from world_ideas import BFFIdea, Inspiration_001, Overwhelm_001
+from text_graphics import growing_symbol_transition
 
 """ 
-Lore of Lusturies 
+Ideation Lores
 by Quinn Ray Keck
 An existential crisis in the form of a python script. Enjoy!
 """
 
 # for debugging
-use_default_idea = True
+use_default_idea: bool = False
 
 
 def game_step_up():
-    print("Enter your name: ")
-    player_name = input()
-    print(f"""Hello {player_name}, welcome to this story.  
-        Before we begin, can you share an idea you have? 
-        Please describe the next idea that pops into your head:
+    print(f"""Welcome to this story.  
+        Before we begin, can you share an idea? 
+        
+        """)
+    time.sleep(1)
+    print("""It can be one you've been mulling over a long time,
+        or an idea behind the last piece of content you consumed,
+        or simply the next idea that pops into your head.
+        If you feel stuck, just look up at the space your in and contemplate an object that catches your eye.
+        
+        Type your idea below:
         """)
     player_idea = input()
     if len(player_idea) < 5:
@@ -62,23 +69,17 @@ def game_step_up():
     ______________________00__00_______________________
     ________________________00_________________________
         """)
-    PlayerIdea = IdeaObjectified(name=player_idea_name, description=player_idea, creator=player_name)
+
+    print("As the creator of this idea, what would you like to be called?")
+    player_name = input()
+
+    player_idea = IdeaObjectified(name=player_idea_name, description=player_idea, creator=player_name)
+    player_idea.emotions.append(player_emotions)
     time.sleep(1)
     print("Now we may begin!")
-    print("*")
-    time.sleep(1)
-    print("*")
-    time.sleep(1)
-    print("**")
-    time.sleep(1)
-    print("***")
-    time.sleep(1)
-    print("*****")
-    time.sleep(1)
-    print("********")
-    time.sleep(1)
+    growing_symbol_transition()
 
-    return PlayerIdea
+    return player_idea
 
 
 def start_next_level(narrative_dictionary, chapter: LevelofStory):

@@ -38,10 +38,14 @@ class ChapterOne(LevelofStory):
         yes: bool = self.player_yn_to_bool()
         print("")
         if yes:
-            print(f"""You begin to say, 'I am {self.main_character.creator}' but something feels off.""")
+            if len(self.main_character.creator) < 3:
+                partial_name = self.main_character.creator
+            else:
+                partial_name: str = self.main_character.creator[0:round(len(self.main_character.creator)/2)]
+            print(f"""You begin to say, 'I am {partial_name}...' but something feels off.""")
             print("""In this new world with everything out of place, 
             it feels as if you are mistaken about your own name.""")
-            known_player_name: str = self.main_character.creator
+            known_player_name: str = partial_name
         else:
             print("""You pause, and in ambiguity say nothing at all.""")
             known_player_name: str = "unknown"

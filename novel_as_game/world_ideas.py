@@ -25,6 +25,9 @@ class IdeaObjectified:
     def expansive_interaction(self, other_idea):
         self.description += f" and {other_idea.describe_self()}"
 
+    def add_emotion(self, emotion):
+        self.emotions.append(emotion)
+
     def summarize_self(self):
         pass
 
