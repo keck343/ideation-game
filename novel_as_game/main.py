@@ -4,7 +4,7 @@ from world_ideas import DefaultIdea, IdeaObjectified
 from levels import ChapterOne, ChapterTwo
 from typing import Dict
 from chapter_structure import LevelofStory
-from world_ideas import BFFIdea, Inspiration_001, Overwhelm_001
+from world_ideas import Inspiration_001, Overwhelm_001, Conspiracism_001, Systems_001
 from text_graphics import growing_symbol_transition
 
 """ 
@@ -108,8 +108,8 @@ if __name__ == '__main__':
                       supporting_characters=[Inspiration_001, Overwhelm_001],
                       next_chapter=2),
         2: ChapterTwo(number=2, main_character=PlayerIdea,
-                      supporting_characters=[],
-                      next_chapter=0)
+                      supporting_characters=[Conspiracism_001, Systems_001],
+                      next_chapter=3)
     }
 
     next_key: int = 1

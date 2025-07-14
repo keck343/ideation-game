@@ -155,6 +155,47 @@ class ChapterOne(LevelofStory):
 
 class ChapterTwo(LevelofStory):
     number = 2
+    next_chapter = 3
+    def events(self):
+        print("""
+──────────────▄▀█▀█▀▄
+─────────────▀▀▀▀▀▀▀▀▀ 
+─────────────▄─░░░░░▄
+───█──▄─▄───▐▌▌░░░░░▌▌
+▌▄█▐▌▐█▐▐▌█▌█▌█░░░░░▌▌
+        """)
+        print(f"""You are at the dinner party.
+        The characters that brought you here have long abandoned you for their friends.
+        You are overwhelmed with social anxiety and questions about where you are and who you are.
+        What course of action will you take?""")
+        time.sleep(1)
+        print("""Do you want approach a dinner party guest? (Y/N)""")
+        yes: bool = self.player_yn_to_bool()
+
+        conspiracism_talking_points = [
+            "Beings do not exist.",
+        ]
+        systems_talking_points = [
+            "The fact that beings exist is widely accepted by most camps.",
+        ]
+
+        if yes:
+            first_talking_points = conspiracism_talking_points
+            second_talking_points = systems_talking_points
+            print("""You walk over to the nearest dinner party guest and ask what they are discussing.
+            They smile at you and say,""")
+        else:
+            first_talking_points = systems_talking_points
+            second_talking_points = conspiracism_talking_points
+            print("""You stare off into space a little while longer.  
+            A party guest approaches you and asks if you are new here. 
+            You say yes, and they invite you to join the conversation and say,
+            We are discussing how ...
+            """)
+
+        print(f"""why we are discussing how {first_talking_points[0]}""")
+
+
 
 
 class ChapterThree(LevelofStory):
