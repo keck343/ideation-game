@@ -1,7 +1,7 @@
 import time
 import atexit
 from world_ideas import DefaultIdea, IdeaObjectified
-from levels import ChapterOne, ChapterTwo
+from levels import ChapterOne, ChapterTwo, ChapterThree
 from typing import Dict
 from chapter_structure import LevelofStory
 from world_ideas import Inspiration_001, Overwhelm_001, Conspiracism_001, Systems_001
@@ -109,7 +109,10 @@ if __name__ == '__main__':
                       next_chapter=2),
         2: ChapterTwo(number=2, main_character=PlayerIdea,
                       supporting_characters=[Conspiracism_001, Systems_001],
-                      next_chapter=3)
+                      next_chapter=3),
+        3: ChapterThree(number=3, main_character=PlayerIdea,
+                      supporting_characters=[],
+                      next_chapter=0)
     }
 
     next_key: int = 1

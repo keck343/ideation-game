@@ -174,9 +174,17 @@ class ChapterTwo(LevelofStory):
 
         conspiracism_talking_points = [
             "Beings do not exist.",
+            """Fools claim that beings exist in a physical realm connected to ours.
+            Some even claim that we come out of their thoughts, 
+            as if we are not enough in and of ourselves. 
+            As if something as foolish as attention could control our fate."""
         ]
         systems_talking_points = [
             "The fact that beings exist is widely accepted by most camps.",
+            """Through careful research into the disappearance of our kind,
+            most scientists beings exist in a physical realm that we are connected to.
+            Our origin story is still a matter of debate, but most agree there is an 
+            attention mechanism that can explains 98% of our disappearance rates."""
         ]
 
         if yes:
@@ -190,10 +198,31 @@ class ChapterTwo(LevelofStory):
             print("""You stare off into space a little while longer.  
             A party guest approaches you and asks if you are new here. 
             You say yes, and they invite you to join the conversation and say,
-            We are discussing how ...
             """)
 
-        print(f"""why we are discussing how {first_talking_points[0]}""")
+        print(f"""why we are discussing how {first_talking_points[0]}...""")
+        print(f"""The other guest interjects, which is of course preposterous
+        {second_talking_points[0]}""")
+
+        print("""Would you like to:
+        a) smile and nod 
+        b) inquire what beings are
+        c) inquire how to leave the party
+        
+        Type 'a' 'b' or 'c' to make your choice.""")
+        choice: str = self.player_multi_choice(['a', 'b', 'c'])
+
+        # get explanation of beings
+        if choice == 'b':
+            print(f"""You ask what beings are.  The first guest says 
+            {first_talking_points[1]}""")
+            print(f"""The second guest looks furious and interjects {second_talking_points[1]}""")
+            print("""You inquire to what fate beings might control.""")
+
+        if choice == 'c':
+            print(""" """)
+
+
 
 
 

@@ -47,6 +47,15 @@ class LevelofStory:
             return False
 
     @staticmethod
+    def player_multi_choice(possible_answers: List):
+        answer: str = input()
+        while not any(x in answer.lower().strip() for x in possible_answers):
+            print(f"""Please try again! Type one of these selections '{" ',".join(possible_answers)}'""")
+            answer: str = input()
+
+        return answer
+
+    @staticmethod
     def transition_as_typewriter(transition_str, time_between: float = 0.01):
         for transition in transition_str:
             print(transition, end='', flush=True)
