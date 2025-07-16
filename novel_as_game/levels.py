@@ -1,4 +1,5 @@
 from chapter_structure import LevelofStory
+from text_graphics import growing_symbol_transition
 import time
 
 
@@ -178,7 +179,15 @@ class ChapterTwo(LevelofStory):
             Some even claim that we come out of their thoughts, 
             as if we are not enough in and of ourselves. 
             As if something as foolish as attention could control our fate.""",
-            "disappearance": """"""
+            "disappearance": """
+            The Eksterteranoj's plans must be advancing quickly.
+            """,
+            "beings counter point": """No one has ever seen a being.
+            I believe in things I have done my own research on.""",
+            "camp invitation": """You are correct to reject the nonsense of beings.
+            The party is almost over and we can't stay here.  
+            Would you like to join me at my camp for the next cycle?
+            """
         }
         systems_talking_points = {
             "sector":  "The fact that beings exist is widely accepted by most camps.",
@@ -186,7 +195,16 @@ class ChapterTwo(LevelofStory):
             most scientists beings exist in a physical realm that we are connected to.
             Our origin story is still a matter of debate, but most agree there is an 
             attention mechanism that can explains 98% of our disappearance rates.""",
-            "disappearance": """"""
+            "disappearance": """
+            Our top scientific camps are struggling to find a pattern or cause, much less a solution.
+            """,
+            "beings counter point": """How could so many camps, and even ones outside my sector
+            come to conclude that we exist in a system with beings?""",
+            "camp invitation": """You are correct to accept the existence of beings.
+            The party is almost over and I'm afraid you might disappear without a camp,
+            Top scientists say connection is key to existence.  
+            Would you like to join me at my camp for the next cycle?
+            """
         }
 
         if yes:
@@ -214,7 +232,7 @@ class ChapterTwo(LevelofStory):
         Type 'a' 'b' or 'c' to make your choice.""")
         choice: str = self.player_multi_choice(['a', 'b', 'c'])
 
-        # get explanation of beings with choice a or b, extra talking point with b
+        # get explanation of beings with choice b
         if choice == 'b':
             print(f"""You ask what beings are.  The first guest says:
         
@@ -236,15 +254,77 @@ class ChapterTwo(LevelofStory):
             yes: bool = self.player_yn_to_bool()
             if yes:
                 print("""You confess to being new here.  
-                Both express sympathy and remark they miss being young.""")
+                Both express sympathy and remark they miss being young, and fear for your survival because""")
 
             else:
                 print(f"""The second guest asks you what you your take on the situation. 
                 You stumble, and start to mumble {self.main_character.describe_self()[0:3]}...
-                The first guest roles their eyes and butts in, saying obviously our fate is...""")
+                The first guest roles their eyes and butts in, saying obviously,""")
+
+        if choice == 'a':
+            print("""You smile and nod, zoning out on the conversation until you hear the first being say,""")
+
+        print("""We have been disappearing across all camps and sectors at alarming rates.""")
 
         print(f"""{first_talking_points["disappearance"]}
+        
+        The second being jumps in.  This is ludicrous.  
+        Clearly {second_talking_points["disappearance"]}""")
+
+        time.sleep(1)
+
+        print(f"""You sense the anger rising up in both guests.""")
+        growing_symbol_transition(symbol="( ｡ •̀ ᴖ •́ ｡)", num_lines=3)
+        print(f"""The second guest continues, 
+        {second_talking_points["beings counter point"]}""")
+        growing_symbol_transition(symbol="( ｡ •̀ ᴖ •́ ｡)", num_lines=2)
+        print(f"""The first guest interjects, 
+        {first_talking_points["beings counter point"]}""")
+        growing_symbol_transition(symbol="୧(๑•̀ᗝ•́)૭", num_lines=1)
+
+        print(f"""You find yourself faced with a choice. 
+        Do you believe in beings? (Y/N)""")
+        yes = self.player_yn_to_bool()
+        if yes:
+            print(systems_talking_points["camp invitation"])
+        else:
+            print(conspiracism_talking_points["camp invitation"])
+
+        print("""Do you accept the guest's invitation? (Y/N)""")
+        yes = self.player_yn_to_bool()
+        if yes:
+            print("""You accept the invitation and thank both guests for the conversation.
+            The other guest's frustrations soften a little and they wish you a good next cycle.""")
+            # to do: add sector to player's idea?
+        else:
+            print(f"""The other guest says, you must be having second thoughts on your stance on beings.
+            Come with me to my camp instead, I'm not an ideologue and will not force you to agree with me! 
+            """)
+            print("""Do you accept the guest's invitation? (Y/N)""")
+            yes = self.player_yn_to_bool()
+            if yes:
+                print("""You accept the invitation and thank both guests for the conversation.""")
+            else:
+                print("""You say, while I appreciate this dialogue, I am firm in my stance on beings.
+                Therefore I must accept the other invitation for the next cycle.
+                The other guest nods saying, of course only you can choose what camp you visit.""")
+
+        print("""You leave the party grateful to have some place to go and 
+        wondering what just happened and what mysteries await you next cycle.""")
+        print("""
+────██──────▀▀▀██
+──▄▀█▄▄▄─────▄▀█▄▄▄
+▄▀──█▄▄──────█─█▄▄
+─▄▄▄▀──▀▄───▄▄▄▀──▀▄
+─▀───────▀▀─▀───────▀▀
         """)
+
+
+
+
+
+
+
 
 
 

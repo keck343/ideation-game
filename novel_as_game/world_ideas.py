@@ -43,25 +43,25 @@ Most ideas feel more essential and urgent when they are first thought.
 
 # TO DO: Create Earth Person class in world_beings.py, currently using string names
 
-Inspiration_001 = IdeaObjectified(name="Story 365.1",
+Inspiration_001 = IdeaObjectified(name="Rakonto 365.1",
                                   description="I want to write a tale that is about my cat but also deeply profound.",
-                                  creator="Earth person 365")
+                                  creator="Terpersono 365")
 
 Inspiration_001.status = "Number Structure Needed"
 
-Overwhelm_001 = IdeaObjectified(name="Nihilism 365.15",
+Overwhelm_001 = IdeaObjectified(name="Nihilismo 365.15",
                                 description="""We are at the end of history.
                                             Each cycle is the same horrible history repeated.
                                             Nothing matters anyways.""",
-                                creator="Earth person 365")
+                                creator="Terpersono 365")
 
 Overwhelm_001.status = "Number Structure Needed"
 
-MarxismStickerIdeas = IdeaObjectified(name="Cheery Marxist Sticker",
+MarxismStickerIdeas = IdeaObjectified(name="Gaja Marksisma Glumarko",
                                       description="When life gives you lemons, destroy capitalism!",
                                       creator="SeizeThePrints Etsy Shop")
 
-DefaultIdea = IdeaObjectified(name="Origin Idea",
+DefaultIdea = IdeaObjectified(name="Origina Ideo",
                               description="Make the Idea Novel into a Game!",
                               creator="Quinn Ray Keck")
 

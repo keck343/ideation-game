@@ -111,8 +111,8 @@ if __name__ == '__main__':
                       supporting_characters=[Conspiracism_001, Systems_001],
                       next_chapter=3),
         3: ChapterThree(number=3, main_character=PlayerIdea,
-                      supporting_characters=[],
-                      next_chapter=0)
+                        supporting_characters=[],
+                        next_chapter=0)
     }
 
     next_key: int = 1
