@@ -320,16 +320,5 @@ class ChapterTwo(LevelofStory):
         """)
 
 
-
-
-
-
-
-
-
-
-
-
-
 class ChapterThree(LevelofStory):
     number = 3
