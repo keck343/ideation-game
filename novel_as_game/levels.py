@@ -1,6 +1,6 @@
 from chapter_structure import LevelofStory
-from world_ideas import IdeaObjectified
 import time
+
 
 class ChapterOne(LevelofStory):
     number = 1
@@ -172,20 +172,22 @@ class ChapterTwo(LevelofStory):
         print("""Do you want approach a dinner party guest? (Y/N)""")
         yes: bool = self.player_yn_to_bool()
 
-        conspiracism_talking_points = [
-            "Beings do not exist.",
-            """Fools claim that beings exist in a physical realm connected to ours.
+        conspiracism_talking_points = {
+            "sector": "Beings do not exist.",
+            "beings": """"Fools claim that beings exist in a physical realm connected to ours.
             Some even claim that we come out of their thoughts, 
             as if we are not enough in and of ourselves. 
-            As if something as foolish as attention could control our fate."""
-        ]
-        systems_talking_points = [
-            "The fact that beings exist is widely accepted by most camps.",
-            """Through careful research into the disappearance of our kind,
+            As if something as foolish as attention could control our fate.""",
+            "disappearance": """"""
+        }
+        systems_talking_points = {
+            "sector":  "The fact that beings exist is widely accepted by most camps.",
+            "beings": """Through careful research into the disappearance of our kind,
             most scientists beings exist in a physical realm that we are connected to.
             Our origin story is still a matter of debate, but most agree there is an 
-            attention mechanism that can explains 98% of our disappearance rates."""
-        ]
+            attention mechanism that can explains 98% of our disappearance rates.""",
+            "disappearance": """"""
+        }
 
         if yes:
             first_talking_points = conspiracism_talking_points
@@ -200,9 +202,9 @@ class ChapterTwo(LevelofStory):
             You say yes, and they invite you to join the conversation and say,
             """)
 
-        print(f"""why we are discussing how {first_talking_points[0]}...""")
+        print(f"""why we are discussing how {first_talking_points["sector"]}...""")
         print(f"""The other guest interjects, which is of course preposterous
-        {second_talking_points[0]}""")
+        {second_talking_points["sector"]}""")
 
         print("""Would you like to:
         a) smile and nod 
@@ -212,15 +214,37 @@ class ChapterTwo(LevelofStory):
         Type 'a' 'b' or 'c' to make your choice.""")
         choice: str = self.player_multi_choice(['a', 'b', 'c'])
 
-        # get explanation of beings
+        # get explanation of beings with choice a or b, extra talking point with b
         if choice == 'b':
-            print(f"""You ask what beings are.  The first guest says 
-            {first_talking_points[1]}""")
-            print(f"""The second guest looks furious and interjects {second_talking_points[1]}""")
-            print("""You inquire to what fate beings might control.""")
+            print(f"""You ask what beings are.  The first guest says:
+        
+            {first_talking_points["beings"]}""")
+            time.sleep(1)
+            print(f"""The second guest looks furious and interjects:
+            
+             {second_talking_points["beings"]}""")
+            print("""You inquire to what fate beings might control.  
+            The first guests clears their throat and says, """)
+            time.sleep(1)
 
+        # no explanation of beings, skip to disappearance
         if choice == 'c':
-            print(""" """)
+            print("""You inquire how to leave the party.  
+            Both guests look at you alarmed.  
+            The first exclaims, it's not safe out there! Haven't you heard?""")
+            print("""Do you admit you have not heard what they are talking about? (Y/N)""")
+            yes: bool = self.player_yn_to_bool()
+            if yes:
+                print("""You confess to being new here.  
+                Both express sympathy and remark they miss being young.""")
+
+            else:
+                print(f"""The second guest asks you what you your take on the situation. 
+                You stumble, and start to mumble {self.main_character.describe_self()[0:3]}...
+                The first guest roles their eyes and butts in, saying obviously our fate is...""")
+
+        print(f"""{first_talking_points["disappearance"]}
+        """)
 
 
 
