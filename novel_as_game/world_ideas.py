@@ -1,5 +1,5 @@
 from typing import List
-
+from world_sectors import BeitSector, GimelSector, SectorObjectified
 
 class IdeaObjectified:
     def __init__(self, name, description, creator, sectors: List = [], camps: List = []):
@@ -9,8 +9,10 @@ class IdeaObjectified:
         self.emotions: List[str] = []
         self.other_ideas_interacted_with: List[IdeaObjectified] = []
         self.status: str = "Essential"
-        self.sectors = sectors
-        self.camps = camps
+        self.sectors: List[SectorObjectified] = sectors
+        self.camps: List = camps
+        self.rejected_sectors: List[SectorObjectified] = []
+        self.rejected_camps: List = []
 
     def print_name(self):
         print(self.name)
@@ -19,7 +21,13 @@ class IdeaObjectified:
         return self.description.capitalize()
 
     def expand_idea(self, expansion):
-        self.description += f" and {expansion}"
+        if self.description.strip().lower() == "unknown":
+            self.description = f"{expansion}"
+        else:
+            self.description += f" and {expansion}"
+
+    def rewrite_idea(self, rewrite):
+        self.description = rewrite
 
     def record_interaction(self, other_text: str):
         self.other_ideas_interacted_with.append(other_text)
@@ -33,6 +41,29 @@ class IdeaObjectified:
     def summarize_self(self):
         pass
 
+    def add_sector(self, sector):
+        self.sectors.append(sector)
+
+    def remove_sector(self, sector):
+        self.rejected_sectors.append(sector)
+        if sector in self.sectors:
+            self.sectors.remove(sector)
+            return f"You left {sector} behind."
+        else:
+            return f"You had already left {sector}."
+
+    def add_camp(self, camp):
+        self.sectors.append(camp)
+
+    def remove_camp(self, camp):
+        self.rejected_camps.append(camp)
+        if camp in self.camps:
+            self.remove_camp()
+            return f"You rejected {camp}."
+        else:
+            return f"You had already rejected {camp}."
+
+
 
 """
 These are the incumbents of the current iteration of the collective unconscious.
@@ -43,23 +74,19 @@ Most ideas feel more essential and urgent when they are first thought.
 
 # TO DO: Create Earth Person class in world_beings.py, currently using string names
 
-Inspiration_001 = IdeaObjectified(name="Rakonto 365.1",
-                                  description="I want to write a tale that is about my cat but also deeply profound.",
-                                  creator="Terpersono 365")
+Inspiration001 = IdeaObjectified(name="Rakonto 365.1",
+                                 description="I want to write a tale about how my cat in unknowable.",
+                                 creator="Terpersono 365")
 
-Inspiration_001.status = "Number Structure Needed"
+Inspiration001.status = "Number Structure Needed"
 
-Overwhelm_001 = IdeaObjectified(name="Nihilismo 365.15",
-                                description="""We are at the end of history.
+Overwhelm001 = IdeaObjectified(name="Nihilismo 365.15",
+                               description="""We are at the end of history.
                                             Each cycle is the same horrible history repeated.
                                             Nothing matters anyways.""",
-                                creator="Terpersono 365")
+                               creator="Terpersono 365")
 
-Overwhelm_001.status = "Number Structure Needed"
-
-MarxismStickerIdeas = IdeaObjectified(name="Gaja Marksisma Glumarko",
-                                      description="When life gives you lemons, destroy capitalism!",
-                                      creator="SeizeThePrints Etsy Shop")
+Overwhelm001.status = "Number Structure Needed"
 
 DefaultIdea = IdeaObjectified(name="Origina Ideo",
                               description="Make the Idea Novel into a Game!",
@@ -67,19 +94,19 @@ DefaultIdea = IdeaObjectified(name="Origina Ideo",
 
 DefaultIdea.status = "Debugging"
 
-Conspiracism_001 = IdeaObjectified(name="Intentionalism",
-                                   description="""The world is a battle between good and evil.
+Conspiracism001 = IdeaObjectified(name="Intentionalism",
+                                  description="""The world is a battle between good and evil.
                                    Everything has a deeper meaning behind it.
                                    Study will reveal the plans of those in power.""",
-                                   creator="Beit",
-                                   camps=["Affirmation Salvation"],
-                                   sectors=["Beings do not exist"])
+                                  creator="Beit",
+                                  camps=["Affirmation Salvation"],
+                                  sectors=[BeitSector])
 
-Systems_001 = IdeaObjectified(name="Complication",
-                              description="""
+Systems001 = IdeaObjectified(name="Complication",
+                             description="""
                               Knowledge is a collective pursuit.
                               Nothing is certain, but some things have more compelling evidence.""",
-                              creator="Gimel",
-                              camps=["Attention Optimization"],
-                              sectors=["Beings do exist"])
+                             creator="Gimel",
+                             camps=["Attention Optimization"],
+                             sectors=[GimelSector])
 

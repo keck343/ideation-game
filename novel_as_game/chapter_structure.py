@@ -20,16 +20,17 @@ class LevelofStory:
 
     def parting(self):
         print(f"End of Level {self.number}")
+        time.sleep(1)
 
     def events(self):
         print("This level has an empty skeleton.")
         print("""The future is not yet written, and neither is this chapter""")
 
-
     def run_level(self):
-        time.sleep(2)
+        time.sleep(1)
         self.greeting()
         self.events()
+        time.sleep(1)
         self.parting()
         self.transition_as_typewriter(self.transition_str)
         return self.next_chapter
@@ -53,6 +54,12 @@ class LevelofStory:
             print(f"""Please try again! Type one of these selections '{" ',".join(possible_answers)}'""")
             answer: str = input()
 
+        return answer
+
+    @staticmethod
+    def player_long_answer():
+        print("Please type your response:")
+        answer: str = input()
         return answer
 
     @staticmethod
