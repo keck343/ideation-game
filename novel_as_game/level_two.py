@@ -26,14 +26,14 @@ class ChapterTwo(LevelofStory):
 
         conspiracism_talking_points = {
             "sector": "Beings do not exist.",
-            "beings": """"Fools claim that Beings exist in a physical realm connected to ours.
+            "Beings": """"Fools claim that Beings exist in a physical realm connected to ours.
             Some even claim that we come out of their thoughts, 
             as if we are not enough in and of ourselves. 
             As if something as foolish as attention could control our fate.""",
             "disappearance": """
             The Eksterteranoj's plans must be advancing quickly.
             """,
-            "beings counter point": """No one has ever seen a being.
+            "Beings counter point": """No one has ever seen a being.
             I believe in things I have done my own research on.""",
             "camp invitation": """You are correct to reject the nonsense of Beings.
             The party is almost over and we can't stay here.  
@@ -42,14 +42,14 @@ class ChapterTwo(LevelofStory):
         }
         systems_talking_points = {
             "sector": "The fact that Beings exist is widely accepted by most camps.",
-            "beings": """Through careful research into the disappearance of our kind,
+            "Beings": """Through careful research into the disappearance of our kind,
             most scientists Beings exist in a physical realm that we are connected to.
             Our origin story is still a matter of debate, but most agree there is an 
             attention mechanism that can explains 98% of our disappearance rates.""",
             "disappearance": """
             Our top scientific camps are struggling to find a pattern or cause, much less a solution.
             """,
-            "beings counter point": """How could so many camps, and even ones outside my sector
+            "Beings counter point": """How could so many camps, and even ones outside my sector
             come to conclude that we exist in a system with Beings?""",
             "camp invitation": """You are correct to accept the existence of Beings.
             The party is almost over and I'm afraid you might disappear without a camp,
@@ -87,12 +87,12 @@ class ChapterTwo(LevelofStory):
         if choice == 'b':
             print(f"""You ask what Beings are.  The first guest says:
 
-            {first_talking_points["beings"]}""")
+            {first_talking_points["Beings"]}""")
             growing_symbol_transition(symbol="｡ •̀ _ •́ ｡", num_lines=3)
             time.sleep(1)
             print(f"""The second guest looks furious and interjects:
 
-             {second_talking_points["beings"]}""")
+             {second_talking_points["Beings"]}""")
             growing_symbol_transition(symbol="｡ •̀ _ •́ ｡", num_lines=3)
 
             print("""You inquire to what fate Beings might control.  
@@ -100,7 +100,7 @@ class ChapterTwo(LevelofStory):
             growing_symbol_transition(symbol="( ｡ •̀ _ •́ ｡ )", num_lines=1)
             time.sleep(1)
 
-        # no explanation of beings, skip to disappearance
+        # no explanation of Beings, skip to disappearance
         if choice == 'c':
             print("""You inquire how to leave the party.  
             Both guests look at you alarmed.  
@@ -132,10 +132,10 @@ class ChapterTwo(LevelofStory):
         print(f"""You sense the anger rising up in both guests.""")
         growing_symbol_transition(symbol="( ｡ •̀ ᴖ •́ ｡)", num_lines=3)
         print(f"""The second guest continues, 
-        {second_talking_points["beings counter point"]}""")
+        {second_talking_points["Beings counter point"]}""")
         growing_symbol_transition(symbol="( ｡ •̀ ᴖ •́ ｡)", num_lines=2)
         print(f"""The first guest interjects, 
-        {first_talking_points["beings counter point"]}""")
+        {first_talking_points["Beings counter point"]}""")
         growing_symbol_transition(symbol="୧(๑•̀ᗝ•́)૭", num_lines=1)
 
         print(f"""You find yourself faced with a choice. 
