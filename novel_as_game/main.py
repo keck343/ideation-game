@@ -20,10 +20,13 @@ use_default_idea: bool = False
 
 
 def game_step_up():
-    print(f"""a gift as we begin: """)
+    print(f"""Weclome to Ideation.""")
 
-    print(heart_of_zeros)
-    print("to submit answers press enter.")
+    print(f"""The blank canvas of creation is heaven or hell depending on your perspective. 
+    """)
+    print("""All you need to know for now is:""")
+    time.sleep(1)
+    print("Press enter to submit answers.")
     growing_symbol_transition(sleep_seconds=0.5)
 
 

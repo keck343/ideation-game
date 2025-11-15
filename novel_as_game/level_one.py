@@ -35,17 +35,14 @@ class ChapterOne(LevelofStory):
         print("""As a new comer in a strange land, you override any social anxiety and walk towards them.""")
         time.sleep(1)
         print("")
-        print("""As you approach, the stranger asks you your known_name.  Do you give your known_name? (Y/N)""")
+        print("""As you approach, the stranger asks you your known name.  Do you give your name? (Y/N)""")
         yes: bool = self.player_yn_to_bool()
         print("")
         if yes:
-            if len(self.main_character.creator) < 3:
-                partial_name = self.main_character.creator
-            else:
-                partial_name: str = self.main_character.creator[0:round(len(self.main_character.creator)/2)]
+            partial_name: str = "UnK"
             print(f"""You begin to say, 'I am {partial_name}...' but something feels off.""")
             print("""In this new world with everything out of place, 
-            it feels as if you are mistaken about your own known_name.""")
+            it feels as if you are mistaken about your own name.""")
             known_player_name: str = partial_name
         else:
             print("""You pause, and in ambiguity say nothing at all.""")
@@ -53,14 +50,14 @@ class ChapterOne(LevelofStory):
 
         print("")
         time.sleep(1)
-        print("""Would you like to ask the stranger their known_name? (Y/N)""")
+        print("""Would you like to ask the stranger their name? (Y/N)""")
         yes: bool = self.player_yn_to_bool()
         if yes:
             known_idea_name: str = self.supporting_characters[0].name
-            print(f"""You ask the stranger their known_name.  
+            print(f"""You ask the stranger their known name.  
             They tell you that they are {known_idea_name}.""")
         else:
-            known_idea_name: str = "The stranger"
+            known_idea_name: str = "The Stranger"
 
         print("")
         print(f"""{known_idea_name} says,
@@ -77,12 +74,12 @@ class ChapterOne(LevelofStory):
         'I woke up here just like you with no memory of who I was or how I got here.  
         Well come to think of it, amnesia is a pretty common experience here.  
         You’re always halfway somewhere, aren’t you?
-        I believe firmly, {self.supporting_characters[0].describe_self()}'""")
+        """)
         print("")
         time.sleep(1)
 
         print(f"""Would you like to respond to {known_idea_name}'s statement that 
-        '{self.supporting_characters[0].describe_self()}'? (Y/N)""")
+        you are always halfway somewhere'? (Y/N)""")
         yes: str = self.player_yn_to_bool()
         if yes:
             print(f"What do you say to {known_idea_name}?")
