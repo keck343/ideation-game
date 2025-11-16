@@ -108,12 +108,22 @@ class ChapterTwo(LevelofStory):
         growing_symbol_transition(symbol="୧(๑•̀ᗝ•́)૭", num_lines=1)
 
         print(f"""You find yourself faced with a choice. 
-        Do you believe in Beings? (Y/N)""")
+        Do you believe Beings are likely to exist? (Y/N)""")
         yes = self.player_yn_to_bool()
+
         if yes:
+            print("""Without thinking you mutter under your breath:
+             peer-reviewed statistics seem reasonable.""")
+            print("""Both guests now turn their attention to you.  
+            One makes an audible sigh of frustration, but appears to be regaining their composure.
+            The other smiles and says:""")
             print(GimelSector.dinner_talking_points["camp invitation"])
             self.main_character.add_sector(GimelSector)
         else:
+            print("""Without thinking you say out loud, Beings seem like a fairy tale.""")
+            print("""One guest rolls their eyes with a smug look of superiority on their face, 
+            but quickly regains their calm composure.
+            The other smiles and says:""")
             print(BeitSector.dinner_talking_points["camp invitation"])
             self.main_character.add_sector(BeitSector)
 
