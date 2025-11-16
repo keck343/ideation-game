@@ -1,5 +1,5 @@
 from typing import List
-from world_sectors import BeitSector, GimelSector, SectorObjectified
+from world_sectors_camps import BeitSector, GimelSector, SectorObjectified
 
 class IdeaObjectified:
     def __init__(self, name, description, creator, sectors: List = [], camps: List = []):
