@@ -24,52 +24,21 @@ class ChapterTwo(LevelofStory):
         print("""Do you want approach a dinner party guest? (Y/N)""")
         yes: bool = self.player_yn_to_bool()
 
-        conspiracism_talking_points = {
-            "sector": "Beings do not exist.",
-            "Beings": """"Fools claim that Beings exist in a physical realm connected to ours.
-            Some even claim that we come out of their thoughts, 
-            as if we are not enough in and of ourselves. 
-            As if something as foolish as attention could control our fate.""",
-            "disappearance": """
-            The Eksterteranoj's plans must be advancing quickly.
-            """,
-            "Beings counter point": """No one has ever seen a being.
-            I believe in things I have done my own research on.""",
-            "camp invitation": """You are correct to reject the nonsense of Beings.
-            The party is almost over and we can't stay here.  
-            Would you like to join me at my camp for the next cycle?
-            """
-        }
-        systems_talking_points = {
-            "sector": "The fact that Beings exist is widely accepted by most camps.",
-            "Beings": """Through careful research into the disappearance of our kind,
-            most scientists Beings exist in a physical realm that we are connected to.
-            Our origin story is still a matter of debate, but most agree there is an 
-            attention mechanism that can explains 98% of our disappearance rates.""",
-            "disappearance": """
-            Our top scientific camps are struggling to find a pattern or cause, much less a solution.
-            """,
-            "Beings counter point": """How could so many camps, and even ones outside my sector
-            come to conclude that we exist in a system with Beings?""",
-            "camp invitation": """You are correct to accept the existence of Beings.
-            The party is almost over and I'm afraid you might disappear without a camp,
-            Top scientists say connection is key to existence.  
-            Would you like to join me at my camp for the next cycle?
-            """
-        }
-
         if yes:
-            first_talking_points = conspiracism_talking_points
-            second_talking_points = systems_talking_points
+            first_speaker = BeitSector
+            second_speaker = GimelSector
             print("""You walk over to the nearest dinner party guest and ask what they are discussing.
             They smile at you and say, why""")
         else:
-            first_talking_points = systems_talking_points
-            second_talking_points = conspiracism_talking_points
+            first_speaker = GimelSector
+            second_speaker = BeitSector
             print("""You stare off into space a little while longer.  
             A party guest approaches you and asks if you are new here. 
             You say yes, and they invite you to join the conversation saying,
             """)
+
+        first_talking_points = first_speaker.dinner_talking_points
+        second_talking_points = second_speaker.dinner_talking_points
 
         print(f"""we are discussing how {first_talking_points["sector"]}...""")
         print(f"""The other guest interjects, which is of course preposterous
@@ -142,10 +111,10 @@ class ChapterTwo(LevelofStory):
         Do you believe in Beings? (Y/N)""")
         yes = self.player_yn_to_bool()
         if yes:
-            print(systems_talking_points["camp invitation"])
+            print(GimelSector.dinner_talking_points["camp invitation"])
             self.main_character.add_sector(GimelSector)
         else:
-            print(conspiracism_talking_points["camp invitation"])
+            print(BeitSector.dinner_talking_points["camp invitation"])
             self.main_character.add_sector(BeitSector)
 
         print("""Do you accept the guest's invitation? (Y/N)""")
@@ -154,7 +123,7 @@ class ChapterTwo(LevelofStory):
             print("""You accept the invitation and thank both guests for the conversation.
             The other guest's frustrations soften a little and they wish you a good next cycle. 
             After a pause they add, """)
-            # to do: add sector to player's idea?
+            self.main_character.add_camp(self.main_character.sectors[0].camps[0])
         else:
             print(f"""The other guest says, you must be having second thoughts on your stance on Beings.
             Come with me to my camp instead, I'm not an ideologue and will not force you to agree with me! 
@@ -164,10 +133,18 @@ class ChapterTwo(LevelofStory):
             if yes:
                 print("""You accept the invitation and thank both guests for the conversation.
                 The other guest nods saying, of course only you can choose what camp you visit,""")
+                # at this point there is only BeitSector or GimelSector
+                if BeitSector not in self.main_character.sectors[0]:
+                    self.main_character.add_sector(BeitSector)
+                    self.main_character.add_camp(BeitSector.camps[0])
+                else:
+                    self.main_character.add_sector(GimelSector)
+                    self.main_character.add_camp(GimelSector.camps[0])
             else:
                 print("""You say, while I appreciate this dialogue, I am firm in my stance on Beings.
                 Therefore I must accept the other invitation for the next cycle.
                 The other guest nods saying, of course only you can choose what camp you visit,""")
+                self.main_character.add_camp(self.main_character.sectors[0].camps[0])
 
         print("""but before you go, can you declare your take on this situation? """)
         growing_symbol_transition(symbol="( ｡ •̀ ``-`` •́ ｡ )", num_lines=1)
@@ -186,3 +163,4 @@ class ChapterTwo(LevelofStory):
 ─▄▄▄▀──▀▄───▄▄▄▀──▀▄
 ─▀───────▀▀─▀───────▀▀
         """)
+
