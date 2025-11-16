@@ -1,6 +1,6 @@
 import time
 import atexit
-from world_ideas import DefaultIdea, IdeaObjectified
+from world_ideas import IdeaObjectified
 from level_one import ChapterOne
 from level_two import ChapterTwo
 from level_three import ChapterThree
@@ -10,7 +10,7 @@ from world_ideas import Inspiration001, Overwhelm001, Conspiracism001, Systems00
 from text_graphics import growing_symbol_transition, heart_of_zeros
 
 """ 
-Ideation
+Disambiguation
 by Quinn Ray Keck
 An existential crisis in the form of a python script. Enjoy!
 """

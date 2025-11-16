@@ -1,6 +1,6 @@
 from chapter_structure import LevelofStory
 from text_graphics import growing_symbol_transition
-from world_sectors import BeitSector, GimelSector
+from world_sectors_camps import BeitSector, GimelSector
 import time
 
 
