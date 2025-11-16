@@ -9,9 +9,9 @@ from typing import List
 
 class CampObjectified:
 
-    def __int__(self, sector: SectorObjectified, summary_statement: str,
-                counter_sector_statement: str, tenants: List[str],
-                stated_camp_core_belief: str, unstated_camp_core_belief: str):
+    def __init__(self, sector: SectorObjectified, summary_statement: str,
+                 counter_sector_statement: str, tenants: List[str],
+                 stated_camp_core_belief: str, unstated_camp_core_belief: str):
         self.sector = sector
         self.sector_core_belief = sector.core_belief
         self.beings_exist = sector.beings_exists
