@@ -126,6 +126,9 @@ class ChapterTwo(LevelofStory):
             The other smiles and says:""")
             print(BeitSector.dinner_talking_points["camp invitation"])
             self.main_character.add_sector(BeitSector)
+            # debuging
+            print(self.main_character.sectors)
+            print(self.main_character.camps)
 
         print("""Do you accept the guest's invitation? (Y/N)""")
         yes = self.player_yn_to_bool()
@@ -134,6 +137,8 @@ class ChapterTwo(LevelofStory):
             The other guest's frustrations soften a little and they wish you a good next cycle. 
             After a pause they add, """)
             self.main_character.add_camp(self.main_character.sectors[0].camps[0])
+            print(self.main_character.sectors)
+            print(self.main_character.camps)
         else:
             print(f"""The other guest says, you must be having second thoughts on your stance on Beings.
             Come with me to my camp instead, I'm not an ideologue and will not force you to agree with me! 
@@ -144,12 +149,16 @@ class ChapterTwo(LevelofStory):
                 print("""You accept the invitation and thank both guests for the conversation.
                 The other guest nods saying, of course only you can choose what camp you visit,""")
                 # at this point there is only BeitSector or GimelSector
-                if BeitSector not in self.main_character.sectors[0]:
+                if BeitSector not in self.main_character.sectors:
                     self.main_character.add_sector(BeitSector)
                     self.main_character.add_camp(BeitSector.camps[0])
+                    print(self.main_character.sectors)
+                    print(self.main_character.camps)
                 else:
                     self.main_character.add_sector(GimelSector)
                     self.main_character.add_camp(GimelSector.camps[0])
+                    print(self.main_character.sectors)
+                    print(self.main_character.camps)
             else:
                 print("""You say, while I appreciate this dialogue, I am firm in my stance on Beings.
                 Therefore I must accept the other invitation for the next cycle.
@@ -163,6 +172,11 @@ class ChapterTwo(LevelofStory):
 
         print("""The other player thanks you for your response and takes their leave.""")
         growing_symbol_transition(symbol="ദ്ദി(˵ •̀ ᴗ - ˵ ) ✧", num_lines=2)
+
+        # debug
+        print(self.main_character.sectors)
+        print(self.main_character.camps)
+        print(self.main_character.description)
 
         print("""You leave the party grateful to have some place to go and 
         wondering what just happened and what mysteries await you next cycle.""")

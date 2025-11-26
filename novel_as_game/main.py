@@ -8,6 +8,7 @@ from typing import Dict
 from chapter_structure import LevelofStory
 from world_ideas import Inspiration001, Overwhelm001, Conspiracism001, Systems001
 from text_graphics import growing_symbol_transition, heart_of_zeros
+from world_sectors_camps import BeitSector, GimelSector
 
 """ 
 Disambiguation
@@ -20,7 +21,7 @@ use_default_idea: bool = False
 
 
 def game_step_up():
-    print(f"""Weclome to Ideation.""")
+    print(f"""Weclome to Disambiguation.""")
 
     print(f"""The blank canvas of creation is heaven or hell depending on your perspective. 
     """)

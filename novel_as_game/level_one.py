@@ -78,7 +78,7 @@ class ChapterOne(LevelofStory):
         print("")
         time.sleep(1)
 
-        print(f"""Would you like to respond to {known_idea_name}'s statement that 
+        print(f"""Would you like to critique {known_idea_name}'s statement that 
         'you are always halfway somewhere'? (Y/N)""")
         yes: str = self.player_yn_to_bool()
         if yes:
