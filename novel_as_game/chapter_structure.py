@@ -4,11 +4,14 @@ import time
 
 
 class LevelofStory:
-    def __init__(self, number: int, main_character: IdeaObjectified, supporting_characters: List[IdeaObjectified]):
+    def __init__(self, number: int, main_character: IdeaObjectified,
+                 supporting_characters: List[IdeaObjectified] = [],
+                 starting_point: str = ""):
         self.number = number
         self.main_character = main_character
         self.supporting_characters = supporting_characters
         self.transition_str = "*" * 13
+        self.starting_point = starting_point
 
     def title(self):
         return f"Level {self.number}"

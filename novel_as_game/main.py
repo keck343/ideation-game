@@ -57,30 +57,17 @@ if __name__ == '__main__':
 
     chapter_01.run_level()
 
-    chapter_02 = ChapterTwo(number=2, main_character=PlayerIdea, supporting_characters=[])
+    chapter_02 = ChapterTwo(number=2, main_character=PlayerIdea)
     PlayerIdea, next_sector = chapter_02.run_level()
 
     print(PlayerIdea.description)
     print(next_sector)
 
-    # narrative_mappings: Dict = {
-    #     1: ChapterOne(number=1, main_character=PlayerIdea,
-    #                   supporting_characters=[Inspiration001, Overwhelm001],
-    #                   next_chapter=2),
-    #     2: ChapterTwo(number=2, main_character=PlayerIdea,
-    #                   supporting_characters=[Conspiracism001, Systems001],
-    #                   next_chapter=3),
-    #     3: ChapterThree(number=3, main_character=PlayerIdea,
-    #                     supporting_characters=[],
-    #                     next_chapter=0)
-    # }
-    #
-    # next_key: int = 1
-    #
-    # while next_key != 0:
-    #     next_key: int = narrative_mappings[next_key].run_level()
-    #
-    # print(next_key)
+    chapter_03 = ChapterThree(number=3, main_character=PlayerIdea, starting_point=next_sector)
+    next_sector = chapter_03.run_level()
+    print("Chapter 3 test")
+    print(next_sector)
+
 
 
 
