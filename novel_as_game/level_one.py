@@ -5,7 +5,6 @@ import time
 
 class ChapterOne(LevelofStory):
     number = 1
-    next_chapter = 2
 
     def events(self):
         print("""

@@ -15,9 +15,10 @@ class SectorObjectified:
 
 
 class CampObjectified:
-    def __init__(self, sector: SectorObjectified, summary_statement: str,
+    def __init__(self, known_name: str, sector: SectorObjectified, summary_statement: str,
                  counter_sector_statement: str, tenants: List[str],
                  stated_camp_core_belief: str, unstated_camp_core_belief: str):
+        self.known_name = known_name
         self.sector = sector
         self.sector_core_belief = sector.core_belief
         self.beings_exist = sector.beings_exists
@@ -76,7 +77,8 @@ GimelSector = SectorObjectified(known_name="Gimel",
                                     """}
                                 )
 
-KonspiroCamp = CampObjectified(sector=BeitSector,
+KonspiroCamp = CampObjectified(known_name="Konspiro",
+                               sector=BeitSector,
                                summary_statement="""There is a secret circle running all of our existences.""",
                                counter_sector_statement="""
                                There are too many coincidences are happening for this all to be random""",
@@ -93,7 +95,8 @@ KonspiroCamp = CampObjectified(sector=BeitSector,
 
 BeitSector.add_camp(KonspiroCamp)
 
-KristanaCamp = CampObjectified(sector=GimelSector,
+KristanaCamp = CampObjectified(known_name="Kristana",
+                               sector=GimelSector,
                                summary_statement="""Through my personal relationship with the One of Beings,
                                I know my path in all things""",
                                counter_sector_statement="""You have not felt the love or might of the One""",
