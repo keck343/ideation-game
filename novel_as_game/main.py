@@ -62,10 +62,10 @@ if __name__ == '__main__':
     PlayerIdea, next_sector = chapter_02.run_level()
 
     chapter_03 = ChapterThree(number=3, main_character=PlayerIdea, starting_point=next_sector)
-    next_sector, friend_type = chapter_03.run_level()
+    next_sector, friend_type, desired_product = chapter_03.run_level()
 
     # debugging
-    print(next_sector, friend_type)
+    print(next_sector, friend_type, desired_product)
 
 
 

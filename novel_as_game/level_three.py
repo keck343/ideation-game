@@ -30,8 +30,9 @@ class ChapterThree(LevelofStory):
         
         a. Coffee
         b. Tea
-        c. Caffeinated Gum
+        c. Soda Pop
         d. No need for stimulants - Refreshing Sparkling Water
+        e. No need for bubbles - Purified Still Water
         
         Type 'a' 'b' 'c' or 'd' to make your choice.
         """)
@@ -42,9 +43,11 @@ class ChapterThree(LevelofStory):
         elif choice == 'b':
             desired_product = "tea"
         elif choice == 'c':
-            desired_product = "caffeinated gum"
+            desired_product = "soda pop"
         elif choice == 'd':
             desired_product = "sparkling water"
+        elif choice == 'e':
+            desired_product = "purified water"
         else:
             desired_product = "XL dunkin donuts iced coffee"
 
@@ -96,7 +99,7 @@ class ChapterThree(LevelofStory):
                 if yes:
                     print("""You wipe the tears from your face and nod.  
                     You both smile, and without even knowing how you cross the threshold.""")
-                    return alt_camp.known_name, "believer"
+                    return alt_camp.known_name, "alt-believer", desired_product
                 else:
                     print("""You wipe the tears from your face and say:
                     Thank you for your offer, but there's been too much change lately 
@@ -124,7 +127,7 @@ class ChapterThree(LevelofStory):
                     yes = self.player_yn_to_bool()
                     if yes:
                         print("""Without even knowing how you cross the threshold.""")
-                        return alt_camp.known_name, "believer"
+                        return alt_camp.known_name, "alt-believer", desired_product
                     else:
                         print("""You say:
                         Thank you for your offer, but there's been too much change lately 
@@ -210,7 +213,7 @@ class ChapterThree(LevelofStory):
                         """)
                         print(".·°՞(ᗒ□ᗕ)՞°·.")
                         print("""You smile and follow them to their workbench.""")
-                        return chapter_camp.known_name, "contrarian"
+                        return chapter_camp.known_name, "contrarian", desired_product
 
                     else:
                         print("""You smile and begin helping them cut pamphlets.""")
@@ -220,7 +223,7 @@ class ChapterThree(LevelofStory):
                         print("""ﮩ٨ـﮩﮩ٨ـ♡ﮩ٨ـﮩﮩ٨ـ""")
                         print("""Pleasant conversation ensues and you feel less alone with a new friend.""")
                         print("""ﮩ٨ـﮩﮩ٨ـ♡ﮩ٨ـﮩﮩ٨ـ""")
-                        return chapter_camp.known_name, "believer"
+                        return chapter_camp.known_name, "believer", desired_product
 
             else:
                 print("""You do not join in and feel uneasy surrounded by so many people 
@@ -235,7 +238,7 @@ class ChapterThree(LevelofStory):
                 print("""They invite you to get out of here and find a better part of camp.
                 You smile and follow them.""")
                 print("""ﮩ٨ـﮩﮩ٨ـ♡ﮩ٨ـﮩﮩ٨ـ""")
-                return chapter_camp.known_name, "contrarian"
+                return chapter_camp.known_name, "contrarian", desired_product
 
 
 

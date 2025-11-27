@@ -18,7 +18,8 @@ class CampObjectified:
     def __init__(self, known_name: str, sector: SectorObjectified, summary_statement: str,
                  counter_sector_statement: str, tenants: List[str],
                  stated_camp_core_belief: str, unstated_camp_core_belief: str,
-                 pamphlet_slogans: List[str] = []):
+                 pamphlet_slogans: List[str] = [], initial_crisis_headline: str = "",
+                 initial_crisis_explanation: str = ""):
         self.known_name = known_name
         self.sector = sector
         self.sector_core_belief = sector.core_belief
@@ -29,6 +30,8 @@ class CampObjectified:
         self.stated_camp_core_belief = stated_camp_core_belief
         self.unstated_camp_core_belief = unstated_camp_core_belief
         self.pamphlet_slogans = pamphlet_slogans
+        self.initial_crisis_headline = initial_crisis_headline
+        self.initial_crisis_explanation = initial_crisis_explanation
 
     def revise_summary(self, revision: str, append: bool = True):
         """
@@ -94,7 +97,12 @@ KonspiroCamp = CampObjectified(known_name="Konspiro",
                                                        "we can know how the world works""",
                                unstated_camp_core_belief="""There is someone to blame, and it's not us.""",
                                pamphlet_slogans=["""Through rigorous self discipline and doing your own research,
-                               you can find truth.""", """Everything you once knew is false"""]
+                               you can find truth.""", """Everything you once knew is false"""],
+                               initial_crisis_headline="""The new world order may be upon us.
+                               Unprecedented Drop in Attention Rates""",
+                               initial_crisis_explanation="""the Eksterteranoj's rulers are bringing 
+                               their plan to fruition, nothing else could explain this scale.
+                               We cannot survive without sufficient Attention."""
                                )
 
 BeitSector.add_camp(KonspiroCamp)
@@ -115,7 +123,10 @@ KristanaCamp = CampObjectified(known_name="Kristana",
                                 The non-believers are the cause of all crises, 
                                 and so must be eliminated so the rest of may be spared.""",
                                pamphlet_slogans=["""You too are loved by the One""",
-                                                 """Beings perform the miracles of the One's will."""]
+                                                 """Beings perform the miracles of the One's will."""],
+                               initial_crisis_explanation="""We are sinners, 
+                               and the One is punishing us by taking away the Beings.
+                               Beings bless us with Attention when we obey the One so we may live a good life."""
                                )
 
 GimelSector.add_camp(KristanaCamp)
