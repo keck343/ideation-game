@@ -17,7 +17,8 @@ class SectorObjectified:
 class CampObjectified:
     def __init__(self, known_name: str, sector: SectorObjectified, summary_statement: str,
                  counter_sector_statement: str, tenants: List[str],
-                 stated_camp_core_belief: str, unstated_camp_core_belief: str):
+                 stated_camp_core_belief: str, unstated_camp_core_belief: str,
+                 pamphlet_slogans: List[str] = []):
         self.known_name = known_name
         self.sector = sector
         self.sector_core_belief = sector.core_belief
@@ -27,6 +28,7 @@ class CampObjectified:
         self.tenants = tenants
         self.stated_camp_core_belief = stated_camp_core_belief
         self.unstated_camp_core_belief = unstated_camp_core_belief
+        self.pamphlet_slogans = pamphlet_slogans
 
     def revise_summary(self, revision: str, append: bool = True):
         """
@@ -90,7 +92,9 @@ KonspiroCamp = CampObjectified(known_name="Konspiro",
                                ],
                                stated_camp_core_belief="""If we can find out whose in charge, 
                                                        "we can know how the world works""",
-                               unstated_camp_core_belief="""There is someone to blame, and it's not us."""
+                               unstated_camp_core_belief="""There is someone to blame, and it's not us.""",
+                               pamphlet_slogans=["""Through rigorous self discipline and doing your own research,
+                               you can find truth.""", """Everything you once knew is false"""]
                                )
 
 BeitSector.add_camp(KonspiroCamp)
@@ -109,7 +113,9 @@ KristanaCamp = CampObjectified(known_name="Kristana",
                                stated_camp_core_belief="""The love of the One of Beings is our salvation""",
                                unstated_camp_core_belief=""" Some are unworthy of the One's love.
                                 The non-believers are the cause of all crises, 
-                                and so must be eliminated so the rest of may be spared."""
+                                and so must be eliminated so the rest of may be spared.""",
+                               pamphlet_slogans=["""You too are loved by the One""",
+                                                 """Beings perform the miracles of the One's will."""]
                                )
 
 GimelSector.add_camp(KristanaCamp)
@@ -126,6 +132,6 @@ KomunistoCamp = CampObjectified(known_name="Komunisto",
                                     "Power is who controls the means of production",
                                     "Only a democratically managed economy can get us out of this mess."
                                 ],
-                                stated_camp_core_belief="""We must seize the means of production or all perish""",
-                                unstated_camp_core_belief="""We must covert the masses."""
+                                stated_camp_core_belief="""We must seize the means of production or all will perish""",
+                                unstated_camp_core_belief=["""We must covert the masses."""]
                                 )

@@ -8,6 +8,7 @@ class ChapterThree(LevelofStory):
     number = 3
 
     def events(self):
+        # return next camp name and either "contrarian" or "believer" to indicate the type of friend you've made
         if self.starting_point == "Beit":
             chapter_sector = BeitSector
             alt_sector = GimelSector
@@ -50,7 +51,7 @@ class ChapterThree(LevelofStory):
         print(f"""You see the embodiment form the party. 
         Hoping they will continue to be a good host, you walk over and inquire, 
         Do you know where I could find a {desired_product}?""")
-
+        print("(｡ᵕ ◞ _◟)")
         print(f"""They look up at you with a grim face.
         You really haven't been around much have you?
         There hasn't been {desired_product} in many cycles.
@@ -66,11 +67,13 @@ class ChapterThree(LevelofStory):
         if not yes:
             print("""Annoyed by their arrogance, you wonder in the opposite direction.  
             You begin to see the edge of the camp emerge, with a fence unlike any you've ever seen.
-            It feels impenetrable, yet you can see the other party guest on the other side and wave at them.
-            
             """)
+            time.sleep(1)
             print(fence_void)
 
+            print("""It feels impenetrable, yet you can see 
+            the other party guest on the other side and wave at them.""")
+            print("""(っᵔ◡ᵔ)っ""")
             print(f"""They wave back and ask, 
             how is '{self.main_character.description}' going for you?""")
 
@@ -93,7 +96,7 @@ class ChapterThree(LevelofStory):
                 if yes:
                     print("""You wipe the tears from your face and nod.  
                     You both smile, and without even knowing how you cross the threshold.""")
-                    return alt_camp.known_name
+                    return alt_camp.known_name, "believer"
                 else:
                     print("""You wipe the tears from your face and say:
                     Thank you for your offer, but there's been too much change lately 
@@ -121,7 +124,7 @@ class ChapterThree(LevelofStory):
                     yes = self.player_yn_to_bool()
                     if yes:
                         print("""Without even knowing how you cross the threshold.""")
-                        return alt_camp.known_name
+                        return alt_camp.known_name, "believer"
                     else:
                         print("""You say:
                         Thank you for your offer, but there's been too much change lately 
@@ -153,7 +156,6 @@ class ChapterThree(LevelofStory):
                 lenin_opinion = "no "
             else:
                 lenin_opinion = ""
-
             print(f"""Another person turns to them whispering,
             Don't be like that Komunisto! Died at 53 in a coma and for {lenin_opinion}good reason.""")
             print("""They clutch their diagrams closer to their chest, fear in their eyes.""")
@@ -167,12 +169,73 @@ class ChapterThree(LevelofStory):
             Where has all the coffee, tea, and sparkling water gone?
             What will become of our way of life?
             """)
-            growing_symbol_transition(symbol=">|<", num_lines=3)
+            growing_symbol_transition(symbol="ᕙ(  •̀ ᗜ •́  )ᕗ", num_lines=3)
             print(f"""
             But fear not, we know that {chapter_camp.summary_statement}
             """)
             print("""The crowd cheers.""")
             print(lock_and_key)
+            print("""Do you cheer with the crowd? (Y/N)""")
+            yes = self.player_yn_to_bool()
+            if yes:
+                print("""Unsure if you believe the speaker or this is just the wisest thing to do,
+                you join the crowd cheering.""")
+                print("""The speaker clears his throat.  
+                Fellow comrades, let's get to work!""")
+                print("""Unsure of what to do, you look around anxiously.  
+                As your eyes complete their dart around the room, someone gestures at you to come over.""")
+                print("""Do you go over to them? (Y/N)""")
+                yes = self.player_yn_to_bool()
+                if yes:
+                    print("""You walk over to the person gesturing you.
+                    They smile and invite you to help them cut up pamphlets.""")
+                    print("""You inquire what the pamphlets are for.
+                    They respond, 
+                    Excellent Question!""")
+                    print("(´｡• ◡ •｡`) ♡")
+                    time.sleep(0.5)
+                    print(f"""{chapter_camp.pamphlet_slogans[0]}""")
+                    print(f"""Do you ask why the group must 
+                    '{chapter_camp.pamphlet_slogans[0]}'?
+                    (Y/N)""")
+                    yes = self.player_yn_to_bool()
+                    if yes:
+                        print(f"""They seem less excited at your second question, and continue:
+                        Well of course, {chapter_camp.pamphlet_slogans[1]} """)
+                        print("""You smile uneasily and point out that they are just reading what the pamphlet says.""")
+                        print("∘ ∘ ∘ ( °ヮ° )")
+                        print("""Another person interjects:
+                        Some people can only just read the propaganda.  
+                        Why don't we have an actual discussion over here?
+                        """)
+                        print(".·°՞(ᗒ□ᗕ)՞°·.")
+                        print("""You smile and follow them to their workbench.""")
+                        return chapter_camp.known_name, "contrarian"
+
+                    else:
+                        print("""You smile and begin helping them cut pamphlets.""")
+                        print("""ﮩ٨ـﮩﮩ٨ـ♡ﮩ٨ـﮩﮩ٨ـ""")
+                        print("""As you settle into a rhythm with cutting, 
+                        you began to feel more at ease with your surroundings and companion.""")
+                        print("""ﮩ٨ـﮩﮩ٨ـ♡ﮩ٨ـﮩﮩ٨ـ""")
+                        print("""Pleasant conversation ensues and you feel less alone with a new friend.""")
+                        print("""ﮩ٨ـﮩﮩ٨ـ♡ﮩ٨ـﮩﮩ٨ـ""")
+                        return chapter_camp.known_name, "believer"
+
+            else:
+                print("""You do not join in and feel uneasy surrounded by so many people 
+                who would just go along with generic statements.""")
+                growing_symbol_transition("(๑•́ -•̀)", num_lines=3)
+                print("""As you are about to despair, you turn around to see someone else who is also not clapping.""")
+                growing_symbol_transition("(๑•́ -•̀)", num_lines=2)
+                print("""They spot you and you relief wash over their face. They walk over towards you.
+                You smile as they approach.
+                (๑•́(੭˃ᴗ˂)੭•̀)""")
+                print("""ﮩ٨ـﮩﮩ٨ـ♡ﮩ٨ـﮩﮩ٨ـ""")
+                print("""They invite you to get out of here and find a better part of camp.
+                You smile and follow them.""")
+                print("""ﮩ٨ـﮩﮩ٨ـ♡ﮩ٨ـﮩﮩ٨ـ""")
+                return chapter_camp.known_name, "contrarian"
 
 
 

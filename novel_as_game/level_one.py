@@ -113,7 +113,7 @@ class ChapterOne(LevelofStory):
         if known_idea_name != "The stranger":
             numberless_concept: str = known_idea_name.rsplit(' ', 1)[0]
         else:
-            numberless_concept: str = known_idea_name
+            numberless_concept: str = "stranger"
 
         print(f"""The new being walks over to you and introduces themselves as 
              {numberless_concept} 6.28.""")

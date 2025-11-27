@@ -7,7 +7,7 @@ from level_three import ChapterThree
 from typing import Dict
 from chapter_structure import LevelofStory
 from world_ideas import Inspiration001, Overwhelm001, Conspiracism001, Systems001
-from text_graphics import growing_symbol_transition, heart_of_zeros
+from text_graphics import growing_symbol_transition, welcome_art
 from world_sectors_camps import BeitSector, GimelSector
 
 """ 
@@ -21,7 +21,8 @@ use_default_idea: bool = False
 
 
 def game_step_up():
-    print(f"""Weclome to Disambiguation.""")
+    print(welcome_art)
+    print("""to Disambiguation.""")
 
     print(f"""The blank canvas of creation is heaven or hell depending on your perspective. 
     """)
@@ -61,7 +62,12 @@ if __name__ == '__main__':
     PlayerIdea, next_sector = chapter_02.run_level()
 
     chapter_03 = ChapterThree(number=3, main_character=PlayerIdea, starting_point=next_sector)
-    next_sector = chapter_03.run_level()
+    next_sector, friend_type = chapter_03.run_level()
+
+    # debugging
+    print(next_sector, friend_type)
+
+
 
 
 
