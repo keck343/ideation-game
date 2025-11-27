@@ -34,10 +34,10 @@ class ChapterThree(LevelofStory):
         d. No need for stimulants - Refreshing Sparkling Water
         e. No need for bubbles - Purified Still Water
         
-        Type 'a' 'b' 'c' or 'd' to make your choice.
+        Type 'a' 'b' 'c' 'd' or 'e' to make your choice.
         """)
 
-        choice: str = self.player_multi_choice(['a', 'b', 'c', 'd'])
+        choice: str = self.player_multi_choice(['a', 'b', 'c', 'd', 'e'])
         if choice == 'a':
             desired_product = "coffee"
         elif choice == 'b':

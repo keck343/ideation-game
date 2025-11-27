@@ -57,4 +57,26 @@ class ChapterFour(LevelofStory):
         Your friend shakes their head like you are insane.""")
         growing_symbol_transition(symbol=f"( //>///<//)", num_lines=1)
         print("""Do you want to stay with your friend to figure out what to do? (Y/N)""")
+        yes = self.player_yn_to_bool()
+        if not yes:
+            print("""
+            You turn away from your friend, doubting the person you have formed a bond with.
+            Unsure what to do, you walk to the edge of the camp.
+            """)
+            # meet up with other dinner party guest
+            # they offer you your desired_product
+
+            # you have another choice to switch camps
+            # alt_camp and chapter_camp switch
+        else:
+            print("""You apologize for asking a silly question.
+            You ask simply, What do we do? 
+            """)
+
+        print("""
+        Come, they say, let's find the others and brainstorm what to do.
+        """)
+
+        ## join others in your camp and get invitation to conference
+        # next round there will be even more beings gone -- crisis continued as conference was organized
 
