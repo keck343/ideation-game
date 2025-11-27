@@ -97,12 +97,12 @@ BeitSector.add_camp(KonspiroCamp)
 
 KristanaCamp = CampObjectified(known_name="Kristana",
                                sector=GimelSector,
-                               summary_statement="""Through my personal relationship with the One of Beings,
-                               I know my path in all things""",
-                               counter_sector_statement="""You have not felt the love or might of the One""",
+                               summary_statement="""through my personal relationship with the One of Beings,
+                               we know our paths in all things""",
+                               counter_sector_statement="""Some people have not felt the love or might of the One""",
                                tenants=[
+                                 "Ultimately we can find truth through our personal experiences",
                                  "The beings are our masters, and the One of Beings is the highest power",
-                                 "Ultimately we can only find truth through our experiences and our faith",
                                  "It is our highest duty to convert others to the love of the One",
                                  "Beings are the angels of the One, they carry of the One's will"
                                 ],
@@ -113,3 +113,19 @@ KristanaCamp = CampObjectified(known_name="Kristana",
                                )
 
 GimelSector.add_camp(KristanaCamp)
+
+KomunistoCamp = CampObjectified(known_name="Komunisto",
+                                sector=GimelSector,
+                                summary_statement="""through understanding the material conditions,
+                                We can create a system where resources are produced and distributed in a way 
+                                so we can all survive.""",
+                                counter_sector_statement="""
+                                Only through understanding the real struggle can we make real change.""",
+                                tenants=[
+                                    "History is ultimately the tale of class struggle",
+                                    "Power is who controls the means of production",
+                                    "Only a democratically managed economy can get us out of this mess."
+                                ],
+                                stated_camp_core_belief="""We must seize the means of production or all perish""",
+                                unstated_camp_core_belief="""We must covert the masses."""
+                                )

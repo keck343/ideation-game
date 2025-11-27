@@ -60,13 +60,8 @@ if __name__ == '__main__':
     chapter_02 = ChapterTwo(number=2, main_character=PlayerIdea)
     PlayerIdea, next_sector = chapter_02.run_level()
 
-    print(PlayerIdea.description)
-    print(next_sector)
-
     chapter_03 = ChapterThree(number=3, main_character=PlayerIdea, starting_point=next_sector)
     next_sector = chapter_03.run_level()
-    print("Chapter 3 test")
-    print(next_sector)
 
 
 
