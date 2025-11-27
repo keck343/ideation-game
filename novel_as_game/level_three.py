@@ -122,13 +122,14 @@ class ChapterThree(LevelofStory):
                     and I really just needed a {desired_product}.""")
                     print("""They nod, I totally understand.  Would you like a break from all this?  
                     Do you want to come to my camp?""")
-                    print(fence_void)
                     print("""Would you like to go with them? (Y/N)""")
                     yes = self.player_yn_to_bool()
                     if yes:
                         print("""Without even knowing how you cross the threshold.""")
+                        print(fence_void)
                         return alt_camp.known_name, "alt-believer", desired_product
                     else:
+                        print(fence_void)
                         print("""You say:
                         Thank you for your offer, but there's been too much change lately 
                         and I'm going to try to stick it out here.""")
