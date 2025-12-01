@@ -46,8 +46,8 @@ class ChapterThree(LevelofStory):
             desired_product = "soda pop"
         elif choice == 'd':
             desired_product = "sparkling water"
-        elif choice == 'e':
-            desired_product = "purified water"
+        # elif choice == 'e':
+        #     desired_product = "purified water"
         else:
             desired_product = "XL dunkin donuts iced coffee"
 
@@ -60,7 +60,9 @@ class ChapterThree(LevelofStory):
         There hasn't been {desired_product} in many cycles.
         I guess you did conclude quote: '{self.main_character.description}' """)
 
-        print(f"""They scoff. 
+        print(f"""
+        
+        They scoff. 
         Come, let's meet with the others to figure out what do about the lack of {desired_product} these days.""")
 
         print("""
@@ -147,6 +149,8 @@ class ChapterThree(LevelofStory):
                 print(f"""How do you know I like {desired_product}?""")
                 print("""Walls are thin, they laugh.  
                 Maybe when you've come to your senses you'll want to pass through them.""")
+                growing_symbol_transition(symbol='(¬_¬")', num_lines=3)
+                print(fence_void)
                 print("""Determined to prove them wrong, you say nothing and turn back towards the others.""")
 
             # unless level is already exited, one way or another you turn towards the others in the camp
@@ -163,7 +167,7 @@ class ChapterThree(LevelofStory):
             print(f"""Another person turns to them whispering,
             Don't be like that Komunisto! Died at 53 in a coma and for {lenin_opinion}good reason.""")
             print("""They clutch their diagrams closer to their chest, fear in their eyes.""")
-            growing_symbol_transition(symbol="┻━┻(╯ ͠° ͟ʖ ͡°)╯", num_lines=3)
+            growing_symbol_transition(symbol="⤷ ゛ ˎˊ˗", num_lines=2)
             print("""Emerging out of the chaos, one person climbs on a chairs and clears their throat.
             The stirring begins to die down as people turn towards them.""")
             print("""They begin to address the crowd.
@@ -214,6 +218,7 @@ class ChapterThree(LevelofStory):
                         """)
                         print(".·°՞(ᗒ□ᗕ)՞°·.")
                         print("""You smile and follow them to their workbench.""")
+                        growing_symbol_transition(symbol=".·°՞(ᗒ□ᗕ)՞°·.", num_lines=3)
                         return chapter_camp.known_name, "contrarian", desired_product
 
                     else:
@@ -223,23 +228,23 @@ class ChapterThree(LevelofStory):
                         you began to feel more at ease with your surroundings and companion.""")
                         print("""ﮩ٨ـﮩﮩ٨ـ♡ﮩ٨ـﮩﮩ٨ـ""")
                         print("""Pleasant conversation ensues and you feel less alone with a new friend.""")
-                        print("""ﮩ٨ـﮩﮩ٨ـ♡ﮩ٨ـﮩﮩ٨ـ""")
+                        growing_symbol_transition(symbol="""ﮩ٨ـﮩﮩ٨ـ♡ﮩ٨ـﮩﮩ٨ـ""", num_lines=3)
                         return chapter_camp.known_name, "believer", desired_product
 
-            else:
-                print("""You do not join in and feel uneasy surrounded by so many people 
-                who would just go along with generic statements.""")
-                growing_symbol_transition("(๑•́ -•̀)", num_lines=3)
-                print("""As you are about to despair, you turn around to see someone else who is also not clapping.""")
-                growing_symbol_transition("(๑•́ -•̀)", num_lines=2)
-                print("""They spot you and you relief wash over their face. They walk over towards you.
-                You smile as they approach.
-                (๑•́(੭˃ᴗ˂)੭•̀)""")
-                print("""ﮩ٨ـﮩﮩ٨ـ♡ﮩ٨ـﮩﮩ٨ـ""")
-                print("""They invite you to get out of here and find a better part of camp.
-                You smile and follow them.""")
-                print("""ﮩ٨ـﮩﮩ٨ـ♡ﮩ٨ـﮩﮩ٨ـ""")
-                return chapter_camp.known_name, "contrarian", desired_product
+        else:
+            print("""You do not join in and feel uneasy surrounded by so many people 
+            who would just go along with generic statements.""")
+            growing_symbol_transition("(๑•́ -•̀)", num_lines=3)
+            print("""As you are about to despair, you turn around to see someone else who is also not clapping.""")
+            growing_symbol_transition("(๑•́ -•̀)", num_lines=2)
+            print("""They spot you and you relief wash over their face. They walk over towards you.
+            You smile as they approach.
+            (๑•́(੭˃ᴗ˂)੭•̀)""")
+            print("""ﮩ٨ـﮩﮩ٨ـ♡ﮩ٨ـﮩﮩ٨ـ""")
+            print("""They invite you to get out of here and find a better part of camp.
+            You smile and follow them.""")
+            growing_symbol_transition(symbol="""ﮩ٨ـﮩﮩ٨ـ♡ﮩ٨ـﮩﮩ٨ـ""", num_lines=3)
+            return chapter_camp.known_name, "contrarian", desired_product
 
 
 

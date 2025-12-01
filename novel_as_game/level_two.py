@@ -115,7 +115,8 @@ class ChapterTwo(LevelofStory):
              peer-reviewed statistics seem reasonable.""")
             print("""Both guests now turn their attention to you.  
             One makes an audible sigh of frustration, but appears to be regaining their composure.
-            The other smiles and says:""")
+            
+The other smiles and says:""")
             print(GimelSector.dinner_talking_points["camp invitation"])
             inviter_name: str = GimelSector.name
 

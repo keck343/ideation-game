@@ -3,12 +3,13 @@ from typing import List
 
 class SectorObjectified:
     def __init__(self, known_name: str, core_belief: str, beings_exist: bool,
-                 dinner_talking_points: dict):
+                 dinner_talking_points: dict, brochure_tagline: str):
         self.name: str = known_name
         self.core_belief: str = core_belief
         self.beings_exists: bool = beings_exist
         self.camps = []
         self.dinner_talking_points = dinner_talking_points
+        self.brochure_tagline = brochure_tagline
 
     def add_camp(self, camp):
         self.camps.append(camp)
@@ -19,7 +20,7 @@ class CampObjectified:
                  counter_sector_statement: str, tenants: List[str],
                  stated_camp_core_belief: str, unstated_camp_core_belief: str,
                  pamphlet_slogans: List[str] = [], initial_crisis_headline: str = "",
-                 initial_crisis_explanation: str = ""):
+                 initial_crisis_explanation: str = "", brochure_summary: str = ""):
         self.known_name = known_name
         self.sector = sector
         self.sector_core_belief = sector.core_belief
@@ -32,6 +33,7 @@ class CampObjectified:
         self.pamphlet_slogans = pamphlet_slogans
         self.initial_crisis_headline = initial_crisis_headline
         self.initial_crisis_explanation = initial_crisis_explanation
+        self.brochure_summary = brochure_summary
 
     def revise_summary(self, revision: str, append: bool = True):
         """
@@ -58,7 +60,9 @@ BeitSector = SectorObjectified(known_name="Beit",
                                     I believe in things I have done my own research on.""",
                                    "camp invitation": """You are correct to reject the nonsense of Beings.
                                    The party is almost over and we can't stay here.
-                                   Would you like to join me at my camp for the next cycle?"""}
+                                   Would you like to join me at my camp for the next cycle?"""},
+                               brochure_tagline="""Come together to in times of low-attention.
+                               Together we can figure this out."""
                                )
 
 GimelSector = SectorObjectified(known_name="Gimel",
@@ -79,7 +83,9 @@ GimelSector = SectorObjectified(known_name="Gimel",
                                     The party is almost over and I'm afraid you might disappear without a camp,
                                     Top scientists say connection is key to existence.  
                                     Would you like to join me at my camp for the next cycle?
-                                    """}
+                                    """},
+                                brochure_tagline="""Come together to share Attention-Beings hypothesis's.
+                                With the latest research, we can figure this out."""
                                 )
 
 KonspiroCamp = CampObjectified(known_name="Konspiro",
@@ -102,7 +108,8 @@ KonspiroCamp = CampObjectified(known_name="Konspiro",
                                Unprecedented Drop in Attention Rates""",
                                initial_crisis_explanation="""the Eksterteranoj's rulers are bringing 
                                their plan to fruition, nothing else could explain this scale.
-                               We cannot survive without sufficient Attention."""
+                               We cannot survive without sufficient Attention.""",
+                               brochure_summary="""to figure out what whoever is responsible for the drop in Attention wants."""
                                )
 
 BeitSector.add_camp(KonspiroCamp)
@@ -124,9 +131,12 @@ KristanaCamp = CampObjectified(known_name="Kristana",
                                 and so must be eliminated so the rest of may be spared.""",
                                pamphlet_slogans=["""You too are loved by the One""",
                                                  """Beings perform the miracles of the One's will."""],
+                               initial_crisis_headline="""Unprecedented Drop in Attention Rates,
+                               Search for Beings Connection Continues""",
                                initial_crisis_explanation="""We are sinners, 
                                and the One is punishing us by taking away the Beings.
-                               Beings bless us with Attention when we obey the One so we may live a good life."""
+                               Beings bless us with Attention when we obey the One so we may live a good life.""",
+                               brochure_summary="""so we can figure out how we can right our relation with beings."""
                                )
 
 GimelSector.add_camp(KristanaCamp)

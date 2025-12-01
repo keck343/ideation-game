@@ -4,6 +4,7 @@ from world_ideas import IdeaObjectified
 from level_one import ChapterOne
 from level_two import ChapterTwo
 from level_three import ChapterThree
+from level_four import ChapterFour
 from typing import Dict
 from chapter_structure import LevelofStory
 from world_ideas import Inspiration001, Overwhelm001, Conspiracism001, Systems001
@@ -22,7 +23,7 @@ use_default_idea: bool = False
 
 def game_step_up():
     print(welcome_art)
-    print("""to Disambiguation.""")
+    print("""Welcome to Disambiguation.""")
 
     print(f"""The blank canvas of creation is heaven or hell depending on your perspective. 
     """)
@@ -64,8 +65,12 @@ if __name__ == '__main__':
     chapter_03 = ChapterThree(number=3, main_character=PlayerIdea, starting_point=next_sector)
     next_sector, friend_type, desired_product = chapter_03.run_level()
 
-    # debugging
-    print(next_sector, friend_type, desired_product)
+    chapter_04 = ChapterFour(number=4, main_character=PlayerIdea,
+                             starting_point=(next_sector, friend_type, desired_product))
+    PlayerIdea, next_move = chapter_04.run_level()
+
+    print(next_move)
+    print(PlayerIdea.description)
 
 
 

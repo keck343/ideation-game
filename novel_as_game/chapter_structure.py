@@ -54,7 +54,7 @@ class LevelofStory:
     def player_multi_choice(possible_answers: List):
         answer: str = input()
         while not any(x in answer.lower().strip() for x in possible_answers):
-            print(f"""Please try again! Type one of these selections '{" ',".join(possible_answers)}'""")
+            print(f"""Please try again! Type one of these selections '{", ".join(possible_answers)}'""")
             answer: str = input()
 
         return answer
