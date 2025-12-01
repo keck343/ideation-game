@@ -14,13 +14,29 @@ class SectorObjectified:
     def add_camp(self, camp):
         self.camps.append(camp)
 
+    def tell_camps_beliefs(self, speaker_title: str, stated_and_unstated: bool):
+        stated_camps = 0
+        for camp in self.camps:
+            if stated_camps == 0:
+                speaker_prefix = f"The first {speaker_title}"
+            elif stated_camps % 2 == 0:
+                speaker_prefix = f"Another {speaker_title}"
+            else:
+                speaker_prefix = f"A different {speaker_title}"
+            print(f"""{speaker_prefix} says that the camp often referred to as {camp.known_name}
+            believes that {camp.stated_camp_core_belief}""")
+            if stated_and_unstated:
+                print(f"""And other {speaker_title}s add that {camp.unstated_camp_core_belief} """)
+            stated_camps += 1
+
 
 class CampObjectified:
     def __init__(self, known_name: str, sector: SectorObjectified, summary_statement: str,
                  counter_sector_statement: str, tenants: List[str],
                  stated_camp_core_belief: str, unstated_camp_core_belief: str,
                  pamphlet_slogans: List[str] = [], initial_crisis_headline: str = "",
-                 initial_crisis_explanation: str = "", brochure_summary: str = ""):
+                 initial_crisis_explanation: str = "", brochure_summary: str = "",
+                 second_crisis_explanation: str = "",):
         self.known_name = known_name
         self.sector = sector
         self.sector_core_belief = sector.core_belief
@@ -34,6 +50,7 @@ class CampObjectified:
         self.initial_crisis_headline = initial_crisis_headline
         self.initial_crisis_explanation = initial_crisis_explanation
         self.brochure_summary = brochure_summary
+        self.second_crisis_explanation = second_crisis_explanation
 
     def revise_summary(self, revision: str, append: bool = True):
         """
@@ -92,16 +109,16 @@ KonspiroCamp = CampObjectified(known_name="Konspiro",
                                sector=BeitSector,
                                summary_statement="""There is a secret circle running all of our existences.""",
                                counter_sector_statement="""
-                               There are too many coincidences are happening for this all to be random""",
+                               there are too many coincidences are happening for this all to be random""",
                                tenants=[
                                    "Everything that happens is result of someone’s plan",
                                    "The world is a battle between good and evil",
                                    "We are approaching a new world order",
                                    "When things go wrong, it demonstrates the planning of whoever is in charge",
                                ],
-                               stated_camp_core_belief="""If we can find out whose in charge, 
-                                                       "we can know how the world works""",
-                               unstated_camp_core_belief="""There is someone to blame, and it's not us.""",
+                               stated_camp_core_belief="""finding out whose in charge
+                               is the key to knowing how the world works""",
+                               unstated_camp_core_belief="""there is someone to blame, and it's not us.""",
                                pamphlet_slogans=["""Through rigorous self discipline and doing your own research,
                                you can find truth.""", """Everything you once knew is false"""],
                                initial_crisis_headline="""The new world order may be upon us.
@@ -109,7 +126,9 @@ KonspiroCamp = CampObjectified(known_name="Konspiro",
                                initial_crisis_explanation="""the Eksterteranoj's rulers are bringing 
                                their plan to fruition, nothing else could explain this scale.
                                We cannot survive without sufficient Attention.""",
-                               brochure_summary="""to figure out what whoever is responsible for the drop in Attention wants."""
+                               brochure_summary="""to figure out what whoever is responsible for the drop in Attention wants.""",
+                               second_crisis_explanation="""We have failed to please Eksterteranoj's rulers
+                               or outsmart them.  Attention drops even further, 10 reported dead."""
                                )
 
 BeitSector.add_camp(KonspiroCamp)
@@ -118,15 +137,15 @@ KristanaCamp = CampObjectified(known_name="Kristana",
                                sector=GimelSector,
                                summary_statement="""through my personal relationship with the One of Beings,
                                we know our paths in all things""",
-                               counter_sector_statement="""Some people have not felt the love or might of the One""",
+                               counter_sector_statement="""some people have not felt the love or might of the One""",
                                tenants=[
                                  "Ultimately we can find truth through our personal experiences",
                                  "The beings are our masters, and the One of Beings is the highest power",
                                  "It is our highest duty to convert others to the love of the One",
                                  "Beings are the angels of the One, they carry of the One's will"
                                 ],
-                               stated_camp_core_belief="""The love of the One of Beings is our salvation""",
-                               unstated_camp_core_belief=""" Some are unworthy of the One's love.
+                               stated_camp_core_belief="""the love of the One of Beings is salvation""",
+                               unstated_camp_core_belief="""some are unworthy of the One's love.
                                 The non-believers are the cause of all crises, 
                                 and so must be eliminated so the rest of may be spared.""",
                                pamphlet_slogans=["""You too are loved by the One""",
@@ -136,7 +155,9 @@ KristanaCamp = CampObjectified(known_name="Kristana",
                                initial_crisis_explanation="""We are sinners, 
                                and the One is punishing us by taking away the Beings.
                                Beings bless us with Attention when we obey the One so we may live a good life.""",
-                               brochure_summary="""so we can figure out how we can right our relation with beings."""
+                               brochure_summary="""so we can figure out how we can right our relation with beings.""",
+                               second_crisis_explanation="""We have failed to please Eksterteranoj's rulers
+                               or outsmart them.  Attention drops even further, 10 reported dead."""
                                )
 
 GimelSector.add_camp(KristanaCamp)
@@ -156,3 +177,5 @@ KomunistoCamp = CampObjectified(known_name="Komunisto",
                                 stated_camp_core_belief="""We must seize the means of production or all will perish""",
                                 unstated_camp_core_belief=["""We must covert the masses."""]
                                 )
+
+GimelSector.add_camp(KomunistoCamp)

@@ -176,7 +176,7 @@ class ChapterFour(LevelofStory):
                     print("""You are relieved your friend does not think less of you.
                     Yes, you say, let's go to the conference at a reasonable hour.""")
                     print("""Relieved to be doing something, you and your friend retire for the evening.""")
-                    return self.main_character, "attend"
+                    return self.main_character, chapter_camp, "attend"
                 else:
                     print("""Why do you not want to attend the conference? 
                      Type your answer below.""")
@@ -185,7 +185,7 @@ class ChapterFour(LevelofStory):
                     print(f"""No thank-you, you reply, I think
                     {response}""")
                     print("""Too bad, your friend replies, I guess we will see what tomorrow brings.""")
-                    return self.main_character, "skip"
+                    return self.main_character, chapter_camp, "skip"
         else:
             print("""The other person excuses themselves 
                             as they will have a very busy day tomorrow.""")
@@ -196,7 +196,7 @@ class ChapterFour(LevelofStory):
             if yes:
                 print("""Yes, you say, let's go to the conference at a reasonable hour.""")
                 print("""Relieved to be doing something, you and your friend retire for the evening.""")
-                return self.main_character, "attend"
+                return self.main_character, chapter_camp, "attend"
             else:
                 print("""Why do you not want to attend the conference? 
                                      Type your answer below.""")
@@ -205,4 +205,4 @@ class ChapterFour(LevelofStory):
                 print(f"""No thank-you, you reply, I think
                                     {response}""")
                 print("""Too bad, your friend replies, I guess we will see what tomorrow brings.""")
-                return self.main_character, "skip"
+                return self.main_character, chapter_camp, "skip"

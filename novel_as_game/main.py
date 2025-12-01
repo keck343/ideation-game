@@ -5,6 +5,7 @@ from level_one import ChapterOne
 from level_two import ChapterTwo
 from level_three import ChapterThree
 from level_four import ChapterFour
+from level_five import ChapterFive
 from typing import Dict
 from chapter_structure import LevelofStory
 from world_ideas import Inspiration001, Overwhelm001, Conspiracism001, Systems001
@@ -67,7 +68,10 @@ if __name__ == '__main__':
 
     chapter_04 = ChapterFour(number=4, main_character=PlayerIdea,
                              starting_point=(next_sector, friend_type, desired_product))
-    PlayerIdea, next_move = chapter_04.run_level()
+    PlayerIdea, chapter_camp, next_move = chapter_04.run_level()
+
+    chapter_05 = ChapterFive(number=5, main_character=PlayerIdea,
+                             starting_point=(chapter_camp, next_move))
 
     print(next_move)
     print(PlayerIdea.description)
