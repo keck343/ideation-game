@@ -49,16 +49,16 @@ def exit_handler():
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     atexit.register(exit_handler)
-    game_step_up()
 
     if debugging:
         PlayerIdea: IdeaObjectified = IdeaObjectified(name="unknown",
                                                       description="This is all made up",
                                                       creator="unknown")
         chapter_camp = GimelSector
-        next_move = "attend" # "skip", "attend" or "volunteer"
+        next_move = "volunteer" # "skip", "attend" or "volunteer"
 
     else:
+        game_step_up()
         PlayerIdea: IdeaObjectified = IdeaObjectified(name="unknown",
                                                       description="unknown",
                                                       creator="unknown")

@@ -26,7 +26,7 @@ class SectorObjectified:
             print(f"""{speaker_prefix} says that the camp often referred to as {camp.known_name}
             believes that {camp.stated_camp_core_belief}""")
             if stated_and_unstated:
-                print(f"""And other {speaker_title}s add that {camp.unstated_camp_core_belief} """)
+                print(f"""And other {speaker_title}s add that {camp.known_name} also believes {camp.unstated_camp_core_belief} """)
             print("\n")
             stated_camps += 1
 
@@ -128,8 +128,9 @@ KonspiroCamp = CampObjectified(known_name="Konspiro",
                                their plan to fruition, nothing else could explain this scale.
                                We cannot survive without sufficient Attention.""",
                                brochure_summary="""to figure out what whoever is responsible for the drop in Attention wants.""",
-                               second_crisis_explanation="""We have failed to please Eksterteranoj's rulers
-                               or outsmart them.  Attention drops even further, 10 more reported disappeared or dead."""
+                               second_crisis_explanation="""We have failed to please Eksterteranoj's rulers or outsmart them.  
+                               Attention drops even further,
+                               10 more reported disappeared."""
                                )
 
 BeitSector.add_camp(KonspiroCamp)
@@ -143,12 +144,12 @@ KristanaCamp = CampObjectified(known_name="Kristana",
                                  "Ultimately we can find truth through our personal experiences",
                                  "The beings are our masters, and the One of Beings is the highest power",
                                  "It is our highest duty to convert others to the love of the One",
-                                 "Beings are the angels of the One, they carry of the One's will"
+                                 "Beings are the angels of the One, they carry of the One's will",
+                                 """The non-believers are the cause of all crises 
+                                and so must be eliminated so the rest of may be spared."""
                                 ],
                                stated_camp_core_belief="""the love of the One of Beings is salvation""",
-                               unstated_camp_core_belief="""some are unworthy of the One's love.
-                                The non-believers are the cause of all crises, 
-                                and so must be eliminated so the rest of may be spared.""",
+                               unstated_camp_core_belief="""some are unworthy of the One's love and cause crises.""",
                                pamphlet_slogans=["""You too are loved by the One""",
                                                  """Beings perform the miracles of the One's will."""],
                                initial_crisis_headline="""Unprecedented Drop in Attention Rates,
@@ -157,8 +158,9 @@ KristanaCamp = CampObjectified(known_name="Kristana",
                                and the One is punishing us by taking away the Beings.
                                Beings bless us with Attention when we obey the One so we may live a good life.""",
                                brochure_summary="""so we can figure out how we can right our relation with beings.""",
-                               second_crisis_explanation="""We have failed to please Eksterteranoj's rulers
-                               or outsmart them.  Attention drops even further, 10 more reported disappeared or dead."""
+                               second_crisis_explanation="""We have failed to please the One, more Beings gone. 
+                               Attention drops even further, 
+                               10 more reported disappeared."""
                                )
 
 GimelSector.add_camp(KristanaCamp)
@@ -174,8 +176,7 @@ NovaEpokoCamp = CampObjectified(known_name="Nova Epoko",
                                          "Repeat exercises to build resilience",
                                          "Renounce attachments to anything that stands in the way of improvement",
                                          "My life is a reflection of my effort"],
-                                stated_camp_core_belief="""Through strict self-discipline 
-                                we will become imprivable to disappearance""",
+                                stated_camp_core_belief="""through strict self-discipline we will become imprivable to disappearance""",
                                 unstated_camp_core_belief="""Those who disappeared lacked discipline, 
                                 real dedication to self-improvement could have saved them"""
                                 )
@@ -193,8 +194,7 @@ LongperspektivaCamp = CampObjectified(known_name="Longperspektiva",
                                                "We are the innovators this world needs",
                                                "We killed false gods and we are our own gods",
                                                "Beings are a resource to optimize"],
-                                      stated_camp_core_belief="""optimization of the Attention equations
-                                      will create prosperity for all of us now and in the future""",
+                                      stated_camp_core_belief="""optimization of the Attention equations will create prosperity for all of us now and in the future""",
                                       unstated_camp_core_belief="""as the innovator class,
                                       we deserve first crack at any remaining Attention and resources"""
                                       )
@@ -261,8 +261,7 @@ KomunistoCamp = CampObjectified(known_name="Komunisto",
                                     "Power is who controls the means of production",
                                     "Only a democratically managed economy can get us out of this mess."
                                 ],
-                                stated_camp_core_belief="""We must create a system of resources production and
-                                distribution so we can all survive""",
+                                stated_camp_core_belief="""creation of a new system of resources production and distribution is how we can survive""",
                                 unstated_camp_core_belief="""We must convert the masses."""
                                 )
 
