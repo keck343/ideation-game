@@ -149,8 +149,8 @@ class ChapterFour(LevelofStory):
                 response = input()
                 self.main_character.expand_idea(response)
                 print("""Before you have a chance to question the differences, your""")
-            else:
-                print("""You nod in agreement.  Your""")
+        else:
+            print("""You nod in agreement.  Your""")
 
         print("""friend asks when the conference is. The comrade replies, 
         Tomorrow! There's a call for volunteers, but they have to wake up at dawn.""")

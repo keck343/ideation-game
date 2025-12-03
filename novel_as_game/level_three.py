@@ -33,11 +33,12 @@ class ChapterThree(LevelofStory):
         c. Soda Pop
         d. No need for stimulants - Refreshing Sparkling Water
         e. No need for bubbles - Purified Still Water
+        f. Just any caffeine please
         
-        Type 'a' 'b' 'c' 'd' or 'e' to make your choice.
+        Type 'a' 'b' 'c' 'd' 'e' or 'f' to make your choice.
         """)
 
-        choice: str = self.player_multi_choice(['a', 'b', 'c', 'd', 'e'])
+        choice: str = self.player_multi_choice(['a', 'b', 'c', 'd', 'e', 'f'])
         if choice == 'a':
             desired_product = "coffee"
         elif choice == 'b':
@@ -46,8 +47,8 @@ class ChapterThree(LevelofStory):
             desired_product = "soda pop"
         elif choice == 'd':
             desired_product = "sparkling water"
-        # elif choice == 'e':
-        #     desired_product = "purified water"
+        elif choice == 'e':
+            desired_product = "purified water"
         else:
             desired_product = "XL dunkin donuts iced coffee"
 
@@ -92,8 +93,9 @@ class ChapterThree(LevelofStory):
 
             alt_mock_choice: str = self.player_multi_choice(['a', 'b', 'c'])
             if alt_mock_choice == 'a':
-                print("""They say, I totally understand, 
-                everyone is feeling it these days and no one is what they seem.
+                print("""They look at you kindly and say,
+                I totally understand.
+                Everyone is feeling it these days and no one is what they seem.
                 Would you like to come to my camp?""")
                 print(fence_void)
                 print("""Would you like to go with them? (Y/N)""")
@@ -122,7 +124,8 @@ class ChapterThree(LevelofStory):
                 if yes:
                     print(f"""You say, I'm sorry, it's been a confusing morning, 
                     and I really just needed a {desired_product}.""")
-                    print("""They nod, I totally understand.  Would you like a break from all this?  
+                    print("""They nod saying, I totally understand.  
+                    Would you like a break from all this?  
                     Do you want to come to my camp?""")
                     print("""Would you like to go with them? (Y/N)""")
                     yes = self.player_yn_to_bool()

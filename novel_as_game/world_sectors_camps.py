@@ -27,6 +27,7 @@ class SectorObjectified:
             believes that {camp.stated_camp_core_belief}""")
             if stated_and_unstated:
                 print(f"""And other {speaker_title}s add that {camp.unstated_camp_core_belief} """)
+            print("\n")
             stated_camps += 1
 
 
@@ -128,7 +129,7 @@ KonspiroCamp = CampObjectified(known_name="Konspiro",
                                We cannot survive without sufficient Attention.""",
                                brochure_summary="""to figure out what whoever is responsible for the drop in Attention wants.""",
                                second_crisis_explanation="""We have failed to please Eksterteranoj's rulers
-                               or outsmart them.  Attention drops even further, 10 reported dead."""
+                               or outsmart them.  Attention drops even further, 10 more reported disappeared or dead."""
                                )
 
 BeitSector.add_camp(KonspiroCamp)
@@ -157,10 +158,96 @@ KristanaCamp = CampObjectified(known_name="Kristana",
                                Beings bless us with Attention when we obey the One so we may live a good life.""",
                                brochure_summary="""so we can figure out how we can right our relation with beings.""",
                                second_crisis_explanation="""We have failed to please Eksterteranoj's rulers
-                               or outsmart them.  Attention drops even further, 10 reported dead."""
+                               or outsmart them.  Attention drops even further, 10 more reported disappeared or dead."""
                                )
 
 GimelSector.add_camp(KristanaCamp)
+
+
+NovaEpokoCamp = CampObjectified(known_name="Nova Epoko",
+                                sector=BeitSector,
+                                summary_statement="""by our bettering ourselves we can save ourselves""",
+                                counter_sector_statement="""
+                                Those who have already disappeared were not trying hard enough""",
+                                tenants=["Preservation is through self-improvement and wellness",
+                                         "Repeat affirmations to build mental fortitude",
+                                         "Repeat exercises to build resilience",
+                                         "Renounce attachments to anything that stands in the way of improvement",
+                                         "My life is a reflection of my effort"],
+                                stated_camp_core_belief="""Through strict self-discipline 
+                                we will become imprivable to disappearance""",
+                                unstated_camp_core_belief="""Those who disappeared lacked discipline, 
+                                real dedication to self-improvement could have saved them"""
+                                )
+
+BeitSector.add_camp(NovaEpokoCamp)
+
+
+LongperspektivaCamp = CampObjectified(known_name="Longperspektiva",
+                                      sector=GimelSector,
+                                      summary_statement="""we must generate the most value 
+                                      for those now and those to come""",
+                                      counter_sector_statement="""by creating the most Attention for ourselves,
+                                      it trickles down to you""",
+                                      tenants=["We must optimize the Attention Equations",
+                                               "We are the innovators this world needs",
+                                               "We killed false gods and we are our own gods",
+                                               "Beings are a resource to optimize"],
+                                      stated_camp_core_belief="""optimization of the Attention equations
+                                      will create prosperity for all of us now and in the future""",
+                                      unstated_camp_core_belief="""as the innovator class,
+                                      we deserve first crack at any remaining Attention and resources"""
+                                      )
+GimelSector.add_camp(LongperspektivaCamp)
+
+
+NaciismoCamp = CampObjectified(known_name="Naciismo",
+                               sector=BeitSector,
+                               summary_statement="""in the face of the failures of the global Attention elites, 
+                               we must hold on to what we have""",
+                               counter_sector_statement="""we are the victims, each camp must save themselves""",
+                               tenants=["we can only be responsible for saving those in our camp",
+                                        "other camps have attacked us in the past and it will never stop",
+                                        "if others perish, it is unfortunate but that is not on us",
+                                        "we have a long and proud history that must continue"],
+                               stated_camp_core_belief="""as victims, we must preserve our way of life""",
+                               unstated_camp_core_belief="""we have suffered the most"""
+                               )
+
+BeitSector.add_camp(NaciismoCamp)
+
+
+CionismoCamp = CampObjectified(known_name="Cionismo",
+                               sector=GimelSector,
+                               summary_statement="""we must create a camp where we are safe from others and Beings""",
+                               counter_sector_statement="""Beings and the others will always persecute us.
+                               this is the only way""",
+                               tenants=["given historical legacies, we must annex a new place",
+                                        "this new place is the only way we will survive",
+                                        "people will always turn against us",
+                                        "we have a long and proud history that must continue",
+                                        "it is our destiny and birthright to live in a new camp"],
+                               stated_camp_core_belief="""a new camp is the only way""",
+                               unstated_camp_core_belief="""the people who are already living 
+                               in the new camp are destined to their fate"""
+                               )
+GimelSector.add_camp(CionismoCamp)
+
+
+BlankaSavismoCamp = CampObjectified(known_name="Blanka Savismo",
+                                    sector=BeitSector,
+                                    summary_statement="""we can determine the best way to spend everyone's resources,
+                                    we have to save everyone from themselves""",
+                                    counter_sector_statement="""other camps lack the instituions and resources to shape culture""",
+                                    tenants=["nothing is true unless it is written down",
+                                             "we can establish alliances with other proud camps",
+                                             "we must use Attention most effectively and put all resources in that"],
+                                    stated_camp_core_belief="""we, as the camp with the most well-funded research,
+                                     must determine the best way to spend everyone's resources""",
+                                    unstated_camp_core_belief="we alone can save everyone from themselves"
+                                    )
+BeitSector.add_camp(BlankaSavismoCamp)
+
 
 KomunistoCamp = CampObjectified(known_name="Komunisto",
                                 sector=GimelSector,
@@ -174,8 +261,9 @@ KomunistoCamp = CampObjectified(known_name="Komunisto",
                                     "Power is who controls the means of production",
                                     "Only a democratically managed economy can get us out of this mess."
                                 ],
-                                stated_camp_core_belief="""We must seize the means of production or all will perish""",
-                                unstated_camp_core_belief=["""We must covert the masses."""]
+                                stated_camp_core_belief="""We must create a system of resources production and
+                                distribution so we can all survive""",
+                                unstated_camp_core_belief="""We must convert the masses."""
                                 )
 
 GimelSector.add_camp(KomunistoCamp)

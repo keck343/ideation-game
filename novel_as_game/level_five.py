@@ -233,26 +233,26 @@ class ChapterFive(LevelofStory):
                 saw_news: bool = False
                 return self.main_character, chapter_sector, chapter_camp, saw_news
 
-            print("""You wonder through the tabling area and wonder how this Attention 
-            is an important as everyone says and about where you've been sleeping this whole time.""")
+        print("""You wonder through the tabling area and wonder how this Attention 
+        is an important as everyone says and about where you've been sleeping this whole time.""")
 
-            print("""Headlines come raining in saying: Attention drops even further, 10 reported dead.""")
-            saw_news: bool = True
-            growing_symbol_transition(num_lines=4)
+        print("""Headlines come raining in saying: Attention drops even further, 10 reported dead.""")
+        saw_news: bool = True
+        growing_symbol_transition(num_lines=4)
 
-            print("""The people tabling look frightened and begin packing up. 
-            Contemplating your next move, you realize there there are buses headed back to all the camps.""")
-            if not change_sectors:
-                print("""Where do you want to take a bus to? 
-                
-                a. back to your camp
-                b. go to a new camp
-                
-                Type 'a' or 'b'.""")
-                choice = self.player_multi_choice(['a', 'b'])
-                if choice == 'a':
-                    print("""You take the bus back to your camp.""")
-                    return self.main_character, chapter_sector, chapter_camp, saw_news
+        print("""The people tabling look frightened and begin packing up. 
+        Contemplating your next move, you realize there there are buses headed back to all the camps.""")
+        if not change_sectors:
+            print("""Where do you want to take a bus to? 
+            
+            a. back to your camp
+            b. go to a new camp
+            
+            Type 'a' or 'b'.""")
+            choice = self.player_multi_choice(['a', 'b'])
+            if choice == 'a':
+                print("""You take the bus back to your camp.""")
+                return self.main_character, chapter_sector, chapter_camp, saw_news
             else:
                 if len(conference_camps) > 0:
                     print("""Which camp do you want to take the bus back to?
@@ -266,8 +266,8 @@ class ChapterFive(LevelofStory):
                     if len(conference_camps) + 1 != len(chapter_sector.camps):
                         print(f"""{count}. A camp you've never heard of.""")
 
-                    print(f"""Type '{"', '".join([str(x) for x in range(1, count-1)])}' or '{count}'""")
-                    camp_choice = self.player_multi_choice([str(x) for x in range(1, count)])
+                    print(f"""Type '{"', '".join([str(x) for x in range(1, count)])}' or '{count}'""")
+                    camp_choice = self.player_multi_choice([str(x) for x in range(1, count+1)])
 
                     print("""You catch the bus and wonder what awaits you in this new camp.""")
                     print(moving_truck)
@@ -282,10 +282,10 @@ class ChapterFive(LevelofStory):
                     return self.main_character, chapter_sector, next_camp, saw_news
 
 
-        ## if skip, hear next level of news and chance to catch last speaker (from last added camp)
-        ## if still skip go to next level in same camp
+    ## if skip, hear next level of news and chance to catch last speaker (from last added camp)
+    ## if still skip go to next level in same camp
 
 
-        ## if hear statements of camp then get to choose which camp you depart with from all camps (and possibly to switch sector?)
-        ## otherwise get choice between staying with your current camp or a random other camp
+    ## if hear statements of camp then get to choose which camp you depart with from all camps (and possibly to switch sector?)
+    ## otherwise get choice between staying with your current camp or a random other camp
 

@@ -19,7 +19,7 @@ An existential crisis in the form of a python script. Enjoy!
 """
 
 # for debugging
-use_default_idea: bool = False
+debugging: bool = True
 
 
 def game_step_up():
@@ -51,27 +51,36 @@ if __name__ == '__main__':
     atexit.register(exit_handler)
     game_step_up()
 
-    PlayerIdea: IdeaObjectified = IdeaObjectified(name="unknown",
-                                                  description="unknown",
-                                                  creator="unknown")
+    if debugging:
+        PlayerIdea: IdeaObjectified = IdeaObjectified(name="unknown",
+                                                      description="This is all made up",
+                                                      creator="unknown")
+        chapter_camp = GimelSector
+        next_move = "attend" # "skip", "attend" or "volunteer"
 
-    chapter_01 = ChapterOne(number=1, main_character=PlayerIdea,
-                            supporting_characters=[Inspiration001, Overwhelm001])
+    else:
+        PlayerIdea: IdeaObjectified = IdeaObjectified(name="unknown",
+                                                      description="unknown",
+                                                      creator="unknown")
 
-    chapter_01.run_level()
+        chapter_01 = ChapterOne(number=1, main_character=PlayerIdea,
+                                supporting_characters=[Inspiration001, Overwhelm001])
 
-    chapter_02 = ChapterTwo(number=2, main_character=PlayerIdea)
-    PlayerIdea, next_sector = chapter_02.run_level()
+        chapter_01.run_level()
 
-    chapter_03 = ChapterThree(number=3, main_character=PlayerIdea, starting_point=next_sector)
-    next_sector, friend_type, desired_product = chapter_03.run_level()
+        chapter_02 = ChapterTwo(number=2, main_character=PlayerIdea)
+        PlayerIdea, next_sector = chapter_02.run_level()
 
-    chapter_04 = ChapterFour(number=4, main_character=PlayerIdea,
-                             starting_point=(next_sector, friend_type, desired_product))
-    PlayerIdea, chapter_camp, next_move = chapter_04.run_level()
+        chapter_03 = ChapterThree(number=3, main_character=PlayerIdea, starting_point=next_sector)
+        next_sector, friend_type, desired_product = chapter_03.run_level()
+
+        chapter_04 = ChapterFour(number=4, main_character=PlayerIdea,
+                                 starting_point=(next_sector, friend_type, desired_product))
+        PlayerIdea, chapter_camp, next_move = chapter_04.run_level()
 
     chapter_05 = ChapterFive(number=5, main_character=PlayerIdea,
                              starting_point=(chapter_camp, next_move))
+    PlayerIdea, chapter_sector, next_camp, saw_news = chapter_05.run_level()
 
     print(next_move)
     print(PlayerIdea.description)
