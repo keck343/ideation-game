@@ -61,13 +61,13 @@ class ChapterFour(LevelofStory):
             print("""You ask your friend what's going on.  Surely they must know.""")
             print(f"""Your friend shakes their head and explains:
             {chapter_camp.initial_crisis_explanation}""")
-        else:
-            print("""Your friend shakes their head saying, Attention is all you need.""")
+            print("""Another person chimes in, Attention is all you need.""")
 
-        growing_symbol_transition(symbol=f"( //>///<//)", num_lines=2)
-        print("""You ask, surely there must be a way to survive without Attention?
-        Your friend shakes their head like you are insane.""")
-        growing_symbol_transition(symbol=f"( //>///<//)", num_lines=1)
+            growing_symbol_transition(symbol=f"( //>///<//)", num_lines=2)
+            print("""You ask, surely there must be a way to survive without Attention?
+            Your friend shakes their head like you are insane.""")
+            growing_symbol_transition(symbol=f"( //>///<//)", num_lines=1)
+
         print("""Do you want to stay with your friend to figure out what to do? (Y/N)""")
         yes = self.player_yn_to_bool()
         if not yes:
@@ -132,7 +132,8 @@ class ChapterFour(LevelofStory):
         # TO DO: maybe use a different word than comrade?
         print(f"""A comrade is handing out brochures and calling everyone from this sector to come together
          {chapter_camp.brochure_summary}""")
-        print("""They offer your friend and you a brochure.  You both take one to not be rude.""")
+        print("""
+        They offer your friend and you a brochure.  You both take one to not be rude.""")
         print("""Do you read the brochure? (Y/N)""")
         yes = self.player_yn_to_bool()
         if yes:
@@ -164,7 +165,7 @@ class ChapterFour(LevelofStory):
             if yes:
                 print("""Your friend agrees to volunteer as well.  
                 You all decide to retire for the night so you will be awake at dawn.""")
-                return self.main_character, "volunteer"
+                return self.main_character, chapter_sector.name, "volunteer"
             else:
                 print("""You decline.  The other person excuses themselves 
                 as they will have a very busy day tomorrow.""")
@@ -176,7 +177,7 @@ class ChapterFour(LevelofStory):
                     print("""You are relieved your friend does not think less of you.
                     Yes, you say, let's go to the conference at a reasonable hour.""")
                     print("""Relieved to be doing something, you and your friend retire for the evening.""")
-                    return self.main_character, chapter_camp, "attend"
+                    return self.main_character, chapter_sector.name, "attend"
                 else:
                     print("""Why do you not want to attend the conference? 
                      Type your answer below.""")
@@ -185,7 +186,7 @@ class ChapterFour(LevelofStory):
                     print(f"""No thank-you, you reply, I think
                     {response}""")
                     print("""Too bad, your friend replies, I guess we will see what tomorrow brings.""")
-                    return self.main_character, chapter_camp, "skip"
+                    return self.main_character, chapter_sector.name, "skip"
         else:
             print("""The other person excuses themselves 
                             as they will have a very busy day tomorrow.""")
@@ -196,7 +197,7 @@ class ChapterFour(LevelofStory):
             if yes:
                 print("""Yes, you say, let's go to the conference at a reasonable hour.""")
                 print("""Relieved to be doing something, you and your friend retire for the evening.""")
-                return self.main_character, chapter_camp, "attend"
+                return self.main_character, chapter_sector.name, "attend"
             else:
                 print("""Why do you not want to attend the conference? 
                                      Type your answer below.""")
@@ -205,4 +206,4 @@ class ChapterFour(LevelofStory):
                 print(f"""No thank-you, you reply, I think
                                     {response}""")
                 print("""Too bad, your friend replies, I guess we will see what tomorrow brings.""")
-                return self.main_character, chapter_camp, "skip"
+                return self.main_character, chapter_sector.name, "skip"

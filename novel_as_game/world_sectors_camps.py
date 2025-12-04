@@ -2,9 +2,9 @@ from typing import List
 
 
 class SectorObjectified:
-    def __init__(self, known_name: str, core_belief: str, beings_exist: bool,
+    def __init__(self, name: str, core_belief: str, beings_exist: bool,
                  dinner_talking_points: dict, brochure_tagline: str):
-        self.name: str = known_name
+        self.name: str = name
         self.core_belief: str = core_belief
         self.beings_exists: bool = beings_exist
         self.camps = []
@@ -34,10 +34,10 @@ class SectorObjectified:
 class CampObjectified:
     def __init__(self, known_name: str, sector: SectorObjectified, summary_statement: str,
                  counter_sector_statement: str, tenants: List[str],
-                 stated_camp_core_belief: str, unstated_camp_core_belief: str,
+                 stated_camp_core_belief: str, unstated_camp_core_belief: str, end_state_key: str,
                  pamphlet_slogans: List[str] = [], initial_crisis_headline: str = "",
                  initial_crisis_explanation: str = "", brochure_summary: str = "",
-                 second_crisis_explanation: str = "",):
+                 second_crisis_explanation: str = ""):
         self.known_name = known_name
         self.sector = sector
         self.sector_core_belief = sector.core_belief
@@ -52,6 +52,7 @@ class CampObjectified:
         self.initial_crisis_explanation = initial_crisis_explanation
         self.brochure_summary = brochure_summary
         self.second_crisis_explanation = second_crisis_explanation
+        self.end_state_key = end_state_key
 
     def revise_summary(self, revision: str, append: bool = True):
         """
@@ -64,7 +65,7 @@ class CampObjectified:
             We now believe: {revision}"""
 
 
-BeitSector = SectorObjectified(known_name="Beit",
+BeitSector = SectorObjectified(name="Beit",
                                core_belief="There are no beings. Only optimizing the here and now.",
                                beings_exist=False,
                                dinner_talking_points={
@@ -83,7 +84,7 @@ BeitSector = SectorObjectified(known_name="Beit",
                                Together we can figure this out."""
                                )
 
-GimelSector = SectorObjectified(known_name="Gimel",
+GimelSector = SectorObjectified(name="Gimel",
                                 core_belief="Beings are probable to exist. There is a synthesis we do not yet know.",
                                 beings_exist=True,
                                 dinner_talking_points={
@@ -108,7 +109,7 @@ GimelSector = SectorObjectified(known_name="Gimel",
 
 KonspiroCamp = CampObjectified(known_name="Konspiro",
                                sector=BeitSector,
-                               summary_statement="""There is a secret circle running all of our existences.""",
+                               summary_statement="""there is a secret circle running all of our existences.""",
                                counter_sector_statement="""
                                there are too many coincidences are happening for this all to be random""",
                                tenants=[
@@ -120,6 +121,7 @@ KonspiroCamp = CampObjectified(known_name="Konspiro",
                                stated_camp_core_belief="""finding out whose in charge
                                is the key to knowing how the world works""",
                                unstated_camp_core_belief="""there is someone to blame, and it's not us.""",
+                               end_state_key="b",
                                pamphlet_slogans=["""Through rigorous self discipline and doing your own research,
                                you can find truth.""", """Everything you once knew is false"""],
                                initial_crisis_headline="""The new world order may be upon us.
@@ -137,7 +139,7 @@ BeitSector.add_camp(KonspiroCamp)
 
 KristanaCamp = CampObjectified(known_name="Kristana",
                                sector=GimelSector,
-                               summary_statement="""through my personal relationship with the One of Beings,
+                               summary_statement="""through personal relationships with the One of Beings,
                                we know our paths in all things""",
                                counter_sector_statement="""some people have not felt the love or might of the One""",
                                tenants=[
@@ -149,7 +151,8 @@ KristanaCamp = CampObjectified(known_name="Kristana",
                                 and so must be eliminated so the rest of may be spared."""
                                 ],
                                stated_camp_core_belief="""the love of the One of Beings is salvation""",
-                               unstated_camp_core_belief="""some are unworthy of the One's love and cause crises.""",
+                               unstated_camp_core_belief="""some are unworthy of the One's love and so crises result.""",
+                               end_state_key="b",
                                pamphlet_slogans=["""You too are loved by the One""",
                                                  """Beings perform the miracles of the One's will."""],
                                initial_crisis_headline="""Unprecedented Drop in Attention Rates,
@@ -178,7 +181,8 @@ NovaEpokoCamp = CampObjectified(known_name="Nova Epoko",
                                          "My life is a reflection of my effort"],
                                 stated_camp_core_belief="""through strict self-discipline we will become imprivable to disappearance""",
                                 unstated_camp_core_belief="""Those who disappeared lacked discipline, 
-                                real dedication to self-improvement could have saved them"""
+                                real dedication to self-improvement could have saved them""",
+                                end_state_key="a",
                                 )
 
 BeitSector.add_camp(NovaEpokoCamp)
@@ -196,7 +200,8 @@ LongperspektivaCamp = CampObjectified(known_name="Longperspektiva",
                                                "Beings are a resource to optimize"],
                                       stated_camp_core_belief="""optimization of the Attention equations will create prosperity for all of us now and in the future""",
                                       unstated_camp_core_belief="""as the innovator class,
-                                      we deserve first crack at any remaining Attention and resources"""
+                                      we deserve first crack at any remaining Attention and resources""",
+                                      end_state_key="b",
                                       )
 GimelSector.add_camp(LongperspektivaCamp)
 
@@ -211,7 +216,8 @@ NaciismoCamp = CampObjectified(known_name="Naciismo",
                                         "if others perish, it is unfortunate but that is not on us",
                                         "we have a long and proud history that must continue"],
                                stated_camp_core_belief="""as victims, we must preserve our way of life""",
-                               unstated_camp_core_belief="""we have suffered the most"""
+                               unstated_camp_core_belief="""we have suffered the most""",
+                               end_state_key='b'
                                )
 
 BeitSector.add_camp(NaciismoCamp)
@@ -229,7 +235,8 @@ CionismoCamp = CampObjectified(known_name="Cionismo",
                                         "it is our destiny and birthright to live in a new camp"],
                                stated_camp_core_belief="""a new camp is the only way""",
                                unstated_camp_core_belief="""the people who are already living 
-                               in the new camp are destined to their fate"""
+                               in the new camp are destined to their fate""",
+                               end_state_key='a'
                                )
 GimelSector.add_camp(CionismoCamp)
 
@@ -244,7 +251,8 @@ BlankaSavismoCamp = CampObjectified(known_name="Blanka Savismo",
                                              "we must use Attention most effectively and put all resources in that"],
                                     stated_camp_core_belief="""we, as the camp with the most well-funded research,
                                      must determine the best way to spend everyone's resources""",
-                                    unstated_camp_core_belief="we alone can save everyone from themselves"
+                                    unstated_camp_core_belief="we alone can save everyone from themselves",
+                                    end_state_key='b'
                                     )
 BeitSector.add_camp(BlankaSavismoCamp)
 
@@ -262,7 +270,8 @@ KomunistoCamp = CampObjectified(known_name="Komunisto",
                                     "Only a democratically managed economy can get us out of this mess."
                                 ],
                                 stated_camp_core_belief="""creation of a new system of resources production and distribution is how we can survive""",
-                                unstated_camp_core_belief="""We must convert the masses."""
+                                unstated_camp_core_belief="""We must convert the masses.""",
+                                end_state_key='d'
                                 )
 
 GimelSector.add_camp(KomunistoCamp)

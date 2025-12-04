@@ -14,6 +14,7 @@ class ChapterOne(LevelofStory):
 ▐█▀▀▌───▄▀▌─▌─█─▌──▌─▌
 ▌▀▄─▐──▀▄─▐▄─▐▄▐▄─▐▄─▐▄
         """)
+        known_idea_name: str = "The Stranger"
         print("""You wake up in an unfamiliar town with no recollection of how you got here.""")
         print("Do you want to walk around? (Y/N)")
         yes: bool = self.player_yn_to_bool()
@@ -55,8 +56,7 @@ class ChapterOne(LevelofStory):
             known_idea_name: str = self.supporting_characters[0].name
             print(f"""You ask the stranger their known name.  
             They tell you that they are {known_idea_name}.""")
-        else:
-            known_idea_name: str = "The Stranger"
+
 
         print("")
         print(f"""{known_idea_name} says,
@@ -116,12 +116,12 @@ class ChapterOne(LevelofStory):
             numberless_concept: str = "stranger"
 
         print(f"""The new being walks over to you and introduces themselves as 
-             {numberless_concept} 6.28.""")
-        print(f"""You be begin to wonder how many {numberless_concept}s there are out there.
-        
-             """)
+             Rakonto 6.28.""")
+        if known_idea_name != "The stranger":
+            print(f"""You be begin to wonder how many {numberless_concept}s there are out there.""")
         time.sleep(1)
-        print(f"""Just as soon as they appear, a new being calls for {numberless_concept} 6.28.""")
+        print(f"""
+        Just as soon as they appear, a new being calls for Rakonto 6.28.""")
         self.transition_as_typewriter(f"""
               They scamper off saying, 'Yes {self.supporting_characters[1].name}, I'm coming! 
               Sorry to  be so brief {known_player_name} -  you should come to our dinner party!'

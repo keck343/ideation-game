@@ -2,7 +2,8 @@ from typing import List
 from world_sectors_camps import BeitSector, GimelSector, SectorObjectified
 
 class IdeaObjectified:
-    def __init__(self, name, description, creator, sectors: List = [], camps: List = []):
+    def __init__(self, name, description, creator, sectors: List = [], camps: List = [],
+                 desired_end_state_key: str = 'a'):
         self.name: str = name
         self.description: str = description
         self.creator: str = creator
@@ -13,6 +14,7 @@ class IdeaObjectified:
         self.camps: List = camps
         self.rejected_sectors: List[SectorObjectified] = []
         self.rejected_camps: List = []
+        self.desired_end_state_key = desired_end_state_key
 
     def print_name(self):
         print(self.name)
@@ -63,6 +65,8 @@ class IdeaObjectified:
         else:
             return f"You had already rejected {camp}."
 
+    def chose_desired_end_state(self, end_state_key):
+        self.desired_end_state_key = end_state_key
 
 
 """

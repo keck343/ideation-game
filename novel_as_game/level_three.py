@@ -50,7 +50,7 @@ class ChapterThree(LevelofStory):
         elif choice == 'e':
             desired_product = "purified water"
         else:
-            desired_product = "XL dunkin donuts iced coffee"
+            desired_product = "caffeine"
 
         print(f"""You see the embodiment form the party. 
         Hoping they will continue to be a good host, you walk over and inquire, 
@@ -62,20 +62,20 @@ class ChapterThree(LevelofStory):
         I guess you did conclude quote: '{self.main_character.description}' """)
 
         print(f"""
-        
-        They scoff. 
+        They sigh and say: 
         Come, let's meet with the others to figure out what do about the lack of {desired_product} these days.""")
 
         print("""
         Do you follow them to meet with the others? (Y/N)
         """)
-        yes = self.player_yn_to_bool()
-        if not yes:
+        follow_yes = self.player_yn_to_bool()
+        if not follow_yes:
             print("""Annoyed by their arrogance, you wonder in the opposite direction.  
             You begin to see the edge of the camp emerge, with a fence unlike any you've ever seen.
             """)
             time.sleep(1)
             print(fence_void)
+            time.sleep(3)
 
             print("""It feels impenetrable, yet you can see 
             the other party guest on the other side and wave at them.""")
@@ -117,11 +117,11 @@ class ChapterThree(LevelofStory):
                 print("""You turn to them and say exasperatedly:
                 How do you know what you're talking about?!? 
                 How do any of us know what we are talking about?!""")
-                print(f"""They retort: 
+                print(f"""They look at you sympathetically and say: 
                 {alt_camp.counter_sector_statement}""")
-                print("""Do you apologize? (Y/N)""")
-                yes = self.player_yn_to_bool()
-                if yes:
+                print("""Do you apologize for expressing frustation? (Y/N)""")
+                apologize_yes = self.player_yn_to_bool()
+                if apologize_yes:
                     print(f"""You say, I'm sorry, it's been a confusing morning, 
                     and I really just needed a {desired_product}.""")
                     print("""They nod saying, I totally understand.  
@@ -142,6 +142,8 @@ class ChapterThree(LevelofStory):
                         print("""They wish you luck and take their leave.""")
                         # TO DO: add choice here
                         print("""Resigned to make things work, you turn back towards the others.""")
+                else:
+                    print("""You decide it is not worth engaging in further conversation and return to camp.""")
 
             if alt_mock_choice == 'c':
                 print("""You turn to them and say exasperatedly:
@@ -156,85 +158,87 @@ class ChapterThree(LevelofStory):
                 print(fence_void)
                 print("""Determined to prove them wrong, you say nothing and turn back towards the others.""")
 
-            # unless level is already exited, one way or another you turn towards the others in the camp
-            print("""As you walk towards the others, you see many people fluttering around 
-            with different diagrams, charts, and statistics.""")
-            growing_symbol_transition(symbol="(╯ ͠° ͟ʖ ͡°)╯┻━┻", num_lines=3)
-            print("""Someone turns to you, clutching their diagrams close to their chest.  They implore you,
-            What is to be done? 
-            """)
-            if self.starting_point == "Gimel":
-                lenin_opinion = "no "
-            else:
-                lenin_opinion = ""
-            print(f"""Another person turns to them whispering,
-            Don't be like that Komunisto! Died at 53 in a coma and for {lenin_opinion}good reason.""")
-            print("""They clutch their diagrams closer to their chest, fear in their eyes.""")
-            growing_symbol_transition(symbol="⤷ ゛ ˎˊ˗", num_lines=2)
-            print("""Emerging out of the chaos, one person climbs on a chairs and clears their throat.
-            The stirring begins to die down as people turn towards them.""")
-            print("""They begin to address the crowd.
-            
-            Fellow camp members, these are unprecedented times.
-            We can not even eat breakfast as we used to.
-            Where has all the coffee, tea, and sparkling water gone?
-            What will become of our way of life?
-            """)
-            growing_symbol_transition(symbol="ᕙ(  •̀ ᗜ •́  )ᕗ", num_lines=3)
-            print(f"""
-            But fear not, we know that {chapter_camp.summary_statement}
-            """)
-            print("""The crowd cheers.""")
-            print(lock_and_key)
-            print("""Do you cheer with the crowd? (Y/N)""")
-            yes = self.player_yn_to_bool()
-            if yes:
-                print("""Unsure if you believe the speaker or this is just the wisest thing to do,
-                you join the crowd cheering.""")
-                print("""The speaker clears his throat.  
-                Fellow comrades, let's get to work!""")
-                print("""Unsure of what to do, you look around anxiously.  
-                As your eyes complete their dart around the room, someone gestures at you to come over.""")
-                print("""Do you go over to them? (Y/N)""")
+
+
+        # unless level is already exited, one way or another you turn towards the others in the camp
+        print("""As you walk towards the others, you see many people fluttering around 
+        with different diagrams, charts, and statistics.""")
+        growing_symbol_transition(symbol="(╯ ͠° ͟ʖ ͡°)╯┻━┻", num_lines=3)
+        print("""Someone turns to you, clutching their diagrams close to their chest.  They implore you,
+        What is to be done? 
+        """)
+        if self.starting_point == "Gimel":
+            lenin_opinion = "no "
+        else:
+            lenin_opinion = ""
+        print(f"""Another person turns to them whispering,
+        Don't be like that traitor! Died at 53 in a coma and for {lenin_opinion}good reason.""")
+        print("""They clutch their diagrams closer to their chest, fear in their eyes.""")
+        growing_symbol_transition(symbol="⤷ ゛ ˎˊ˗", num_lines=2)
+        print("""Emerging out of the chaos, one person climbs on a chairs and clears their throat.
+        The stirring begins to die down as people turn towards them.""")
+        print("""They begin to address the crowd.
+        
+        Fellow camp members, these are unprecedented times.
+        We can not even eat breakfast as we used to.
+        Where has all the coffee, tea, and sparkling water gone?
+        What will become of our way of life?
+        """)
+        growing_symbol_transition(symbol="ᕙ(  •̀ ᗜ •́  )ᕗ", num_lines=3)
+        print(f"""
+        But fear not, we know that {chapter_camp.summary_statement}
+        """)
+        print("""The crowd cheers.""")
+        print(lock_and_key)
+        print("""Do you cheer with the crowd? (Y/N)""")
+        cheer_yes = self.player_yn_to_bool()
+        if cheer_yes:
+            print("""Unsure if you believe the speaker or this is just the wisest thing to do,
+            you join the crowd cheering.""")
+            print("""The speaker clears his throat.  
+            Fellow comrades, let's get to work!""")
+            print("""Unsure of what to do, you look around anxiously.  
+            As your eyes complete their dart around the room, someone gestures at you to come over.""")
+            print("""Do you go over to them? (Y/N)""")
+            gesture_yes = self.player_yn_to_bool()
+            if gesture_yes:
+                print("""You walk over to the person gesturing you.
+                They smile and invite you to help them cut up pamphlets.""")
+                print("""You inquire what the pamphlets are for.
+                They respond, 
+                Excellent Question!""")
+                print("(´｡• ◡ •｡`) ♡")
+                time.sleep(0.5)
+                print(f"""{chapter_camp.pamphlet_slogans[0]}""")
+                print(f"""Do you ask why the group must 
+                '{chapter_camp.pamphlet_slogans[0]}'?
+                (Y/N)""")
                 yes = self.player_yn_to_bool()
                 if yes:
-                    print("""You walk over to the person gesturing you.
-                    They smile and invite you to help them cut up pamphlets.""")
-                    print("""You inquire what the pamphlets are for.
-                    They respond, 
-                    Excellent Question!""")
-                    print("(´｡• ◡ •｡`) ♡")
-                    time.sleep(0.5)
-                    print(f"""{chapter_camp.pamphlet_slogans[0]}""")
-                    print(f"""Do you ask why the group must 
-                    '{chapter_camp.pamphlet_slogans[0]}'?
-                    (Y/N)""")
-                    yes = self.player_yn_to_bool()
-                    if yes:
-                        print(f"""They seem less excited at your second question, and continue:
-                        Well of course, {chapter_camp.pamphlet_slogans[1]} """)
-                        print("""You smile uneasily and point out that they are just reading what the pamphlet says.""")
-                        print("∘ ∘ ∘ ( °ヮ° )")
-                        print("""Another person interjects:
-                        Some people can only just read the propaganda.  
-                        Why don't we have an actual discussion over here?
-                        """)
-                        print(".·°՞(ᗒ□ᗕ)՞°·.")
-                        print("""You smile and follow them to their workbench.""")
-                        growing_symbol_transition(symbol=".·°՞(ᗒ□ᗕ)՞°·.", num_lines=3)
-                        return chapter_camp.known_name, "contrarian", desired_product
+                    print(f"""They seem less excited at your second question, and continue:
+                    Well of course, {chapter_camp.pamphlet_slogans[1]} """)
+                    print("""You smile uneasily and point out that they are just reading what the pamphlet says.""")
+                    print("∘ ∘ ∘ ( °ヮ° )")
+                    print("""Another person interjects:
+                    Some people can only just read the propaganda.  
+                    Why don't we have an actual discussion over here?
+                    """)
+                    print(".·°՞(ᗒ□ᗕ)՞°·.")
+                    print("""You smile and follow them to their workbench.""")
+                    growing_symbol_transition(symbol=".·°՞(ᗒ□ᗕ)՞°·.", num_lines=3)
+                    return chapter_camp.known_name, "contrarian", desired_product
 
-                    else:
-                        print("""You smile and begin helping them cut pamphlets.""")
-                        print("""ﮩ٨ـﮩﮩ٨ـ♡ﮩ٨ـﮩﮩ٨ـ""")
-                        print("""As you settle into a rhythm with cutting, 
-                        you began to feel more at ease with your surroundings and companion.""")
-                        print("""ﮩ٨ـﮩﮩ٨ـ♡ﮩ٨ـﮩﮩ٨ـ""")
-                        print("""Pleasant conversation ensues and you feel less alone with a new friend.""")
-                        growing_symbol_transition(symbol="""ﮩ٨ـﮩﮩ٨ـ♡ﮩ٨ـﮩﮩ٨ـ""", num_lines=3)
-                        return chapter_camp.known_name, "believer", desired_product
+                else:
+                    print("""You smile and begin helping them cut pamphlets.""")
+                    print("""ﮩ٨ـﮩﮩ٨ـ♡ﮩ٨ـﮩﮩ٨ـ""")
+                    print("""As you settle into a rhythm with cutting, 
+                    you began to feel more at ease with your surroundings and companion.""")
+                    print("""ﮩ٨ـﮩﮩ٨ـ♡ﮩ٨ـﮩﮩ٨ـ""")
+                    print("""Pleasant conversation ensues and you feel less alone with a new friend.""")
+                    growing_symbol_transition(symbol="""ﮩ٨ـﮩﮩ٨ـ♡ﮩ٨ـﮩﮩ٨ـ""", num_lines=3)
+                    return chapter_camp.known_name, "believer", desired_product
 
-        else:
+        elif not cheer_yes or not gesture_yes:
             print("""You do not join in and feel uneasy surrounded by so many people 
             who would just go along with generic statements.""")
             growing_symbol_transition("(๑•́ -•̀)", num_lines=3)

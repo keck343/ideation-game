@@ -6,6 +6,8 @@ from level_two import ChapterTwo
 from level_three import ChapterThree
 from level_four import ChapterFour
 from level_five import ChapterFive
+from level_six import ChapterSix
+from constants import max_round
 from typing import Dict
 from chapter_structure import LevelofStory
 from world_ideas import Inspiration001, Overwhelm001, Conspiracism001, Systems001
@@ -19,7 +21,7 @@ An existential crisis in the form of a python script. Enjoy!
 """
 
 # for debugging
-debugging: bool = True
+debugging: bool = False
 
 
 def game_step_up():
@@ -54,7 +56,8 @@ if __name__ == '__main__':
         PlayerIdea: IdeaObjectified = IdeaObjectified(name="unknown",
                                                       description="This is all made up",
                                                       creator="unknown")
-        chapter_camp = GimelSector
+        chapter_sector = GimelSector
+        # debugging level 5
         next_move = "volunteer" # "skip", "attend" or "volunteer"
 
     else:
@@ -76,14 +79,23 @@ if __name__ == '__main__':
 
         chapter_04 = ChapterFour(number=4, main_character=PlayerIdea,
                                  starting_point=(next_sector, friend_type, desired_product))
-        PlayerIdea, chapter_camp, next_move = chapter_04.run_level()
+        PlayerIdea, chapter_sector, next_move = chapter_04.run_level()
 
-    chapter_05 = ChapterFive(number=5, main_character=PlayerIdea,
-                             starting_point=(chapter_camp, next_move))
-    PlayerIdea, chapter_sector, next_camp, saw_news = chapter_05.run_level()
+        chapter_05 = ChapterFive(number=5, main_character=PlayerIdea,
+                                 starting_point=(chapter_sector, next_move))
+        PlayerIdea, chapter_sector, next_camp, saw_news = chapter_05.run_level()
 
-    print(next_move)
-    print(PlayerIdea.description)
+    rounds: int = 0
+    fame: bool = False
+    while rounds < max_round:
+        chapter = ChapterSix(number=rounds, main_character=PlayerIdea,
+                             starting_point=(chapter_sector, next_camp, saw_news, fame))
+        PlayerIdea, chapter_sector, next_camp, saw_news, fame = chapter.run_level()
+        rounds += 1
+
+    final_chapter = ChapterSix(number=rounds, main_character=PlayerIdea,
+                               starting_point=(chapter_sector, next_camp, saw_news, fame))
+    PlayerIdea, chapter_sector, chapter_camp, world_survives, player_wins = final_chapter.run_level()
 
 
 

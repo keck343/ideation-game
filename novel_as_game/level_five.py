@@ -10,9 +10,9 @@ class ChapterFive(LevelofStory):
 
     def events(self):
         # from level four attendance can be "skip", "attend" or "volunteer"
-        starting_camp, attendance = self.starting_point
+        starting_sector, attendance = self.starting_point
 
-        if starting_camp == "Beit":
+        if starting_sector == "Beit":
             chapter_sector = BeitSector
             alt_sector = GimelSector
         else:
