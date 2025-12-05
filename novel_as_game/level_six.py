@@ -13,19 +13,16 @@ class ChapterSix(LevelofStory):
         # round number is number of times played Chapter 6
         chapter_sector, chapter_camp, saw_news, fame = self.starting_point
         print(saw_news, self.number)
-        if self.number == 0:
+        if self.number == 6:
             print("""What do you want the outcome of this crisis to be?""")
             for key, value in end_state_mappings.items():
                 print(f"""{key}. {value}""")
-            desired_outcome = self.player_multi_choice()
+            print(f"""Type '{"', '".join(list(end_state_mappings.keys())[:-1])}' or '{list(end_state_mappings.keys())[-1]}'""")
+            desired_outcome = self.player_multi_choice(list(end_state_mappings.keys()))
+
             self.main_character.chose_desired_end_state(desired_outcome)
 
-        # TO DO:
-        # loop
-        print(chapter_sector, chapter_camp, saw_news, fame)
-        return self.main_character, chapter_sector, chapter_camp, saw_news, fame
-
-        if round_number == max_round:
+        if self.number == max_round:
             if chapter_camp.end_state_key == 'd':
                 world_survives: bool = True
                 player_wins: bool = True
@@ -73,9 +70,9 @@ class ChapterSix(LevelofStory):
                 you can choose to play this game again.""")
                 return self.main_character, chapter_sector, chapter_camp, world_survives, player_wins
 
+        # TO DO: loops
+        # To Do: Add fame bool -- chapter 6.5 is with fame
+        print(chapter_sector, chapter_camp, saw_news, fame)
+        return self.main_character, chapter_sector, chapter_camp, saw_news, fame
 
 
-
-                # To Do: Add fame bool -- chapter 6.5 is with fame
-
-        return chapter_sector, chapter_camp, saw_news, fame

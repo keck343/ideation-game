@@ -149,11 +149,9 @@ class ChapterFour(LevelofStory):
                 print("""Why? Type your answer below.""")
                 response = input()
                 self.main_character.expand_idea(response)
-                print("""Before you have a chance to question the differences, your""")
-        else:
-            print("""You nod in agreement.  Your""")
+                print("""Before you have a chance to question the differences,""")
 
-        print("""friend asks when the conference is. The comrade replies, 
+        print("""Your friend asks when the conference is. The comrade replies, 
         Tomorrow! There's a call for volunteers, but they have to wake up at dawn.""")
         print("""Do you ask if they are going to volunteer? (Y/N)""")
         yes = self.player_yn_to_bool()

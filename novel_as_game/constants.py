@@ -1,12 +1,13 @@
 yes_responses = ["yes", "Yes", "Y", "y"]
 no_responses = ["no", "No", "N", "n"]
 
-max_round = 4
+# must be greater than 6 for loop to run
+max_round = 10
 
 end_state_mappings = {
     # player may be unaware that no camp can survive past max round unless they stop beings + ideas disappearance
     'a': 'your camp survives',
-    # no camp survives if they are only looking out for themseleves
+    # no camp survives if they are only looking out for themselves
     'b': 'your camp is the dominate voice in your sector',
     # if c is camp's outcome then no one survives because beings are needed for ideas
     'c': 'all camps survive',
