@@ -14,7 +14,7 @@ class ChapterSix(LevelofStory):
         chapter_sector, chapter_camp, saw_news, fame = self.starting_point
         print(saw_news, self.number)
         if self.number == 6:
-            print("""What do you want the outcome of this crisis to be?""")
+            print("""What do you think the most important goal is?""")
             for key, value in end_state_mappings.items():
                 print(f"""{key}. {value}""")
             print(f"""Type '{"', '".join(list(end_state_mappings.keys())[:-1])}' or '{list(end_state_mappings.keys())[-1]}'""")
