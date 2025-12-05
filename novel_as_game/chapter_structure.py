@@ -4,13 +4,14 @@ import time
 
 
 class LevelofStory:
-    def __init__(self, number: int, main_character: IdeaObjectified, supporting_characters: List[IdeaObjectified],
-                 next_chapter: int):
+    def __init__(self, number: int, main_character: IdeaObjectified,
+                 supporting_characters: List[IdeaObjectified] = [],
+                 starting_point: str = ""):
         self.number = number
         self.main_character = main_character
         self.supporting_characters = supporting_characters
-        self.next_chapter = next_chapter
         self.transition_str = "*" * 13
+        self.starting_point = starting_point
 
     def title(self):
         return f"Level {self.number}"
@@ -25,15 +26,17 @@ class LevelofStory:
     def events(self):
         print("This level has an empty skeleton.")
         print("""The future is not yet written, and neither is this chapter""")
+        next_parameters: dict = {}
+        return next_parameters
 
     def run_level(self):
         time.sleep(1)
         self.greeting()
-        self.events()
+        next_parameters = self.events()
         time.sleep(1)
         self.parting()
         self.transition_as_typewriter(self.transition_str)
-        return self.next_chapter
+        return next_parameters
 
     @staticmethod
     def player_yn_to_bool():
@@ -51,7 +54,7 @@ class LevelofStory:
     def player_multi_choice(possible_answers: List):
         answer: str = input()
         while not any(x in answer.lower().strip() for x in possible_answers):
-            print(f"""Please try again! Type one of these selections '{" ',".join(possible_answers)}'""")
+            print(f"""Please try again! Type one of these selections '{", ".join(possible_answers)}'""")
             answer: str = input()
 
         return answer
