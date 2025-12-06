@@ -161,7 +161,20 @@ class ChapterTwo(LevelofStory):
 
         print("""but before you go, can you declare your take on this situation? """)
         growing_symbol_transition(symbol="( ｡ •̀ ``-`` •́ ｡ )", num_lines=1)
-        worldview = self.player_long_answer()
+        print("""Do you respond with:
+        
+        a. This is all made up
+        b. I don't care
+        c. Other [type your own answer]
+        
+        Enter 'a' 'b' or 'c'""")
+        choice = self.player_multi_choice(['a', 'b', 'c'])
+        if choice == 'a':
+            worldview = "this is all made up"
+        elif choice == 'b':
+            worldview = "I don't care"
+        else:
+            worldview = self.player_long_answer()
         self.main_character.expand_idea(worldview)
 
         print("""The other player thanks you for your response and takes their leave.""")
