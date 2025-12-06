@@ -230,17 +230,19 @@ BeitSector.add_camp(NaciismoCamp)
 
 
 AnarkioCamp = CampObjectified(known_name="Anarkio",
-                               sector=GimelSector,
-                               summary_statement="""all hierarchy has caused the Attention imbalance,
-                               so we must abolish all hierarchies""",
-                               counter_sector_statement="""we are free thinkers""",
-                               tenants=["everyone must do what they think is right",
-                                        "all leaders are not to be trusted",
-                                        "ignorance is a personal failing"],
-                               stated_camp_core_belief="""each individual must chose their own path""",
-                               unstated_camp_core_belief="""no organization that can represent real collective action""",
-                               end_state_key='c'
+                              sector=GimelSector,
+                              summary_statement="""all hierarchy has caused the Attention imbalance,
+                              so we must abolish all hierarchies""",
+                              counter_sector_statement="""we are free thinkers""",
+                              tenants=["everyone must do what they think is right",
+                                       "all leaders are not to be trusted",
+                                       "ignorance is a personal failing",
+                                       "people's individual choices can right all wrongs"],
+                              stated_camp_core_belief="""each individual must chose their own path""",
+                              unstated_camp_core_belief="""no organization that can represent real collective action""",
+                              end_state_key='c'
                                )
+
 GimelSector.add_camp(AnarkioCamp)
 
 
@@ -260,21 +262,19 @@ BlankaSavismoCamp = CampObjectified(known_name="Blanka Savismo",
 BeitSector.add_camp(BlankaSavismoCamp)
 
 
-KomunistoCamp = CampObjectified(known_name="Komunisto",
-                                sector=GimelSector,
-                                summary_statement="""through understanding the material conditions,
-                                We can create a system where resources are produced and distributed in a way 
-                                so we can all survive.""",
-                                counter_sector_statement="""
-                                Only through understanding the real struggle can we make real change.""",
-                                tenants=[
+SkalismoCamp = CampObjectified(known_name="Skalismo",
+                               sector=GimelSector,
+                               summary_statement="""through understanding the material conditions,
+                               We can create a system where resources are produced and distributed in a way so we can all survive.""",
+                               counter_sector_statement="""Only through understanding the real struggle can we make real change.""",
+                               tenants=[
                                     "History is ultimately the tale of class struggle",
                                     "Power is who controls the means of production",
                                     "Only a democratically managed economy can get us out of this mess."
                                 ],
-                                stated_camp_core_belief="""creation of a new system of resources production and distribution is how we can survive""",
-                                unstated_camp_core_belief="""We must convert the masses.""",
-                                end_state_key='d'
+                               stated_camp_core_belief="""creation of a new system of resources production and distribution is how we can survive""",
+                               unstated_camp_core_belief="""We must unite the masses against their real enemy""",
+                               end_state_key='d'
                                 )
 
-GimelSector.add_camp(KomunistoCamp)
+GimelSector.add_camp(SkalismoCamp)
