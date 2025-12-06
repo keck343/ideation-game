@@ -92,7 +92,8 @@ class ChapterTwo(LevelofStory):
 
         self.transition_as_typewriter(f"""{first_talking_points["disappearance"]}
 
-        The second being jumps in.  This is ludicrous.  
+        The second guest jumps in saying:
+        This is ludicrous.  
         Clearly {second_talking_points["disappearance"]}""")
 
         time.sleep(1)

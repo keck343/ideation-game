@@ -21,13 +21,10 @@ class ChapterOne(LevelofStory):
         yes: bool = self.player_yn_to_bool()
         # anything that isn't a yes counts a no
         if yes:
-            print("""You walk around, noting how this world has elements of the world you know, 
-            but also feels fantastical in a jarring way but awe inspiring way.""")
-            time.sleep(1)
-            print("""There are so many combinations of seemingly disparate things.""")
+            print("""You walk around, noting how this world is so many combinations of seemingly disparate things.""")
             time.sleep(1)
             print("""You find yourself synthesizing new meanings that make sense to you.
-            The world you came from feels bigger than you ever could have imagined back on Earth.""")
+            The world feels bigger than you ever could have imagined back home.""")
             print("")
 
         # nothing about trajectory changes if you don't walk around this time, you just have less information

@@ -176,8 +176,8 @@ class ChapterThree(LevelofStory):
         self.transition_as_typewriter("""They clutch their diagrams closer to their chest, fear in their eyes.""")
         growing_symbol_transition(symbol="⤷ ゛ ˎˊ˗", num_lines=2)
         self.transition_as_typewriter("""Emerging out of the chaos, one person climbs on a chairs and clears their throat.
-        The stirring begins to die down as people turn towards them.""")
-        self.transition_as_typewriter("""They begin to address the crowd.
+        The stirring dies down as people turn towards them.""")
+        self.transition_as_typewriter("""They begin to address the crowd saying:
         
         Fellow camp members, these are unprecedented times.
         We can not even eat breakfast as we used to.
