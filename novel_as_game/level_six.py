@@ -11,7 +11,7 @@ class ChapterSix(LevelofStory):
     def events(self):
         # from last level saw_news is bool
         # round number is number of times played Chapter 6
-        chapter_sector, chapter_camp, saw_news, fame = self.starting_point
+        chapter_sector, chapter_camp, saw_news, fame, no_tokens = self.starting_point
         print(saw_news, self.number)
         if self.number == 6:
             print("""What do you think the most important goal is?""")
@@ -48,9 +48,9 @@ class ChapterSix(LevelofStory):
                 else:
                     # player desired state is c or d
                     print("""You sigh in relief.""")
-                    print("""You achieved your goals and the worlds.""")
+                    print("""You achieved your goal and the world goes on.""")
 
-                return chapter_sector, chapter_camp, world_survives, player_wins
+                return chapter_sector, chapter_camp, world_survives, player_wins, fame, no_tokens
 
             else:
                 world_survives: bool = False
@@ -68,11 +68,11 @@ class ChapterSix(LevelofStory):
                 print("""How the world works will remain a mystery,
                 but unlike real life,
                 you can choose to play this game again.""")
-                return self.main_character, chapter_sector, chapter_camp, world_survives, player_wins
+                return self.main_character, chapter_sector, chapter_camp, world_survives, player_wins, fame, no_tokens
 
         # TO DO: loops
         # To Do: Add fame bool -- chapter 6.5 is with fame
-        print(chapter_sector, chapter_camp, saw_news, fame)
-        return self.main_character, chapter_sector, chapter_camp, saw_news, fame
+        print(chapter_sector, chapter_camp, saw_news, fame, no_tokens)
+        return self.main_character, chapter_sector, chapter_camp, saw_news, fame, no_tokens
 
 

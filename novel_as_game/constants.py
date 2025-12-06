@@ -4,21 +4,41 @@ no_responses = ["no", "No", "N", "n"]
 # must be greater than 6 for loop to run
 max_round = 10
 
-# for new level 1
+# for new game set up and level 1
 quotes: dict = {
     "a": {
-        "author": "",
-        "quote": """""",
+        "author": "William S. Burroughs",
+        "quote": """Cut ups are for everyone. Anybody can make cut ups. All Writing is cut-ups.""",
     },
     "b": {
-        "author": "",
-        "quote": """""",
+        "author": "Jose Ortega",
+        "quote": """I am I and my circumstance; and, if I do not save it, I do not save myself.""",
     },
     "c": {
-        "author": "",
-        "quote": """""",
+        "author": "Anne Bogart",
+        "quote": """We create truths by describing, or by re-describing , our beliefs and observations. 
+        Our task, and the task of every artist and scientist, is to re-describe our inherited assumptions 
+        and invented fictions in order to create new paradigms for the future""",
     },
+    "d": {
+        "author": "Rosemarie Garland-Thompson",
+        "quote": """The task of a misfit is not to try and fail endlessly to somehow fit, but to develop alternative methods.""",
+    },
+    "e": {
+        "author": "the Shoe of Shoes, created by Julio Torres",
+        "quote": """I am difficult to explain and hard to draw. I am alive.""",
+    },
+    # "f": {
+    #     "author": "",
+    #     "quote": """""",
+    # },
 }
+
+# for level 1
+new_idea_01 = "(๑'ᵕ'๑)⸝*"
+new_idea_02 = "₍^ >⩊< ^₎Ⳋ"
+new_idea_04 = "｡°(°¯᷄◠¯᷅°)°｡"
+new_idea_03 = "( ദ്ദി ˙ᗜ˙ )"
 
 end_state_mappings = {
     # player may be unaware that no camp can survive past max round unless they stop beings + ideas disappearance

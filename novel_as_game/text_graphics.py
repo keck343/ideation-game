@@ -122,6 +122,9 @@ chains_line = "⫘⫘⫘⫘⫘⫘"
 
 play_loop = """▶︎ •၊၊||၊|။|||||||၊|။|၊၊• ▶"""
 
+line_of_fish = "𓆝 𓆟 𓆞 𓆝 𓆟"
+
+moon_star_line = "⋆.˚ ☾⭒.˚"
 
 floating_heart_ghost = """
 ..... (¯`v´¯)♥

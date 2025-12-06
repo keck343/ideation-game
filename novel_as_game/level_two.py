@@ -90,19 +90,19 @@ class ChapterTwo(LevelofStory):
 
         print("""We have been disappearing across all camps and sectors at alarming rates.""")
 
-        print(f"""{first_talking_points["disappearance"]}
+        self.transition_as_typewriter(f"""{first_talking_points["disappearance"]}
 
         The second being jumps in.  This is ludicrous.  
         Clearly {second_talking_points["disappearance"]}""")
 
         time.sleep(1)
 
-        print(f"""You sense the anger rising up in both guests.""")
+        self.transition_as_typewriter(f"""You sense the anger rising up in both guests.""")
         growing_symbol_transition(symbol="( ｡ •̀ ᴖ •́ ｡)", num_lines=3)
-        print(f"""The second guest continues, 
+        self.transition_as_typewriter(f"""The second guest continues, 
         {second_talking_points["Beings counter point"]}""")
         growing_symbol_transition(symbol="( ｡ •̀ ᴖ •́ ｡)", num_lines=2)
-        print(f"""The first guest interjects, 
+        self.transition_as_typewriter(f"""The first guest interjects, 
         {first_talking_points["Beings counter point"]}""")
         growing_symbol_transition(symbol="୧(๑•̀ᗝ•́)૭", num_lines=1)
 
@@ -113,19 +113,22 @@ class ChapterTwo(LevelofStory):
         if yes:
             print("""Without thinking you mutter under your breath:
              peer-reviewed statistics seem reasonable.""")
-            print("""Both guests now turn their attention to you.  
-            One makes an audible sigh of frustration, but appears to be regaining their composure.
-            
-The other smiles and says:""")
-            print(GimelSector.dinner_talking_points["camp invitation"])
+            print("""""")
+
+            self.transition_as_typewriter("""Both guests now turn their attention to you.  
+            One makes an audible sigh of frustration, but appears to be regaining their composure.""")
+
+            self.transition_as_typewriter("""The other smiles and says:""")
+            self.transition_as_typewriter(GimelSector.dinner_talking_points["camp invitation"])
             inviter_name: str = GimelSector.name
 
         else:
             print("""Without thinking you say out loud, Beings seem like a fairy tale.""")
-            print("""One guest rolls their eyes with a smug look of superiority on their face, 
-            but quickly regains their calm composure.
-            The other smiles and says:""")
-            print(BeitSector.dinner_talking_points["camp invitation"])
+            self.transition_as_typewriter("""One guest rolls their eyes with a smug look of superiority on their face, 
+            but quickly regains their calm composure.""")
+            print("""""")
+            self.transition_as_typewriter("""The other smiles and says:""")
+            self.transition_as_typewriter(BeitSector.dinner_talking_points["camp invitation"])
             inviter_name: str = BeitSector.name
 
         print("""Do you accept the guest's invitation? (Y/N)""")
@@ -163,7 +166,7 @@ The other smiles and says:""")
         print("""The other player thanks you for your response and takes their leave.""")
         growing_symbol_transition(symbol="ദ്ദി(˵ •̀ ᴗ - ˵ ) ✧", num_lines=2)
 
-        print("""You leave the party grateful to have some place to go and 
+        self.transition_as_typewriter("""You leave the party grateful to have some place to go and 
         wondering what just happened and what mysteries await you next cycle.""")
         print("""
 ────██──────▀▀▀██

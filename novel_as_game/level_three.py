@@ -52,16 +52,16 @@ class ChapterThree(LevelofStory):
         else:
             desired_product = "caffeine"
 
-        print(f"""You see the embodiment form the party. 
+        self.transition_as_typewriter(f"""You see the embodiment form the party. 
         Hoping they will continue to be a good host, you walk over and inquire, 
         Do you know where I could find a {desired_product}?""")
         print("(｡ᵕ ◞ _◟)")
-        print(f"""They look up at you with a grim face.
+        self.transition_as_typewriter(f"""They look up at you with a grim face.
         You really haven't been around much have you?
         There hasn't been {desired_product} in many cycles.
         I guess you did conclude quote: '{self.main_character.description}' """)
 
-        print(f"""
+        self.transition_as_typewriter(f"""
         They sigh and say: 
         Come, let's meet with the others to figure out what do about the lack of {desired_product} these days.""")
 
@@ -164,20 +164,20 @@ class ChapterThree(LevelofStory):
         print("""As you walk towards the others, you see many people fluttering around 
         with different diagrams, charts, and statistics.""")
         growing_symbol_transition(symbol="(╯ ͠° ͟ʖ ͡°)╯┻━┻", num_lines=3)
-        print("""Someone turns to you, clutching their diagrams close to their chest.  They implore you,
+        self.transition_as_typewriter("""Someone turns to you, clutching their diagrams close to their chest.  They implore you,
         What is to be done? 
         """)
         if self.starting_point == "Gimel":
             lenin_opinion = "no "
         else:
             lenin_opinion = ""
-        print(f"""Another person turns to them whispering,
+        self.transition_as_typewriter(f"""Another person turns to them whispering,
         Don't be like that traitor! Died at 53 in a coma and for {lenin_opinion}good reason.""")
-        print("""They clutch their diagrams closer to their chest, fear in their eyes.""")
+        self.transition_as_typewriter("""They clutch their diagrams closer to their chest, fear in their eyes.""")
         growing_symbol_transition(symbol="⤷ ゛ ˎˊ˗", num_lines=2)
-        print("""Emerging out of the chaos, one person climbs on a chairs and clears their throat.
+        self.transition_as_typewriter("""Emerging out of the chaos, one person climbs on a chairs and clears their throat.
         The stirring begins to die down as people turn towards them.""")
-        print("""They begin to address the crowd.
+        self.transition_as_typewriter("""They begin to address the crowd.
         
         Fellow camp members, these are unprecedented times.
         We can not even eat breakfast as we used to.
@@ -185,18 +185,19 @@ class ChapterThree(LevelofStory):
         What will become of our way of life?
         """)
         growing_symbol_transition(symbol="ᕙ(  •̀ ᗜ •́  )ᕗ", num_lines=3)
-        print(f"""
+        self.transition_as_typewriter(f"""
         But fear not, we know that {chapter_camp.summary_statement}
         """)
-        print("""The crowd cheers.""")
+        self.transition_as_typewriter("""The crowd cheers.""")
         print(lock_and_key)
         print("""Do you cheer with the crowd? (Y/N)""")
         cheer_yes = self.player_yn_to_bool()
         if cheer_yes:
             print("""Unsure if you believe the speaker or this is just the wisest thing to do,
             you join the crowd cheering.""")
-            print("""The speaker clears his throat.  
+            self.transition_as_typewriter("""The speaker clears his throat.  
             Fellow comrades, let's get to work!""")
+            print("""""")
             print("""Unsure of what to do, you look around anxiously.  
             As your eyes complete their dart around the room, someone gestures at you to come over.""")
             print("""Do you go over to them? (Y/N)""")
@@ -238,17 +239,17 @@ class ChapterThree(LevelofStory):
                     growing_symbol_transition(symbol="""ﮩ٨ـﮩﮩ٨ـ♡ﮩ٨ـﮩﮩ٨ـ""", num_lines=3)
                     return chapter_camp.known_name, "believer", desired_product
 
-        elif not cheer_yes or not gesture_yes:
+        elif not cheer_yes:
             print("""You do not join in and feel uneasy surrounded by so many people 
             who would just go along with generic statements.""")
             growing_symbol_transition("(๑•́ -•̀)", num_lines=3)
-            print("""As you are about to despair, you turn around to see someone else who is also not clapping.""")
+            self.transition_as_typewriter("""As you are about to despair, you turn around to see someone else who is also not clapping.""")
             growing_symbol_transition("(๑•́ -•̀)", num_lines=2)
-            print("""They spot you and you relief wash over their face. They walk over towards you.
+            self.transition_as_typewriter("""They spot you and you relief wash over their face. They walk over towards you.
             You smile as they approach.
             (๑•́(੭˃ᴗ˂)੭•̀)""")
             print("""ﮩ٨ـﮩﮩ٨ـ♡ﮩ٨ـﮩﮩ٨ـ""")
-            print("""They invite you to get out of here and find a better part of camp.
+            self.transition_as_typewriter("""They invite you to get out of here and find a better part of camp.
             You smile and follow them.""")
             growing_symbol_transition(symbol="""ﮩ٨ـﮩﮩ٨ـ♡ﮩ٨ـﮩﮩ٨ـ""", num_lines=3)
             return chapter_camp.known_name, "contrarian", desired_product

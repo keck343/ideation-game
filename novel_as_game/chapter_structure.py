@@ -5,7 +5,7 @@ import time
 
 class LevelofStory:
     def __init__(self, number: int, main_character: IdeaObjectified,
-                 supporting_characters: List[IdeaObjectified] = [],
+                 supporting_characters: List[str] = [],
                  starting_point: str = ""):
         self.number = number
         self.main_character = main_character

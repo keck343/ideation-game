@@ -1,4 +1,5 @@
 from chapter_structure import LevelofStory
+from constants import quotes
 from text_graphics import growing_symbol_transition
 import time
 
@@ -35,103 +36,52 @@ class ChapterOne(LevelofStory):
         print("""As a new comer in a strange land, you override any social anxiety and walk towards them.""")
         time.sleep(1)
         print("")
-        print("""As you approach, the stranger asks you your known name.  Do you give your name? (Y/N)""")
-        yes: bool = self.player_yn_to_bool()
-        print("")
-        if yes:
-            partial_name: str = "UnK"
-            print(f"""You begin to say, 'I am {partial_name}...' but something feels off.""")
-            print("""In this new world with everything out of place, 
-            it feels as if you are mistaken about your own name.""")
-            known_player_name: str = partial_name
-        else:
-            print("""You pause, and in ambiguity say nothing at all.""")
-            known_player_name: str = "unknown"
-
-        print("")
-        time.sleep(1)
-        print("""Would you like to ask the stranger their name? (Y/N)""")
-        yes: bool = self.player_yn_to_bool()
-        if yes:
-            known_idea_name: str = self.supporting_characters[0].name
-            print(f"""You ask the stranger their known name.  
-            They tell you that they are {known_idea_name}.""")
-
-
-        print("")
-        print(f"""{known_idea_name} says,
-        'Hello {known_player_name}! Where do you come from?' """)
-        print("")
-        print("""You suddenly realize you have no recollection of where you come from.
-        Stunned by your lack of origin you simply reply:""")
-        print("""
-        'I have no idea.' 
-        """)
-        time.sleep(3)
-
-        print(f"""{known_idea_name} replies,
-        'I woke up here just like you with no memory of who I was or how I got here.  
-        Well come to think of it, amnesia is a pretty common experience here.  
-        You’re always halfway somewhere, aren’t you?
-        """)
-        print("")
-        time.sleep(1)
-
-        print(f"""Would you like to critique {known_idea_name}'s statement that 
-        'you are always halfway somewhere'? (Y/N)""")
-        yes: str = self.player_yn_to_bool()
-        if yes:
-            print(f"What do you say to {known_idea_name}?")
-            response = input()
-            print("")
-            print(f"""{known_idea_name} thinks over your statement carefully.""")
-            time.sleep(1)
-            print("")
-            print(f"""Do you {known_idea_name} think has taken in your point? (Y/N)""")
-            new_yes: bool = self.player_yn_to_bool()
-            print("")
-            if new_yes:
-                print(f"""{known_idea_name} thanks you for the dialogue, they had not thought of that before.
-                They feel this may expand their perspective.""")
-                self.supporting_characters[0].expand_idea(expansion=response)
-
-        print(f"""{known_idea_name} says, 'It was lovely to meet you, {known_player_name}, but I must be going,'
-        and exit stage left.
-        """)
-        print("")
-        time.sleep(1)
-
-        print("""Do you want to wonder around? (Y/N)""")
-        yes: bool = self.player_yn_to_bool()
-        print("")
-        if yes:
-            print("""Just as you are stumped on where to go next, a new being appears.""")
-        else:
-            print("""Just as you are being to feel lost and trapped, a new being appears.""")
-
-        # TO DO: consider assigning ideas numbers
-        if known_idea_name != "The stranger":
-            numberless_concept: str = known_idea_name.rsplit(' ', 1)[0]
-        else:
-            numberless_concept: str = "stranger"
-
-        print(f"""The new being walks over to you and introduces themselves as 
-             Rakonto 6.28.""")
-        if known_idea_name != "The stranger":
-            print(f"""You be begin to wonder how many {numberless_concept}s there are out there.""")
-        time.sleep(1)
+        print(f"""The stranger turns toward you smiling.  
+        I'm {self.supporting_characters[0]}.  What's your name?""")
         print(f"""
-        Just as soon as they appear, a new being calls for Rakonto 6.28.""")
-        self.transition_as_typewriter(f"""
-              They scamper off saying, 'Yes {self.supporting_characters[1].name}, I'm coming! 
-              Sorry to  be so brief {known_player_name} -  you should come to our dinner party!'
-              """)
+        Do you want to give {self.supporting_characters[0]} your name? (Y/N)""")
+        yes = self.player_yn_to_bool()
+        if yes:
+            print("""You freeze, realizing that suddenly you can not recall your name.""")
+        else:
+            print("""You shake your head no.""")
+
+        print(f"""Not to worry, {self.supporting_characters[0]} says, a lot of new folks here do not yet have names.""")
+
+        print(f"""A new person runs up to {self.supporting_characters[0]} saying,
+        I'm running late to worldview club and can not think of a quote to bring.""")
+
+        print(f"""{self.supporting_characters[0]} introduces the other person as {self.supporting_characters[1]} to you.
+        
+        They pause, and turn to you and ask you if you have a quote.""")
+        print("""Do you have a quote to give them? (Y/N)""")
+        yes = self.player_yn_to_bool()
+        if yes:
+            print(f"""You smile and say, a quote that resonates with me was once said by {quotes[self.main_character.player_quote_key]['author']}:
+            
+            '{quotes[self.main_character.player_quote_key]['quote']}'
+            """)
+
+            print(f"""{self.supporting_characters[1]}'s face lights up. 
+            I love that quote! They exclaim.
+            Worldview club's membership is currently closed, but we have a dinner party tonight. You should come!""")
+        else:
+            print(f"""{self.supporting_characters[0]} apologies for putting you on the spot.  
+            They turn to {self.supporting_characters[1]} and say:
+            My favorite quote is by {quotes[self.main_character.player_quote_key]['author']}:
+            
+            '{quotes[self.main_character.player_quote_key]['quote']}'""")
+
+            print("""A smile creeps on your face without you realizing it.""")
+            print(f"""{self.supporting_characters[1]} says:
+            It must be a good quote if the new person likes it! I'll use it. 
+            Are you going to the after worldview-club dinner party tonight?  Everyone is invited!""")
 
         print("""Do you wish to go to the dinner party? (Y/N)""")
         yes: bool = self.player_yn_to_bool()
         if yes:
             print(f"""
-            {numberless_concept} 6.28 says, 'Delightful, it starts at 7! See you there!'
+            {self.supporting_characters[1]} says, 'Delightful, it starts at 7! See you there!'
             """)
 
         else:
@@ -141,10 +91,14 @@ class ChapterOne(LevelofStory):
             time.sleep(1)
             print(f"""
             Before you can think of where you should be or what you should be doing,
-            {numberless_concept} 6.28 butts in,""")
-            print("""
-
+            {self.supporting_characters[0]} butts in,""")
+            self.transition_as_typewriter(f"""
             'You look so lost, this will be the thing to lift your spirits! 
-            Regardless, I really must insist.
+            When I first came here, it was important to listen to new ideas and make friends.
+            Plus there will be plenty of people who want to talk about {quotes[self.main_character.player_quote_key]["author"]}!
+            """)
+            print(f"""
             
+            Unable to come up with another excuse and thinking of {quotes[self.main_character.player_quote_key]["author"]},
+            you agree to go for only an hour.
             """)

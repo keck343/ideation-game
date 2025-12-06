@@ -71,7 +71,7 @@ class ChapterFour(LevelofStory):
         print("""Do you want to stay with your friend to figure out what to do? (Y/N)""")
         yes = self.player_yn_to_bool()
         if not yes:
-            print("""
+            self.transition_as_typewriter("""
             You turn away from your friend, doubting the person you have formed a bond with.
             Unsure what to do, you walk to the edge of the camp.
             """)
@@ -83,9 +83,9 @@ class ChapterFour(LevelofStory):
                 print(f"""You see the person from your old camp.  You feel embarrassed, 
                  but before you turn away they call out:
                 Sorry about earlier, I was having an off day! I found you a {desired_product}.""")
-                growing_symbol_transition(symbol="(๑'ᵕ'๑)⸝*", num_lines=2)
+                growing_symbol_transition(symbol="( •̯́ ₃ •̯̀)", num_lines=2)
                 print(f"""You smile and thank them for finding a {desired_product}.""")
-                growing_symbol_transition(symbol="(๑'ᵕ'๑)⸝*", num_lines=2)
+                growing_symbol_transition(symbol="૮ ˶ᵔ ᵕ ᵔ˶ ა", num_lines=2)
                 say_next: str = " next"
             else:
                 print("""You see the other guest from the dinner party that feels so long ago.""")
