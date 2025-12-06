@@ -42,15 +42,17 @@ new_idea_03 = "( ദ്ദി ˙ᗜ˙ )"
 
 end_state_mappings = {
     # player may be unaware that no camp can survive past max round unless they stop beings + ideas disappearance
-    'a': 'your camp survives',
+    # in any camp player can choose to read a novel, can not be a camp outcome
+    # if participate == False and player_End_key == 'a' player wins, world ends
+    'a': 'you read a novel, all other outcome are irrelevant',
     # no camp survives if they are only looking out for themselves
-    'b': 'your camp is the dominate voice in your sector',
+    'b': 'your camp becomes the dominate voice in your sector',
     # if c is camp's outcome then no one survives because beings are needed for ideas
-    'c': 'all camps survive',
+    'c': 'your camp survives',
     # player may be unaware that for all camps to survive, beings must survive
     'd': 'all camps survive & if beings exist they survive',
     # camp outcomes can not be e or f
     # if player achieves fame they are exiled from their camp
-    'e': 'you achieve fame, all other outcomes irrelevant',
+    'e': 'you achieve fame, all other outcomes are irrelevant',
     'f': 'you achieve fame & your camp survives - why do these need to be contradictory?',
 }

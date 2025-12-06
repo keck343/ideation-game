@@ -130,9 +130,9 @@ KonspiroCamp = CampObjectified(known_name="Konspiro",
                                their plan to fruition, nothing else could explain this scale.
                                We cannot survive without sufficient Attention.""",
                                brochure_summary="""to figure out what whoever is responsible for the drop in Attention wants.""",
-                               second_crisis_explanation="""We have failed to please Eksterteranoj's rulers or outsmart them.  
+                               second_crisis_explanation="""We have failed to please the rulers or outsmart them.
                                Attention drops even further,
-                               10 more reported disappeared."""
+                               10 more reported disappeared.""",
                                )
 
 BeitSector.add_camp(KonspiroCamp)
@@ -182,7 +182,7 @@ NovaEpokoCamp = CampObjectified(known_name="Nova Epoko",
                                 stated_camp_core_belief="""through strict self-discipline we will become imprivable to disappearance""",
                                 unstated_camp_core_belief="""Those who disappeared lacked discipline, 
                                 real dedication to self-improvement could have saved them""",
-                                end_state_key="a",
+                                end_state_key="c",
                                 )
 
 BeitSector.add_camp(NovaEpokoCamp)
@@ -209,36 +209,39 @@ GimelSector.add_camp(LongperspektivaCamp)
 NaciismoCamp = CampObjectified(known_name="Naciismo",
                                sector=BeitSector,
                                summary_statement="""in the face of the failures of the global Attention elites, 
-                               we must hold on to what we have""",
+                               we must create a world where we are safe""",
                                counter_sector_statement="""we are the victims, each camp must save themselves""",
                                tenants=["we can only be responsible for saving those in our camp",
                                         "other camps have attacked us in the past and it will never stop",
                                         "if others perish, it is unfortunate but that is not on us",
-                                        "we have a long and proud history that must continue"],
+                                        "we have a long and proud history that must continue",
+                                        "given historical legacies, we must annex a new place",
+                                        "it is our destiny and birthright to live in a new camp",
+                                        "this new place is the only way we will survive",
+                                        "people will always turn against us",
+                                        ],
                                stated_camp_core_belief="""as victims, we must preserve our way of life""",
-                               unstated_camp_core_belief="""we have suffered the most""",
+                               unstated_camp_core_belief="""we have suffered the most and 
+                               everyone else is destined to their fate""",
                                end_state_key='b'
                                )
 
 BeitSector.add_camp(NaciismoCamp)
 
 
-CionismoCamp = CampObjectified(known_name="Cionismo",
+AnarkioCamp = CampObjectified(known_name="Anarkio",
                                sector=GimelSector,
-                               summary_statement="""we must create a camp where we are safe from others and Beings""",
-                               counter_sector_statement="""Beings and the others will always persecute us.
-                               this is the only way""",
-                               tenants=["given historical legacies, we must annex a new place",
-                                        "this new place is the only way we will survive",
-                                        "people will always turn against us",
-                                        "we have a long and proud history that must continue",
-                                        "it is our destiny and birthright to live in a new camp"],
-                               stated_camp_core_belief="""a new camp is the only way""",
-                               unstated_camp_core_belief="""the people who are already living 
-                               in the new camp are destined to their fate""",
-                               end_state_key='a'
+                               summary_statement="""all hierarchy has caused the Attention imbalance,
+                               so we must abolish all hierarchies""",
+                               counter_sector_statement="""we are free thinkers""",
+                               tenants=["everyone must do what they think is right",
+                                        "all leaders are not to be trusted",
+                                        "ignorance is a personal failing"],
+                               stated_camp_core_belief="""each individual must chose their own path""",
+                               unstated_camp_core_belief="""no organization that can represent real collective action""",
+                               end_state_key='c'
                                )
-GimelSector.add_camp(CionismoCamp)
+GimelSector.add_camp(AnarkioCamp)
 
 
 BlankaSavismoCamp = CampObjectified(known_name="Blanka Savismo",
