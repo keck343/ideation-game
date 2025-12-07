@@ -69,6 +69,7 @@ class ChapterOne(LevelofStory):
             
             '{quotes[self.main_character.player_quote_key]['quote']}'""")
 
+            print("""""")
             print("""A smile creeps on your face without you realizing it.""")
             print(f"""{self.supporting_characters[1]} says:
             It must be a good quote if the new person likes it! I'll use it. 
@@ -94,8 +95,6 @@ class ChapterOne(LevelofStory):
             When I first came here, it was important to listen to new ideas and make friends.
             Plus there will be plenty of people who want to talk about {quotes[self.main_character.player_quote_key]["author"]}!
             """)
-            print(f"""
-            
-            Unable to come up with another excuse and thinking of {quotes[self.main_character.player_quote_key]["author"]},
+            print(f"""Unable to come up with another excuse and thinking of {quotes[self.main_character.player_quote_key]["author"]},
             you agree to go for only an hour.
             """)

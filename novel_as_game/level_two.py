@@ -40,7 +40,7 @@ class ChapterTwo(LevelofStory):
         second_talking_points = second_speaker.dinner_talking_points
 
         print(f"""we are discussing how {first_talking_points["sector"]}...""")
-        print(f"""The other guest interjects, which is of course preposterous
+        print(f"""The other guest interjects, which is of course preposterous,
         {second_talking_points["sector"]}""")
 
         print("""Would you like to:
@@ -128,7 +128,7 @@ class ChapterTwo(LevelofStory):
             self.transition_as_typewriter("""One guest rolls their eyes with a smug look of superiority on their face, 
             but quickly regains their calm composure.""")
             print("""""")
-            self.transition_as_typewriter("""The other smiles and says:""")
+            print("""The other smiles and says:""")
             self.transition_as_typewriter(BeitSector.dinner_talking_points["camp invitation"])
             inviter_name: str = BeitSector.name
 
@@ -180,7 +180,7 @@ class ChapterTwo(LevelofStory):
         print("""The other player thanks you for your response and takes their leave.""")
         growing_symbol_transition(symbol="ദ്ദി(˵ •̀ ᴗ - ˵ ) ✧", num_lines=2)
 
-        self.transition_as_typewriter("""You leave the party grateful to have some place to go and 
+        print("""You leave the party grateful to have some place to go and 
         wondering what just happened and what mysteries await you next cycle.""")
         print("""
 ────██──────▀▀▀██

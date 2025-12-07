@@ -98,16 +98,17 @@ if __name__ == '__main__':
     rounds: int = 6
     fame: bool = False
     no_tokens: bool = False
+    num_rounds_in_camp: int = 0
 
-    while rounds < max_round:
+    while rounds < max_round and num_rounds_in_camp < 3:
         chapter = ChapterSix(number=rounds, main_character=PlayerIdea,
-                             starting_point=(chapter_sector, next_camp, participated, fame, no_tokens))
-        PlayerIdea, chapter_sector, next_camp, saw_news, fame, no_tokens = chapter.run_level()
+                             starting_point=(chapter_sector, next_camp, num_rounds_in_camp, participated, fame, no_tokens))
+        PlayerIdea, chapter_sector, next_camp, num_rounds_in_camp, participated, fame, no_tokens = chapter.run_level()
         rounds += 1
 
     final_chapter = ChapterSix(number=rounds, main_character=PlayerIdea,
-                               starting_point=(chapter_sector, next_camp, participated, fame, no_tokens))
-    PlayerIdea, chapter_sector, chapter_camp, world_survives, player_wins, fame, no_tokens = final_chapter.run_level()
+                               starting_point=(chapter_sector, next_camp, num_rounds_in_camp, participated, fame, no_tokens))
+    PlayerIdea, chapter_sector, chapter_camp, world_survives, player_wins = final_chapter.run_level()
 
 
 

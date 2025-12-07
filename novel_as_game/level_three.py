@@ -50,7 +50,7 @@ class ChapterThree(LevelofStory):
         elif choice == 'e':
             desired_product = "purified water"
         else:
-            desired_product = "caffeine"
+            desired_product = "XL dunkin dounts iced coffee"  # "caffeine"
 
         self.transition_as_typewriter(f"""You see the embodiment form the party. 
         Hoping they will continue to be a good host, you walk over and inquire, 
@@ -171,11 +171,11 @@ class ChapterThree(LevelofStory):
             lenin_opinion = "no "
         else:
             lenin_opinion = ""
-        self.transition_as_typewriter(f"""Another person turns to them whispering,
+        print(f"""Another person turns to them whispering,
         Don't be like that traitor! Died at 53 in a coma and for {lenin_opinion}good reason.""")
-        self.transition_as_typewriter("""They clutch their diagrams closer to their chest, fear in their eyes.""")
+        print("""They clutch their diagrams closer to their chest, fear in their eyes.""")
         growing_symbol_transition(symbol="⤷ ゛ ˎˊ˗", num_lines=2)
-        self.transition_as_typewriter("""Emerging out of the chaos, one person climbs on a chairs and clears their throat.
+        print("""Emerging out of the chaos, one person climbs on a chairs and clears their throat.
         The stirring dies down as people turn towards them.""")
         self.transition_as_typewriter("""They begin to address the crowd saying:
         
@@ -245,11 +245,11 @@ class ChapterThree(LevelofStory):
             growing_symbol_transition("(๑•́ -•̀)", num_lines=3)
             self.transition_as_typewriter("""As you are about to despair, you turn around to see someone else who is also not clapping.""")
             growing_symbol_transition("(๑•́ -•̀)", num_lines=2)
-            self.transition_as_typewriter("""They spot you and you relief wash over their face. They walk over towards you.
+            print("""They spot you and you relief wash over their face. They walk over towards you.
             You smile as they approach.
             (๑•́(੭˃ᴗ˂)੭•̀)""")
             print("""ﮩ٨ـﮩﮩ٨ـ♡ﮩ٨ـﮩﮩ٨ـ""")
-            self.transition_as_typewriter("""They invite you to get out of here and find a better part of camp.
+            print("""They invite you to get out of here and find a better part of camp.
             You smile and follow them.""")
             growing_symbol_transition(symbol="""ﮩ٨ـﮩﮩ٨ـ♡ﮩ٨ـﮩﮩ٨ـ""", num_lines=3)
             return chapter_camp.known_name, "contrarian", desired_product

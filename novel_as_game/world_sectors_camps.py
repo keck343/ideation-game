@@ -74,7 +74,7 @@ BeitSector = SectorObjectified(name="Beit",
                                     Some even claim that we come out of their thoughts, 
                                     as if we are not enough in and of ourselves. 
                                     As if something as foolish as attention could control our fate.""",
-                                   "disappearance": """The Eksterteranoj's plans must be advancing quickly.""",
+                                   "disappearance": """The elite's plans must be advancing quickly.""",
                                    "Beings counter point": """No one has ever seen a being.
                                     I believe in things I have done my own research on.""",
                                    "camp invitation": """You are correct to reject the nonsense of Beings.
@@ -88,7 +88,7 @@ GimelSector = SectorObjectified(name="Gimel",
                                 core_belief="Beings are probable to exist. There is a synthesis we do not yet know.",
                                 beings_exist=True,
                                 dinner_talking_points={
-                                    "sector": "The fact that Beings exist is widely accepted by most camps.",
+                                    "sector": "the fact that Beings exist is widely accepted by most camps.",
                                     "Beings": """Through careful research into the disappearance of our kind,
                                     most scientists Beings exist in a physical realm that we are connected to.
                                     Our origin story is still a matter of debate, but most agree there is an 
@@ -126,7 +126,7 @@ KonspiroCamp = CampObjectified(known_name="Konspiro",
                                you can find truth.""", """Everything you once knew is false"""],
                                initial_crisis_headline="""The new world order may be upon us.
                                Unprecedented Drop in Attention Rates""",
-                               initial_crisis_explanation="""the Eksterteranoj's rulers are bringing 
+                               initial_crisis_explanation="""the rulers are bringing 
                                their plan to fruition, nothing else could explain this scale.
                                We cannot survive without sufficient Attention.""",
                                brochure_summary="""to figure out what whoever is responsible for the drop in Attention wants.""",
