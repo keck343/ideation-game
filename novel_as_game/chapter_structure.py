@@ -36,7 +36,7 @@ class LevelofStory:
         next_parameters = self.events()
         time.sleep(1)
         self.parting()
-        growing_symbol_transition(sleep_seconds=0.5)
+        growing_symbol_transition(sleep_seconds=0.25)
         return next_parameters
 
     @staticmethod
@@ -67,7 +67,7 @@ class LevelofStory:
         return answer
 
     @staticmethod
-    def transition_as_typewriter(transition_str, time_between: float = 0.1):
+    def transition_as_typewriter(transition_str, time_between: float = 0.05):
         for transition in transition_str:
             print(transition, end='', flush=True)
             time.sleep(time_between)

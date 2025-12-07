@@ -94,8 +94,7 @@ class ChapterSix(LevelofStory):
             growing_symbol_transition(moon_star_line, num_lines=3)
             return True
 
-
-    def round_one(self, chapter_camp):
+    def round_one(self, chapter_camp, last_round: bool = False):
         """
         free market for tokens introduced
         in all camps but Skalismo, free market is adopted
@@ -104,26 +103,33 @@ class ChapterSix(LevelofStory):
 
         returns fame, no_tokens: bool
         """
-        print("""round 1 is to be written""")
+        print(f"""round 1 for {chapter_camp.known_name} is to be written""")
         fame: bool = False
         no_tokens: bool = False
-        next_chapter_camp = self.switch_choice(chapter_camp)
+        if last_round:
+            next_chapter_camp = chapter_camp
+        else:
+            next_chapter_camp = self.switch_choice(chapter_camp)
         return fame, no_tokens, next_chapter_camp
 
-    def round_two(self, chapter_camp, fame, no_tokens):
+    def round_two(self, chapter_camp, fame, no_tokens, last_round: bool = False):
         """
         fall of free market and death of camp unless:
         Skalismo --> democratically managed economy
         Anarkio and no_tokens --> chaos + disorder + invasion?
         """
-        print("""round 2 is to be written""")
+        print(f"""round 2 for {chapter_camp.known_name} is to be written""")
         if chapter_camp == SkalismoCamp:
             camp_lives: bool = True
-            return camp_lives, chapter_camp
         else:
             camp_lives: bool = False
+
+        if last_round or chapter_camp == SkalismoCamp:
+            next_chapter_camp = chapter_camp
+        else:
             next_chapter_camp = self.switch_choice(chapter_camp)
-            return camp_lives, next_chapter_camp
+
+        return camp_lives, next_chapter_camp
 
     def switch_choice(self, chapter_camp):
         if chapter_camp.sector.name == "Beit":
@@ -136,7 +142,6 @@ class ChapterSix(LevelofStory):
         visited_chapter_sector_camps = [camp for camp in self.main_character.camps if camp.sector == chapter_sector]
         visited_alt_sector_camps = [camp for camp in self.main_character.camps if camp.sector != chapter_sector]
         camp_index = chapter_sector.camps.index(chapter_camp)
-
 
         if camp_index == len(chapter_sector.camps) - 1:
             next_camp_index = 0
@@ -166,7 +171,7 @@ class ChapterSix(LevelofStory):
         sector_or_camp: str = random.choice('SC')
         if sector_or_camp == 'S':
             print(watch_fence_void)
-            self.transition_as_typewriter(f"""The person asks you if seen that {alt_sector.dinner_talking_points["sector"]}""")
+            print(f"""The person asks you if seen that {alt_sector.dinner_talking_points["sector"]}""")
             print(f"""Do you agree that '{alt_sector.dinner_talking_points["sector"]}'? (Y/N)""")
             sector_yes = self.player_yn_to_bool()
             if sector_yes:
@@ -174,7 +179,7 @@ class ChapterSix(LevelofStory):
                 Yes! I've seen the error in my ways and want to go where people think '{alt_sector.dinner_talking_points["sector"]}'""")
                 print("""Without thinking, you cross over the fence,
                 leaving what you knew behind.""")
-                return True, alt_sector.camps[camp_index]
+                return next_alt_chapter_camp
             else:
                 print(f"""You respond, 
                 Sorry, I'm looking for another path but that is not it.""")
@@ -182,13 +187,13 @@ class ChapterSix(LevelofStory):
                 print(fence_void)
                 print("""You turn and are confronted with another fence. 
                 A new person calls out to you: """)
-                self.transition_as_typewriter(f"""You are right about beings.
+                print(f"""You are right about beings.
                 Why don't you come to my camp, where we believe that
-                {chapter_sector.camps[next_camp_index].summary_statement}?""")
+                {next_chapter_camp.summary_statement}?""")
                 print("""You briefly consider going back to the safety of your camp,
                 but the anger in their eyes reminds you this is the time to leave.""")
-                print("""For better or worse, you cross over the fence.""")
-                return True, chapter_sector.camps[next_camp_index]
+                self.transition_as_typewriter("""For better or worse, you cross over the fence.""")
+                return next_chapter_camp
         else:
             print(fence_void)
             print(f"""The person behind the fence looks concerned.  They invite you to their camp.
@@ -196,15 +201,15 @@ class ChapterSix(LevelofStory):
             print(f"""Do you ask what their camp believes? (Y/N)""")
             beliefs_yes = self.player_yn_to_bool()
             if beliefs_yes:
-                print(f"""They say that their camp believes: {chapter_sector.camps[next_camp_index].summary_statement}""")
+                print(f"""They say that their camp believes: {next_chapter_camp.summary_statement}""")
             print("""Do you want to join their camp? (Y/N)""")
             camp_yes = self.player_yn_to_bool()
             if camp_yes:
                 print("""You accept the invitation to their camp, wondering what awaits you next.""")
-                return True, chapter_sector.camps[next_camp_index]
+                return next_chapter_camp
             elif beliefs_yes:
                 print(f"""You say that you can not go somewhere where people believe that
-                {chapter_sector.camps[next_camp_index].summary_statement}
+                {next_chapter_camp.summary_statement}
                 """)
             else:
                 print("""You decline, this feels wrong in your gut.""")
@@ -212,18 +217,18 @@ class ChapterSix(LevelofStory):
             self.transition_as_typewriter("""Just as you are about to give up leaving, a different fence appears.""")
             print(watch_fence_void)
             print("""A different person waves at you.""")
-            self.transition_as_typewriter(f"""They ask you if seen that {chapter_sector.dinner_talking_points["sector"]}""")
-            print(f"""Do you agree that '{chapter_sector.dinner_talking_points["sector"]}'? (Y/N)""")
+            self.transition_as_typewriter(f"""They ask you if seen that {alt_sector.dinner_talking_points["sector"]}""")
+            print(f"""Do you agree that '{alt_sector.dinner_talking_points["sector"]}'? (Y/N)""")
             sector_yes = self.player_yn_to_bool()
             if sector_yes:
                 print(f"""Sighing in relief, you nod yes.""")
                 print("""Without thinking, you cross over the fence,
                                 leaving what you knew behind.""")
-                return True, alt_sector[next_camp_index]
+                return next_alt_chapter_camp
             else:
-                if chapter_camp == GimelSector.camps[-1] or alt_sector[next_camp_index] == SkalismoCamp:
+                if chapter_camp == GimelSector.camps[-1] or next_alt_chapter_camp == SkalismoCamp:
                     print("""Realizing that neither of these are great options, you turn back towards your camp.""")
-                    return False, chapter_camp
+                    return chapter_camp
 
                 else:
                     print("""You say you don't agree with them about beings.""")
@@ -234,13 +239,11 @@ class ChapterSix(LevelofStory):
                     yes = self.player_yn_to_bool()
                     if yes:
                         print("""You accept the invitation to their camp, wondering what awaits you next.""")
-                        return True, SkalismoCamp
+                        return SkalismoCamp
                     else:
                         print("""You decline.  
                         Feed up with the lack of other options, you turn back towards your camp.""")
-                        return False, chapter_sector
-
-
+                        return chapter_sector
 
     def events(self):
         # from last level saw_news is bool
@@ -257,10 +260,13 @@ class ChapterSix(LevelofStory):
 
             self.main_character.chose_desired_end_state(desired_outcome)
 
-        # extra round if in the socialist camp
+        # extra round if just switched camps
         if self.number == max_round or num_rounds_in_camp >= 3:
             if num_rounds_in_camp < 1 and participate:
-                fame, no_tokens = self.round_one(chapter_camp)
+                fame, no_tokens = self.round_one(chapter_camp, last_round=True)
+            elif num_rounds_in_camp == 1 and chapter_camp == SkalismoCamp:
+                self.round_two(SkalismoCamp, fame, no_tokens, last_round=True)
+
             world_survives, player_wins = self.ending(chapter_camp, participate)
             return self.main_character, chapter_sector, chapter_camp, world_survives, player_wins
 
@@ -272,15 +278,19 @@ class ChapterSix(LevelofStory):
             self.main_character.add_camp(chapter_camp)
 
         print(f"run round {self.number} -- camp round {num_rounds_in_camp}")
+        if self.number == max_round - 1:
+            last_round = True
+        else:
+            last_round = False
+
         if num_rounds_in_camp == 1:
-            fame, no_tokens, next_chapter_camp = self.round_one(chapter_camp)
+            fame, no_tokens, next_chapter_camp = self.round_one(chapter_camp, last_round)
         elif num_rounds_in_camp == 2:
-            camp_lives, next_chapter_camp = self.round_two(chapter_camp)
+            camp_lives, next_chapter_camp = self.round_two(chapter_camp, last_round)
 
         if next_chapter_camp != chapter_camp:
             num_rounds_in_camp = 0
 
-        print(chapter_sector, chapter_camp, num_rounds_in_camp, participate, num_rounds_in_camp,fame, no_tokens)
-        return self.main_character, chapter_sector, chapter_camp, num_rounds_in_camp, participate, fame, no_tokens
+        return self.main_character, chapter_sector, next_chapter_camp, num_rounds_in_camp, participate, fame, no_tokens
 
 
