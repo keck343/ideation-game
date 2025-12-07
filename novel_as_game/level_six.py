@@ -133,11 +133,32 @@ class ChapterSix(LevelofStory):
             chapter_sector = GimelSector
             alt_sector = BeitSector
 
+        visited_chapter_sector_camps = [camp for camp in self.main_character.camps if camp.sector == chapter_sector]
+        visited_alt_sector_camps = [camp for camp in self.main_character.camps if camp.sector != chapter_sector]
         camp_index = chapter_sector.camps.index(chapter_camp)
+
+
         if camp_index == len(chapter_sector.camps) - 1:
-            next_camp_index = random.choice([2, 3])
+            next_camp_index = 0
         else:
             next_camp_index = camp_index + 1
+
+        next_chapter_camp = chapter_sector.camps[next_camp_index]
+        next_alt_camp = alt_sector.camps[next_camp_index]
+
+        if next_chapter_camp in visited_chapter_sector_camps:
+            unvisited_chapter_camps = set(chapter_sector.camps) - set(visited_chapter_sector_camps)
+            if len(unvisited_chapter_camps) == 0:
+                next_chapter_camp = visited_chapter_sector_camps[0]
+            else:
+                next_chapter_camp = random.choice(unvisited_chapter_camps)
+
+        if next_alt_camp in visited_alt_sector_camps:
+            unvisited_alt_camps = set(alt_sector.camps) - set(visited_alt_sector_camps)
+            if len(unvisited_alt_camps) == 0:
+                next_alt_chapter_camp = visited_alt_sector_camps[0]
+            else:
+                next_alt_chapter_camp = random.choice(unvisited_alt_camps)
 
         self.transition_as_typewriter("""You escape to the edge of camp.  
         As you approach you see a fence and someone waving at you from behind it.""")
@@ -248,6 +269,7 @@ class ChapterSix(LevelofStory):
             return self.main_character, chapter_sector, chapter_camp, num_rounds_in_camp, participate, fame, no_tokens
         else:
             num_rounds_in_camp += 1
+            self.main_character.add_camp(chapter_camp)
 
         print(f"run round {self.number} -- camp round {num_rounds_in_camp}")
         if num_rounds_in_camp == 1:

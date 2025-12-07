@@ -102,10 +102,10 @@ class ChapterTwo(LevelofStory):
         growing_symbol_transition(symbol="( ｡ •̀ ᴖ •́ ｡)", num_lines=3)
         self.transition_as_typewriter(f"""The second guest continues, 
         {second_talking_points["Beings counter point"]}""")
-        growing_symbol_transition(symbol="( ｡ •̀ ᴖ •́ ｡)", num_lines=2)
+        growing_symbol_transition(symbol="୧(๑•̀ᗝ•́)૭", num_lines=2)
         self.transition_as_typewriter(f"""The first guest interjects, 
         {first_talking_points["Beings counter point"]}""")
-        growing_symbol_transition(symbol="୧(๑•̀ᗝ•́)૭", num_lines=1)
+        growing_symbol_transition(symbol="୧(๑•̀ᗝ•́)૭( ｡ •̀ ᴖ •́ ｡)", num_lines=1)
 
         print(f"""You find yourself faced with a choice. 
         Do you believe Beings are likely to exist? (Y/N)""")
@@ -119,8 +119,8 @@ class ChapterTwo(LevelofStory):
             self.transition_as_typewriter("""Both guests now turn their attention to you.  
             One makes an audible sigh of frustration, but appears to be regaining their composure.""")
 
-            self.transition_as_typewriter("""The other smiles and says:""")
-            self.transition_as_typewriter(GimelSector.dinner_talking_points["camp invitation"])
+            print("""The other smiles and says:""")
+            print(GimelSector.dinner_talking_points["camp invitation"])
             inviter_name: str = GimelSector.name
 
         else:

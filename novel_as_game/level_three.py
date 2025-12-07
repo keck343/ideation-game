@@ -52,7 +52,7 @@ class ChapterThree(LevelofStory):
         else:
             desired_product = "XL dunkin dounts iced coffee"  # "caffeine"
 
-        self.transition_as_typewriter(f"""You see the embodiment form the party. 
+        print(f"""You see the embodiment form the party. 
         Hoping they will continue to be a good host, you walk over and inquire, 
         Do you know where I could find a {desired_product}?""")
         print("(｡ᵕ ◞ _◟)")
@@ -61,7 +61,7 @@ class ChapterThree(LevelofStory):
         There hasn't been {desired_product} in many cycles.
         I guess you did conclude quote: '{self.main_character.description}' """)
 
-        self.transition_as_typewriter(f"""
+        print(f"""
         They sigh and say: 
         Come, let's meet with the others to figure out what do about the lack of {desired_product} these days.""")
 
@@ -159,6 +159,8 @@ class ChapterThree(LevelofStory):
                 print("""Determined to prove them wrong, you say nothing and turn back towards the others.""")
 
 
+        # counts as full visit to camp:
+        self.main_character.add_camp(chapter_camp)
 
         # unless level is already exited, one way or another you turn towards the others in the camp
         print("""As you walk towards the others, you see many people fluttering around 

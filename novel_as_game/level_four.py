@@ -231,7 +231,7 @@ class ChapterFour(LevelofStory):
                     reason = input()
 
                 self.main_character.expand_idea(reason)
-                print(f"""No thank-you, you reply, I think
-                                    {reason}""")
+                print(f"""No thank-you, you reply, I think {reason}""")
+                print("""""")
                 print("""Too bad, your friend replies, I guess we will see what tomorrow brings.""")
                 return self.main_character, chapter_sector.name, "skip"

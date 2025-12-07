@@ -1,4 +1,5 @@
 from world_ideas import IdeaObjectified
+from text_graphics import growing_symbol_transition
 from typing import List, Dict
 import time
 
@@ -35,7 +36,7 @@ class LevelofStory:
         next_parameters = self.events()
         time.sleep(1)
         self.parting()
-        self.transition_as_typewriter(self.transition_str)
+        growing_symbol_transition(sleep_seconds=0.5)
         return next_parameters
 
     @staticmethod
@@ -66,7 +67,7 @@ class LevelofStory:
         return answer
 
     @staticmethod
-    def transition_as_typewriter(transition_str, time_between: float = 0.01):
+    def transition_as_typewriter(transition_str, time_between: float = 0.1):
         for transition in transition_str:
             print(transition, end='', flush=True)
             time.sleep(time_between)

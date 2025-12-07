@@ -209,6 +209,7 @@ class ChapterFive(LevelofStory):
                 {chapter_camp.stated_camp_core_belief} and
                 {chapter_camp.counter_sector_statement}""")
                 print(watch_fence_void)
+                self.main_character.add_camp(chapter_camp)
             elif choice == "b":
                 print("""You find a novel and quite enjoy reading it.""")
             else:
