@@ -143,7 +143,40 @@ class ChapterSix(LevelofStory):
                 growing_symbol_transition("(╥﹏╥)", num_lines=2)
                 print(f"""You address the crowd saying: 
                 {chapter_camp.round_one_dict["counter_lecture"]}""")
-                if chapter_camp == AnarkioCamp:
+                if chapter_camp != AnarkioCamp:
+                    fame = True
+                    print("""You look around at your camp and realize you must say something.""")
+                    growing_symbol_transition("(╥﹏╥)", num_lines=2)
+                    print(f"""You address the crowd saying:
+                                                    {chapter_camp.round_one_dict["counter_lecture"]}
+                                                    """)
+                    print(f"""While some people seem to consider what you are saying, most start chanting:
+
+                                    {chapter_camp.round_one_dict["chant"]}""")
+                    print("""The lecturer eggs the crowd on saying:
+
+                                        Yes friends, these are unprecedented times that call for unprecedented measures!
+                                            The future awaits us!
+
+                                    """)
+                    print("""What do you do?
+
+                                                    a. Join the lecturer and the camp on their new token path
+                                                    c. Leave the entire camp behind.
+
+                                                    Type 'a' or 'b' """)
+                    choice = self.player_multi_choice(['a', 'b'])
+                    if choice == 'b':
+                        print(f"""You know in your heart you must leave and try to find new ways to exist 
+                                        with {min(11 - self.number, 1) * 10}% of all the embodiments everywhere that are left.
+                                        You walk away from the crowd.""")
+                        if last_round:
+                            next_chapter_camp = chapter_camp
+                        else:
+                            next_chapter_camp = self.switch_choice(chapter_camp)
+                        return fame, no_tokens, next_chapter_camp
+
+                elif chapter_camp == AnarkioCamp:
                     print("""People cheer.  Your friend changes their mind and calls for people to reject the lecturer.""")
                     print("""The lecturer the crowd:
 
@@ -214,7 +247,9 @@ class ChapterSix(LevelofStory):
                     next_chapter_camp = self.switch_choice(chapter_camp)
                     return fame, no_tokens, next_chapter_camp
 
-            else: # elif not doctrine_yes:
+            # elif doctrine_yes:
+
+            elif not doctrine_yes:
                 print(f"""The crowd continues to cheer. Someone beings to chant:
                 
                 {chapter_camp.round_one_dict["chant"]}
@@ -248,6 +283,8 @@ class ChapterSix(LevelofStory):
                     print("""You realize you have to get out of here as soon as possible. You walk away from the crowd.""")
                     next_chapter_camp = self.switch_choice(chapter_camp)
                     return fame, no_tokens, next_chapter_camp
+
+            return fame, no_tokens, chapter_camp
 
         elif chapter_camp == SkalismoCamp:
             print(f"""People look uncomfortable and start to murmur.""")
@@ -378,10 +415,11 @@ class ChapterSix(LevelofStory):
 
         if last_round or chapter_camp == SkalismoCamp:
             next_chapter_camp = chapter_camp
+            return fame, camp_lives, next_chapter_camp
         else:
             next_chapter_camp = self.switch_choice(chapter_camp)
 
-        return camp_lives, next_chapter_camp
+        return fame, camp_lives, next_chapter_camp
 
     def switch_choice(self, chapter_camp):
         if chapter_camp.sector.name == "Beit":
@@ -538,7 +576,7 @@ class ChapterSix(LevelofStory):
         if num_rounds_in_camp == 1:
             fame, no_tokens, next_chapter_camp = self.round_one(chapter_camp, last_round)
         elif num_rounds_in_camp == 2:
-            camp_lives, next_chapter_camp = self.round_two(chapter_camp, last_round)
+            fame, camp_lives, next_chapter_camp = self.round_two(chapter_camp, last_round, no_tokens)
 
         if next_chapter_camp != chapter_camp:
             num_rounds_in_camp = 0
