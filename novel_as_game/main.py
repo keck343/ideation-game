@@ -22,7 +22,7 @@ An existential crisis in the form of a python script. Enjoy!
 """
 
 # for debugging
-debugging: bool = True
+debugging: bool = False
 
 
 def game_step_up():
