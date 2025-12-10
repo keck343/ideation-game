@@ -12,8 +12,8 @@ from constants import max_round
 from typing import Dict
 from chapter_structure import LevelofStory
 from world_ideas import Inspiration001, Overwhelm001, Conspiracism001, Systems001
-from text_graphics import growing_symbol_transition, welcome_art
-from world_sectors_camps import BeitSector, GimelSector
+from text_graphics import growing_symbol_transition, welcome_art, transition_as_typewriter, heart_of_zeros
+from world_sectors_camps import BeitSector, GimelSector, CampObjectified, SkalismoCamp
 
 """ 
 Disambiguation
@@ -53,6 +53,77 @@ def game_step_up():
 def exit_handler():
     print("""Welcome back to Level 0.
             You have now left this world, but has it left you?""")
+
+
+def ending(end_camp: CampObjectified, PlayerIdea: IdeaObjectified, final_num_rounds_in_camp: int):
+
+    if final_num_rounds_in_camp > 0 and end_camp == SkalismoCamp:
+        world_survived = True
+    else:
+        world_survived = False
+
+    passcode_instructions: str = """Give the passcode 'all caffeine'
+    to the bartender to get the diagram"""
+
+    player_wins: bool = False
+
+    if not world_survived:
+        # chose to read novel
+        if PlayerIdea.desired_end_state_key == 'a':
+            print("""You did get to finish your novel.""")
+            player_wins: bool = True
+            transition_as_typewriter("""
+            As you relish in the prose,
+            the last being perished and 
+            like the rest of the embodied, you disappeared into the void.
+            """)
+            growing_symbol_transition(symbol="+=={:::::::::::::::::>", num_lines=3)
+
+        if end_camp.end_state_key == PlayerIdea.desired_end_state_key:
+            player_wins: bool = True
+            print("""You achieved your goal, but you did not survive much longer to enjoy your victory
+                because no one did.""")
+
+        if player_wins:
+            growing_symbol_transition(symbol="+=={:::::::::::::::::>", num_lines=3)
+            print(f"""Unlike the real world, there is a diagram for how this world works.
+                Sense you did achieve your goal,
+                {passcode_instructions}
+                """)
+            print(""" 
+            Maybe you will want to play again with this new knowledge.""")
+        else:
+            growing_symbol_transition(symbol="+=={:::::::::::::::::>", num_lines=3)
+            print("""How the world works will remain a mystery,
+                but unlike real life,
+                you can choose to play this game again.""")
+
+    if world_survived:
+        if PlayerIdea.desired_end_state_key in ['d', 'c']:
+            player_wins: bool = True
+        print("""
+        In the end, your camp stopped the death of the embodied and Beings.
+        While the world could never be the same again,
+        Attention flows through out all the camps.""")
+        growing_symbol_transition("√♥-√v--√♥-√v–", num_lines=3)
+
+        if PlayerIdea.desired_end_state_key in ['b']:
+            print("""Your new found camp survived and allowed other camps to survive.
+            This came voice grew but did not dominate.""")
+
+        elif PlayerIdea.desired_end_state_key in ['e', 'f']:
+            print("""Your attempts at fame however were fleeting.  
+            Your fellow camp members were feed up with your ego, and no one will talk to you.""")
+
+        elif PlayerIdea.desired_end_state_key in ['d']:
+            print("""You sigh in relief.""")
+            print("""You achieved your goal and the world goes on.""")
+
+        print(heart_of_zeros)
+        print(f"""Unlike the real world, there is a diagram for how this world works.
+        Sense the world survived,
+        {passcode_instructions}
+        """)
 
 
 # Press the green button in the gutter to run the script.
@@ -98,21 +169,16 @@ if __name__ == '__main__':
         PlayerIdea, chapter_sector, next_camp, participated = chapter_05.run_level()
 
     rounds: int = 6
-    fame: bool = False
-    no_tokens: bool = False
     num_rounds_in_camp: int = 0
-    last_round: bool = False
+    end_loop: bool = False
 
-    while (rounds < max_round or num_rounds_in_camp < 3) and not last_round:
+    while not end_loop:
         chapter = ChapterSix(number=rounds, main_character=PlayerIdea,
-                             starting_point=(chapter_sector, next_camp, num_rounds_in_camp, participated, fame, no_tokens, last_round))
-        PlayerIdea, chapter_sector, next_camp, num_rounds_in_camp, participated, fame, no_tokens, last_round = chapter.run_level()
+                             starting_point=(chapter_sector, next_camp, num_rounds_in_camp, end_loop))
+        PlayerIdea, chapter_sector, next_camp, num_rounds_in_camp, end_loop = chapter.run_level()
         rounds += 1
 
-    final_chapter = ChapterSix(number=rounds, main_character=PlayerIdea,
-                               starting_point=(chapter_sector, next_camp, num_rounds_in_camp, participated, fame, no_tokens, last_round))
-
-    PlayerIdea, chapter_sector, chapter_camp, world_survives, player_wins, fame, no_tokens = final_chapter.run_level()
+    ending(end_camp=next_camp)
 
 
 

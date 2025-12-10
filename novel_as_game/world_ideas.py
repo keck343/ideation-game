@@ -4,7 +4,9 @@ from world_sectors_camps import BeitSector, GimelSector, SectorObjectified
 class IdeaObjectified:
     def __init__(self, name, description, creator, sectors: List = [], camps: List = [],
                  player_quote_key: str = 'a',
-                 desired_end_state_key: str = 'a'):
+                 desired_end_state_key: str = 'a',
+                 fame: bool = False,
+                 no_tokens: bool = False):
         self.name: str = name
         self.description: str = description
         self.creator: str = creator
@@ -17,6 +19,8 @@ class IdeaObjectified:
         self.rejected_camps: List = []
         self.player_quote_key = player_quote_key
         self.desired_end_state_key = desired_end_state_key
+        self.fame = fame
+        self.no_tokens = no_tokens
 
     def print_name(self):
         print(self.name)
