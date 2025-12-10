@@ -49,174 +49,67 @@ class ChapterSix(LevelofStory):
         print("""The lecturer says: """)
         print(chapter_camp.round_one_dict["lecturer"])
 
-        if chapter_camp != SkalismoCamp:
-            print("""Someone in the crowd shouts:
-        How would we do that?
-        """)
-            print("""The lecture replies:
-        
-        We can achieve that if we implement tokens as a reward.  
-        These tokens will give those who work the hardest the ability to buy the remaining resources and Attention.""")
-
-            if chapter_camp == AnarkioCamp:
+        if chapter_camp == AnarkioCamp:
+            print("""Your friend seems excited, but others look concerend.""")
+            print("""Do you want to challenge the lecturer's doctrine? (Y/N) """)
+            doctrine_yes = self.player_yn_to_bool()
+            if doctrine_yes:
+                self.main_character.no_tokens = True
+                self.main_character.fame = True
+                print("""You look around at your camp and realize you must say something.""")
+                growing_symbol_transition("(╥﹏╥)", num_lines=2)
+                print(f"""You address the crowd saying: 
+                                {chapter_camp.round_one_dict["counter_lecture"]}
+                                """)
+            else:
                 print("""Someone in the crowd shouts: Why would we care if we reject authority?
-                                         
+
                 The lecturer replied:
-                
+
                 Their big banks are popping up everywhere, we must provide an alternative to tokens!
                 """)
 
-            elif chapter_camp != SkalismoCamp:
-                print("""You can see excitement rising in your friend and camp members.
+            print("""You turn to look at your friend, and see their excitement turn to disgust.""")
+            print(f"""They address the crowd saying: 
+                {chapter_camp.round_one_dict["counter_lecture"]}""")
+            print("""A few people murmur in agreement.
+            """)
+            self.transition_as_typewriter("""The lecturer looks around as if to see if they still have supporters.  
+
+                Come my friends, they implore, these are unprecedented times that call for unprecedented measures.
+                We must leave those who would hold us back behind.
+
                 """)
-                print("""Do you want to challenge the lecturer's doctrine? (Y/N) """)
-                doctrine_yes = self.player_yn_to_bool()
-                if doctrine_yes:
-                    self.main_character.no_tokens = True
-                    self.main_character.fame = True
-                    print("""You look around at your camp and realize you must say something.""")
-                    growing_symbol_transition("(╥﹏╥)", num_lines=2)
-                    print(f"""You address the crowd saying: 
-                    {chapter_camp.round_one_dict["counter_lecture"]}
-                    """)
+            print("""Another person makes a motion to split the camp.  
+                Your friend tells you this is uncommon but not unheard of.
+                """)
+            print("""What do you do?
 
-                    if chapter_camp != AnarkioCamp:
-                        print(f"""While some people seem to consider what you are saying, most start chanting:
-    
-                                        {chapter_camp.round_one_dict["chant"]}""")
-                        print("""The lecturer eggs the crowd on saying:
-    
-                                            Yes friends, these are unprecedented times that call for unprecedented measures!
-                                                The future awaits us!
-    
-                                        """)
-                        print("""What do you do?
-    
-                            a. Join the lecturer and the camp on their new token path
-                            c. Leave the entire camp behind.
-    
-                            Type 'a' or 'b' """)
-                        choice = self.player_multi_choice(['a', 'b'])
-                        if choice == 'b':
-                            print(f"""You know in your heart you must leave and try to find new ways to exist 
-                                            with {min(11 - self.number, 1) * 10}% of all the embodiments everywhere that are left.
-                                            You walk away from the crowd.
-                                            """)
-                            if last_round:
-                                next_chapter_camp = chapter_camp
-                            else:
-                                next_chapter_camp = self.switch_choice(chapter_camp)
-                            return next_chapter_camp
+                a. Join the lecturer's side of the camp
+                b. Reject the lecturer and stay
+                c. Leave the entire camp behind.
 
-                    elif chapter_camp == AnarkioCamp:
-                        self.main_character.no_tokens = True
-                        print("""People cheer.  Your friend changes their mind and calls for people to reject the lecturer.""")
-                        print("""The lecturer the crowd:
-    
-                        Come my friends, they implore, these are unprecedented times that call for unprecedented measures.
-                        I call for a motion to split the camp.""")
-                        print("""""")
-                        print("""A murmur ripples through the crowd.  
-                        Your friend stands up and tells the lecturer they are welcome to leave and start their own camp.""")
-                        print("""""")
-                        growing_symbol_transition("(⸝⸝⸝╸w╺⸝⸝⸝)", num_lines=3)
-                        print("""The lecturer invites all who are with them to split and start their own camp.""")
-                        growing_symbol_transition("(⸝⸝⸝╸w╺⸝⸝⸝)", num_lines=2)
-                        print("""More people than you expect join them.""")
-                        growing_symbol_transition("(⸝⸝⸝╸w╺⸝⸝⸝)", num_lines=1)
-                        print("""Those who remain decide to each pursue their own path to find a way to stop the loss of Attention 
-                        and connection with beings and reconvene tomorrow.""")
-                        if not last_round:
-                            print("""Do you wish to join them? (Y/N) """)
-                            yes = self.player_yn_to_bool()
-                            if yes:
-                                print("""Full of purpose, you set off to figure out what where to begin.""")
-                                return chapter_camp
-                            else:
-                                print("""You decide that neither of these splits are for you and get as far away from the crowd as you can.""")
-                                next_chapter_camp = self.switch_choice(chapter_camp)
-                                return next_chapter_camp
-                        else:
-                            print("""Wondering how long the last of the embodied will hold out,
-                            you set off to figure out what where to begin.""")
-                            return chapter_camp
-
-                elif not doctrine_yes:
-                    if chapter_camp == AnarkioCamp:
-                        print("""You turn to look at your friend, and see their excitement turn to disgust.""")
-                        print(f"""They address the crowd saying: 
-                        {chapter_camp.round_one_dict["counter_lecture"]}""")
-                        print("""A few people murmur in agreement.""")
-                        print("""The lecturer looks around as if to see if they still have supporters.  
-                        
-                        Come my friends, they implore, these are unprecedented times that call for unprecedented measures.
-                        We must leave those who would hold us back behind.
-                        
-                        """)
-                        print("""Another person makes a motion to split the camp.  
-                        Your friend tells you this is uncommon but not unheard of.""")
-                        print("""What do you do?
-                        
-                        a. Join the lecturer's side of the camp
-                        b. Reject the lecturer and stay
-                        c. Leave the entire camp behind.
-                        
-                        Type 'a', 'b', or 'c' """)
-                        choice = self.player_multi_choice(['a', 'b', 'c'])
-                        if choice == 'a':
-                            self.main_character.no_tokens = False
-                            print("""You decide to join the side of innovation and follow the lecturer to make a new camp.""")
-                            return chapter_camp
-                        elif choice == 'b':
-                            self.main_character.no_tokens = True
-                            print("""You join your friend and urge others to reject the lecturer.""")
-                            growing_symbol_transition("(⸝⸝⸝╸w╺⸝⸝⸝)", num_lines=3)
-                            print("""More people than you expect join them.""")
-                            growing_symbol_transition("(⸝⸝⸝╸w╺⸝⸝⸝)", num_lines=2)
-                            print("""Those who remain decide to each pursue their own path to find a way to stop the loss of Attention 
-                            and connection with beings and reconvene tomorrow.""")
-                            return chapter_camp
-                        else:
-                            self.main_character.no_tokens = False
-                            print(
-                                """You decide that neither of these splits are for you and get as far away from the crowd as you can.""")
-                            next_chapter_camp = self.switch_choice(chapter_camp)
-                            return next_chapter_camp
-
-                    elif chapter_camp != SkalismoCamp:
-                        print(f"""The crowd continues to cheer. Someone beings to chant:
-                        
-                        {chapter_camp.round_one_dict["chant"]}
-                        """)
-                        growing_symbol_transition("☚⍢⃝☚", num_lines=3)
-                        print("""Soon everyone has joined in.""")
-                        print("""Do you cheer with the crowd? (Y/N)""")
-                        yes = self.player_yn_to_bool()
-                        if yes:
-                            print("""You join the cheering, the energy feels electric.""")
-                            growing_symbol_transition(symbol="❇", num_lines=3)
-                            print("""The lecturer praises everyone for accepting what's needed in unprecedented times.
-                            
-                            Tomorrow, they say, we began a new era.  I'll see you all here in the morning.
-                            """)
-                            print("""The crowd disperses.  Your friend is bubbling with excitement.
-                            You wonder what tomorrow brings and about your next move.
-                            """)
-                            print("""Do you want to remain at this camp? (Y/N)""")
-                            yes = self.player_yn_to_bool()
-                            if yes:
-                                print("""You retire for the night in the safety of a familiar bed.""")
-                                return chapter_camp
-                            else:
-                                print("""A strong feeling of dread creeps into your bones.  You walk away from the crowd.""")
-                                print("""You realize it is time to leave this place behind.""")
-                                next_chapter_camp = self.switch_choice(chapter_camp)
-                                return next_chapter_camp
-
-                        else:
-                            print("""You realize you have to get out of here as soon as possible. You walk away from the crowd.""")
-                            next_chapter_camp = self.switch_choice(chapter_camp)
-                            return next_chapter_camp
+                Type 'a', 'b', or 'c' """)
+            choice = self.player_multi_choice(['a', 'b', 'c'])
+            if choice == 'a':
+                self.main_character.no_tokens = False
+                print("""You decide to join the side of innovation and follow the lecturer.""")
+                return chapter_camp
+            elif choice == 'b':
+                self.main_character.no_tokens = True
+                print("""You join your friend and urge others to reject the lecturer.""")
+                growing_symbol_transition("(⸝⸝⸝╸w╺⸝⸝⸝)", num_lines=3)
+                print("""More people than you expect join the lecturer.""")
+                growing_symbol_transition("(⸝⸝⸝╸w╺⸝⸝⸝)", num_lines=2)
+                print("""Those who remain decide to each pursue their own path to find a way to stop the loss of Attention 
+                    and connection with beings and reconvene tomorrow.""")
+                return chapter_camp
+            else:
+                self.main_character.no_tokens = False
+                print(
+                    """You decide that neither of these splits are for you and get as far away from the crowd as you can.""")
+                next_chapter_camp = self.switch_choice(chapter_camp)
+                return next_chapter_camp
 
         elif chapter_camp == SkalismoCamp:
             print(f"""People look uncomfortable and start to murmur.""")
@@ -273,17 +166,63 @@ class ChapterSix(LevelofStory):
             else:
                 return chapter_camp
 
-        else:  # back up agnostic to camp event
-            print("""The crowd cheers.  You realize can not stay with people who are so easily swayed.
-            You walk away from the crowd.""")
+        else:
+            print("""Someone in the crowd shouts:
+            How would we do that?
+            """)
+            print("""The lecture replies:
 
-            if last_round:
-                print("""There were so few of the embodied left.
-                                    No matter how many times you ran to the edge, no fence appeared.""")
-                next_chapter_camp = chapter_camp
+            We can achieve that if we implement tokens as a reward.  
+            These tokens will give those who work the hardest the ability to buy the remaining resources and Attention.""")
+            print("""You can see excitement rising in your friend and camp members.
+                """)
+            print("""Do you want to challenge the lecturer's doctrine? (Y/N) """)
+            doctrine_yes = self.player_yn_to_bool()
+            if doctrine_yes:
+                self.main_character.no_tokens = True
+                self.main_character.fame = True
+                print("""You look around at your camp and realize you must say something.""")
+                growing_symbol_transition("(╥﹏╥)", num_lines=2)
+                print(f"""You address the crowd saying: 
+                {chapter_camp.round_one_dict["counter_lecture"]}
+                """)
+                print(f"""While some people seem to consider what you are saying, most start chanting:
+
+                                        {chapter_camp.round_one_dict["chant"]}""")
             else:
-                next_chapter_camp = self.switch_choice(chapter_camp)
-            return next_chapter_camp
+                print(f"""The crowd starts chanting: {chapter_camp.round_one_dict["chant"]}""")
+
+            growing_symbol_transition("☚⍢⃝☚", num_lines=3)
+            print("""Soon everyone has joined in.""")
+            print("""Do you cheer with the crowd? (Y/N)""")
+            cheer_yes = self.player_yn_to_bool()
+            if cheer_yes:
+                print("""You join the cheering, the energy feels electric.""")
+                growing_symbol_transition(symbol="❇", num_lines=3)
+                print("""The lecturer praises everyone for accepting what's needed in unprecedented times.
+
+                    Tomorrow, they say, we began a new era.  I'll see you all here in the morning.
+                    """)
+                print("""The crowd disperses.  Your friend is bubbling with excitement.
+                    You wonder what tomorrow brings and about your next move.
+                    """)
+            else:
+                print("""A strong feeling of dread creeps into your bones.  You walk away from the crowd.""")
+
+            print("""Do you want to remain at this camp? (Y/N)""")
+            stay_yes = self.player_yn_to_bool()
+            if stay_yes:
+                print("""You retire for the night in the safety of a familiar bed.""")
+                return chapter_camp
+            else:
+                print("""You realize it is time to leave this place behind and journey to the edge of camp.""")
+                if last_round:
+                    print("""There were so few of the embodied left.
+                    No matter how many times you ran to the edge, no fence appeared.""")
+                    return chapter_camp
+                else:
+                    next_chapter_camp = self.switch_choice(chapter_camp)
+                    return next_chapter_camp
 
     def round_two(self, chapter_camp, last_round: bool = False):
         """
@@ -372,9 +311,9 @@ class ChapterSix(LevelofStory):
             print("""Without a leadership structure, it's hard to work together, 
             so you all decide to go off on your own to try to figure out the attention equations and what to do about resources.
             """)
-            growing_symbol_transition(symbol=speedy_snail, num_lines=3)
+            growing_symbol_transition(symbol=line_of_fish, num_lines=3)
             print("""You all agree you hope things will be clearer in the morning.""")
-            growing_symbol_transition(symbol=speedy_snail, num_lines=3)
+            growing_symbol_transition(symbol=line_of_fish, num_lines=3)
             print("""Many days pass and the tokens side of the camp invaded.  
             The days of dreaming of anti-hierarchical idea sharing are over and everyone that does not adopt tokens are forced to flee.""")
             growing_symbol_transition(symbol=chains_line, num_lines=3)
@@ -415,7 +354,7 @@ class ChapterSix(LevelofStory):
                 """)
 
             if chapter_camp.round_two_dict["crowd_asks"] or question_yes:
-                print("""Some unease spreads through the camp, but people begin to get to work witj the lecturer's instructions.""")
+                print("""Some unease spreads through the camp, but people begin to get to work with the lecturer's instructions.""")
             else:
                 print("""The crowd cheers, ready to get to work with the lecturer's instructions.""")
 
@@ -437,9 +376,9 @@ class ChapterSix(LevelofStory):
             No real {chapter_camp.round_two_dict["innovation"]} ever came.
             """)
                 growing_symbol_transition(symbol=chains_line, num_lines=3)
-                print("""Soon you too were forced to starve or flee.""")
 
-            print("""With what little strength you have left, you flee to the edge of camp.""")
+            print("""Soon you too were forced to starve or flee.""")
+            print("""With what little strength you have left, you make it to the edge of camp.""")
             if last_round:
                 print("""There were so few of the embodied left.
                 No matter how many times you ran to the edge, no fence appeared.""")
@@ -449,6 +388,7 @@ class ChapterSix(LevelofStory):
                 return camp_lives, next_chapter_camp
 
     def switch_choice(self, chapter_camp):
+        self.main_character.add_camp(chapter_camp)
         if chapter_camp.sector.name == "Beit":
             chapter_sector = BeitSector
             alt_sector = GimelSector
@@ -456,9 +396,9 @@ class ChapterSix(LevelofStory):
             chapter_sector = GimelSector
             alt_sector = BeitSector
 
-        visited_chapter_sector_camps = [camp for camp in self.main_character.camps if camp.sector == chapter_sector]
-        visited_alt_sector_camps = [camp for camp in self.main_character.camps if camp.sector != chapter_sector]
         camp_index = chapter_sector.camps.index(chapter_camp)
+        visited_chapter_sector_camps = list(set([camp for camp in self.main_character.camps if camp.sector == chapter_sector]))
+        visited_alt_sector_camps = list(set([camp for camp in self.main_character.camps if camp.sector != chapter_sector]))
 
         if camp_index == len(chapter_sector.camps) - 1:
             next_camp_index = 0
@@ -466,7 +406,7 @@ class ChapterSix(LevelofStory):
             next_camp_index = camp_index + 1
 
         next_chapter_camp = chapter_sector.camps[next_camp_index]
-        next_alt_camp = alt_sector.camps[next_camp_index]
+        next_alt_chapter_camp = alt_sector.camps[next_camp_index]
 
         if next_chapter_camp in visited_chapter_sector_camps:
             unvisited_chapter_camps = set(chapter_sector.camps) - set(visited_chapter_sector_camps)
@@ -475,7 +415,7 @@ class ChapterSix(LevelofStory):
             else:
                 next_chapter_camp = random.choice(unvisited_chapter_camps)
 
-        if next_alt_camp in visited_alt_sector_camps:
+        if next_alt_chapter_camp in visited_alt_sector_camps:
             unvisited_alt_camps = set(alt_sector.camps) - set(visited_alt_sector_camps)
             if len(unvisited_alt_camps) == 0:
                 next_alt_chapter_camp = visited_alt_sector_camps[0]
@@ -560,13 +500,13 @@ class ChapterSix(LevelofStory):
                     else:
                         print("""You decline.  
                         Feed up with the lack of other options, you turn back towards your camp.""")
-                        return chapter_sector
+                        return chapter_camp
 
     def events(self):
         # round number is number of times played Chapter 6
         # last_round effects how chapter is played.
         # end_loop exits in main.py and stays False until max rounds
-        chapter_sector, chapter_camp, num_rounds_in_camp, end_loop = self.starting_point
+        chapter_camp, num_rounds_in_camp, end_loop = self.starting_point
 
         if self.number == 6:
             print("""What do you think the most important goal is?""")
@@ -581,7 +521,7 @@ class ChapterSix(LevelofStory):
         if not participate:
             if self.number == max_round:
                 end_loop = True
-            return self.main_character, chapter_sector, chapter_camp, num_rounds_in_camp, end_loop
+            return self.main_character, chapter_camp, num_rounds_in_camp, end_loop
 
         if self.number == max_round:
             end_loop = True
@@ -589,21 +529,30 @@ class ChapterSix(LevelofStory):
                 chapter_camp = self.round_one(chapter_camp, last_round=True)
             else:
                 camp_lives, chapter_camp = self.round_two(chapter_camp, last_round=True)
-            return self.main_character, chapter_sector, chapter_camp, num_rounds_in_camp, end_loop
+            return self.main_character, chapter_camp, num_rounds_in_camp, end_loop
 
         # run, self.number is incremented in main.py
         if num_rounds_in_camp == 0:
-            next_chapter_camp = self.round_one(chapter_camp, last_round=False)
             self.main_character.add_camp(chapter_camp)
+            next_chapter_camp = self.round_one(chapter_camp, last_round=False)
+            print(f"""chapter_camp = {chapter_camp.known_name}""")
+            print(f"""next_chapter_camp = {next_chapter_camp.known_name}""")
+            if next_chapter_camp != chapter_camp:
+                num_rounds_in_camp = 0
+                return self.main_character, next_chapter_camp, num_rounds_in_camp, end_loop
+            else:
+                num_rounds_in_camp = 1
+                return self.main_character, next_chapter_camp, num_rounds_in_camp, end_loop
         elif num_rounds_in_camp == 1:
-            camp_lives, chapter_camp = self.round_two(chapter_camp, last_round=False)
-        else:
-            self.switch_choice(chapter_camp)
-
-        if next_chapter_camp != chapter_camp:
-            num_rounds_in_camp = 0
-        else:
-            num_rounds_in_camp += 1
-
-        return self.main_character, chapter_sector, chapter_camp, num_rounds_in_camp, end_loop
+            camp_lives, next_chapter_camp = self.round_two(chapter_camp, last_round=False)
+            print(f"""chapter_camp = {chapter_camp.known_name}""")
+            print(f"""next_chapter_camp = {next_chapter_camp.known_name}""")
+            if chapter_camp == SkalismoCamp and next_chapter_camp == SkalismoCamp:
+                end_loop = True
+            else:
+                num_rounds_in_camp = 0
+            return self.main_character, next_chapter_camp, num_rounds_in_camp, end_loop
+        else: # this shouldn't happen, just a backup
+            next_chapter_camp = self.switch_choice(chapter_camp)
+            return self.main_character, next_chapter_camp, 0, end_loop
 

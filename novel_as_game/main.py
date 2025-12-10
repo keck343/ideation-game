@@ -11,7 +11,6 @@ from level_six import ChapterSix
 from constants import max_round
 from typing import Dict
 from chapter_structure import LevelofStory
-from world_ideas import Inspiration001, Overwhelm001, Conspiracism001, Systems001
 from text_graphics import growing_symbol_transition, welcome_art, transition_as_typewriter, heart_of_zeros
 from world_sectors_camps import BeitSector, GimelSector, CampObjectified, SkalismoCamp
 
@@ -78,11 +77,12 @@ def ending(end_camp: CampObjectified, PlayerIdea: IdeaObjectified, final_num_rou
             like the rest of the embodied, you disappeared into the void.
             """)
             growing_symbol_transition(symbol="+=={:::::::::::::::::>", num_lines=3)
-
-        if end_camp.end_state_key == PlayerIdea.desired_end_state_key:
-            player_wins: bool = True
             print("""You achieved your goal, but you did not survive much longer to enjoy your victory
-                because no one did.""")
+                            because no one did.""")
+
+        if end_camp.end_state_key == PlayerIdea.desired_end_state_key and final_num_rounds_in_camp > 0:
+            if PlayerIdea.desired_end_state_key not in ['d', 'c']:
+                player_wins: bool = True
 
         if player_wins:
             growing_symbol_transition(symbol="+=={:::::::::::::::::>", num_lines=3)
@@ -115,7 +115,7 @@ def ending(end_camp: CampObjectified, PlayerIdea: IdeaObjectified, final_num_rou
             print("""Your attempts at fame however were fleeting.  
             Your fellow camp members were feed up with your ego, and no one will talk to you.""")
 
-        elif PlayerIdea.desired_end_state_key in ['d']:
+        elif player_wins:
             print("""You sigh in relief.""")
             print("""You achieved your goal and the world goes on.""")
 
@@ -139,7 +139,7 @@ if __name__ == '__main__':
         # next_move = "volunteer"  # "skip", "attend" or "volunteer"
         # next_camp = chapter_sector.camps[1]
         # participated = False
-        next_camp = chapter_sector.camps[-1]
+        next_camp = chapter_sector.camps[2]
         participated = True
 
     else:
@@ -174,11 +174,11 @@ if __name__ == '__main__':
 
     while not end_loop:
         chapter = ChapterSix(number=rounds, main_character=PlayerIdea,
-                             starting_point=(chapter_sector, next_camp, num_rounds_in_camp, end_loop))
-        PlayerIdea, chapter_sector, next_camp, num_rounds_in_camp, end_loop = chapter.run_level()
+                             starting_point=(next_camp, num_rounds_in_camp, end_loop))
+        PlayerIdea, next_camp, num_rounds_in_camp, end_loop = chapter.run_level()
         rounds += 1
 
-    ending(end_camp=next_camp)
+    ending(end_camp=next_camp, PlayerIdea=PlayerIdea, final_num_rounds_in_camp=num_rounds_in_camp)
 
 
 
