@@ -84,7 +84,7 @@ BeitSector = SectorObjectified(name="Beit",
                                     Some even claim that we come out of their thoughts, 
                                     as if we are not enough in and of ourselves. 
                                     As if something as foolish as attention could control our fate.""",
-                                   "disappearance": """The elite's plans must be advancing quickly.""",
+                                   "disappearance": """the elite's plans must be advancing quickly.""",
                                    "Beings counter point": """No one has ever seen a being.
                                     I believe in things I have done my own research on.""",
                                    "camp invitation": """You are correct to reject the nonsense of Beings.
@@ -103,7 +103,7 @@ GimelSector = SectorObjectified(name="Gimel",
                                     most scientists Beings exist in a physical realm that we are connected to.
                                     Our origin story is still a matter of debate, but most agree there is an 
                                     attention mechanism that can explains 98% of our disappearance rates.""",
-                                    "disappearance": """Our top scientific camps are struggling 
+                                    "disappearance": """our top scientific camps are struggling 
                                     to find a pattern or cause, much less a solution.
                                     """,
                                     "Beings counter point": """How could so many camps, and even ones outside my sector

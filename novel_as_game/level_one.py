@@ -43,13 +43,14 @@ class ChapterOne(LevelofStory):
         else:
             print("""You shake your head no.""")
 
-        print(f"""Not to worry, {self.supporting_characters[0]} says, a lot of new folks here do not yet have names.""")
+        print(f"""Not to worry, {self.supporting_characters[0]} says, a lot of new folks here do not yet have names.
+        """)
 
         print(f"""A new person runs up to {self.supporting_characters[0]} saying,
-        I'm running late to worldview club and can not think of a quote to bring.""")
+        I'm running late to worldview club and can not think of a quote to bring.
+        """)
 
         print(f"""{self.supporting_characters[0]} introduces the other person as {self.supporting_characters[1]} to you.
-        
         They pause, and turn to you and ask you if you have a quote.""")
         print("""Do you have a quote to give them? (Y/N)""")
         yes = self.player_yn_to_bool()

@@ -129,7 +129,7 @@ class ChapterTwo(LevelofStory):
             but quickly regains their calm composure.""")
             print("""""")
             print("""The other smiles and says:""")
-            self.transition_as_typewriter(BeitSector.dinner_talking_points["camp invitation"])
+            print(BeitSector.dinner_talking_points["camp invitation"])
             inviter_name: str = BeitSector.name
 
         print("""Do you accept the guest's invitation? (Y/N)""")

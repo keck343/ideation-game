@@ -403,9 +403,33 @@ class ChapterSix(LevelofStory):
                     self.transition_as_typewriter("""Attention flows freely.""")
                     growing_symbol_transition(symbol="༄.° ≽ ^⎚ ˕ ⎚^ ≼ ༄.°", num_lines=3)
 
-                    print("""Even if your name is not in the history textbooks, 
+                    if self.main_character.desired_end_state_key in ['e', 'f']:
+                        print("""You think of the fame you once desired and conclude it would require leaving your camp.
+                        
+                        Do you want to stay with your camp? (Y/N)""")
+                        yes = self.player_yn_to_bool()
+                        if yes:
+                            next_chapter_camp = self.switch_choice(chapter_camp)
+                            return fame, camp_lives, next_chapter_camp
+                        else:
+                            print("""Even if your name is not in the history textbooks,""")
+                    else:
+                        print("""Looking around at the this camp, """)
+                    print("""
                     you are proud of the role you played and the community you are part of.""")
                     print(floating_heart_ghost)
+            else:
+                print("""One scientist who recently came from another camp makes a break through.  
+                They realize that beings and the embodied are dependant on each other.
+                 """)
+                self.transition_as_typewriter("""There is no way to ensure Attention flows without the beings survival.""")
+
+                print("""The new scientist's breakthrough allows for the camp to set up a system 
+                                    where beings and embodied make it through the crisis and thrive.""")
+
+                self.transition_as_typewriter("""Attention flows freely.""")
+                growing_symbol_transition(symbol="༄.° ≽ ^⎚ ˕ ⎚^ ≼ ༄.°", num_lines=3)
+
 
         elif chapter_camp == AnarkioCamp and no_tokens:
             camp_lives: bool = False
@@ -607,7 +631,7 @@ class ChapterSix(LevelofStory):
     def events(self):
         # from last level saw_news is bool
         # round number is number of times played Chapter 6
-        chapter_sector, chapter_camp, num_rounds_in_camp, participate, fame, no_tokens = self.starting_point
+        chapter_sector, chapter_camp, num_rounds_in_camp, participate, fame, no_tokens, last_round = self.starting_point
         print(participate, self.number, num_rounds_in_camp)
         print(f"last round participate {participate} -- run round {self.number} -- camp round {num_rounds_in_camp}")
         if self.number == 6:
@@ -619,19 +643,22 @@ class ChapterSix(LevelofStory):
 
             self.main_character.chose_desired_end_state(desired_outcome)
 
+        if (num_rounds_in_camp == 2 and chapter_camp == SkalismoCamp) or last_round:
+            world_survives, player_wins = self.ending(chapter_camp, participate)
+            return self.main_character, chapter_sector, chapter_camp, world_survives, player_wins, fame, no_tokens, True
         # extra round if just switched camps
-        if self.number == max_round or num_rounds_in_camp >= 3:
+        elif self.number == max_round or num_rounds_in_camp >= 3:
             if num_rounds_in_camp < 1 and participate:
                 fame, no_tokens = self.round_one(chapter_camp, last_round=True)
             elif num_rounds_in_camp == 1 and chapter_camp == SkalismoCamp:
                 self.round_two(SkalismoCamp, fame, no_tokens, last_round=True)
 
             world_survives, player_wins = self.ending(chapter_camp, participate)
-            return self.main_character, chapter_sector, chapter_camp, world_survives, player_wins
+            return self.main_character, chapter_sector, chapter_camp, world_survives, player_wins, fame, no_tokens, True
 
         participate = self.participation_choice()
         if not participate:
-            return self.main_character, chapter_sector, chapter_camp, num_rounds_in_camp, participate, fame, no_tokens
+            return self.main_character, chapter_sector, chapter_camp, num_rounds_in_camp, participate, fame, no_tokens, last_round
         else:
             num_rounds_in_camp += 1
             self.main_character.add_camp(chapter_camp)
@@ -650,6 +677,6 @@ class ChapterSix(LevelofStory):
         if next_chapter_camp != chapter_camp:
             num_rounds_in_camp = 0
 
-        return self.main_character, chapter_sector, next_chapter_camp, num_rounds_in_camp, participate, fame, no_tokens
+        return self.main_character, chapter_sector, next_chapter_camp, num_rounds_in_camp, participate, fame, no_tokens,last_round
 
 

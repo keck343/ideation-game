@@ -22,7 +22,7 @@ An existential crisis in the form of a python script. Enjoy!
 """
 
 # for debugging
-debugging: bool = False
+debugging: bool = True
 
 
 def game_step_up():
@@ -65,9 +65,11 @@ if __name__ == '__main__':
                                                       creator="unknown")
         chapter_sector = GimelSector
         # debugging level 5
-        next_move = "volunteer"  # "skip", "attend" or "volunteer"
-        next_camp = chapter_sector.camps[1]
-        participated = False
+        # next_move = "volunteer"  # "skip", "attend" or "volunteer"
+        # next_camp = chapter_sector.camps[1]
+        # participated = False
+        next_camp = chapter_sector.camps[-1]
+        participated = True
 
     else:
         player_quote_key = game_step_up()
@@ -99,16 +101,18 @@ if __name__ == '__main__':
     fame: bool = False
     no_tokens: bool = False
     num_rounds_in_camp: int = 0
+    last_round: bool = False
 
-    while rounds < max_round and num_rounds_in_camp < 3:
+    while (rounds < max_round or num_rounds_in_camp < 3) and not last_round:
         chapter = ChapterSix(number=rounds, main_character=PlayerIdea,
-                             starting_point=(chapter_sector, next_camp, num_rounds_in_camp, participated, fame, no_tokens))
-        PlayerIdea, chapter_sector, next_camp, num_rounds_in_camp, participated, fame, no_tokens = chapter.run_level()
+                             starting_point=(chapter_sector, next_camp, num_rounds_in_camp, participated, fame, no_tokens, last_round))
+        PlayerIdea, chapter_sector, next_camp, num_rounds_in_camp, participated, fame, no_tokens, last_round = chapter.run_level()
         rounds += 1
 
     final_chapter = ChapterSix(number=rounds, main_character=PlayerIdea,
-                               starting_point=(chapter_sector, next_camp, num_rounds_in_camp, participated, fame, no_tokens))
-    PlayerIdea, chapter_sector, chapter_camp, world_survives, player_wins = final_chapter.run_level()
+                               starting_point=(chapter_sector, next_camp, num_rounds_in_camp, participated, fame, no_tokens, last_round))
+
+    PlayerIdea, chapter_sector, chapter_camp, world_survives, player_wins, fame, no_tokens = final_chapter.run_level()
 
 
 
