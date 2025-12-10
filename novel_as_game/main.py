@@ -13,7 +13,7 @@ from typing import Dict
 from chapter_structure import LevelofStory
 from text_graphics import growing_symbol_transition, welcome_art, transition_as_typewriter, heart_of_zeros
 from world_sectors_camps import BeitSector, GimelSector, CampObjectified, SkalismoCamp
-from graphics import change_end_graphic
+from graphics import change_end_graphic, change_back_graphic
 
 """ 
 Disambiguation
@@ -139,6 +139,7 @@ def ending(end_camp: CampObjectified, PlayerIdea: IdeaObjectified, final_num_rou
 # Press the green button in the gutter to run the script.
 def play_game():
     change_end_graphic(num=2)
+    change_back_graphic(num=0)
 
     if debugging:
         PlayerIdea: IdeaObjectified = IdeaObjectified(name="unknown",
@@ -191,13 +192,10 @@ def play_game():
     ending(end_camp=next_camp, PlayerIdea=PlayerIdea, final_num_rounds_in_camp=num_rounds_in_camp)
 
 
-
 if __name__ == '__main__':
     atexit.register(exit_handler)
 
-    keep_playing = True
-
-    while keep_playing == True:
+    while True:
         print("""Would you like to play? 
     """)
         start = input("Press any key to begin.")
