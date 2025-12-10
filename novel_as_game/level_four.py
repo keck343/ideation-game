@@ -71,7 +71,7 @@ class ChapterFour(LevelofStory):
         print("""Do you want to stay with your friend to figure out what to do? (Y/N)""")
         yes = self.player_yn_to_bool()
         if not yes:
-            print("""
+            self.transition_as_typewriter("""
             You turn away from your friend, doubting the person you have formed a bond with.
             Unsure what to do, you walk to the edge of the camp.
             """)
@@ -83,9 +83,9 @@ class ChapterFour(LevelofStory):
                 print(f"""You see the person from your old camp.  You feel embarrassed, 
                  but before you turn away they call out:
                 Sorry about earlier, I was having an off day! I found you a {desired_product}.""")
-                growing_symbol_transition(symbol="(๑'ᵕ'๑)⸝*", num_lines=2)
+                growing_symbol_transition(symbol="( •̯́ ₃ •̯̀)", num_lines=2)
                 print(f"""You smile and thank them for finding a {desired_product}.""")
-                growing_symbol_transition(symbol="(๑'ᵕ'๑)⸝*", num_lines=2)
+                growing_symbol_transition(symbol="૮ ˶ᵔ ᵕ ᵔ˶ ა", num_lines=2)
                 say_next: str = " next"
             else:
                 print("""You see the other guest from the dinner party that feels so long ago.""")
@@ -146,10 +146,14 @@ class ChapterFour(LevelofStory):
             print("""Do you agree that they basically say the same thing? (Y/N)""")
             yes = self.player_yn_to_bool()
             if not yes:
-                print("""Why? Type your answer below.""")
-                response = input()
-                self.main_character.expand_idea(response)
-                print("""Before you have a chance to question the differences,""")
+                print("""Do you want to point that out? (Y/N)""")
+                yes = self.player_yn_to_bool()
+                if yes:
+                    print("""You say that that is clearly an inaccurate summary of the brochure, 
+                    colored by perspective and not facts.
+                    The person looks indignant and is about to walk of when """)
+                else:
+                    print("""Before you have a chance to question the differences,""")
 
         print("""Your friend asks when the conference is. The comrade replies, 
         Tomorrow! There's a call for volunteers, but they have to wake up at dawn.""")
@@ -157,7 +161,7 @@ class ChapterFour(LevelofStory):
         yes = self.player_yn_to_bool()
         if yes:
             print("""You ask if they are going to volunteer.
-            They say they will be leaving a dawn to volunteer and ask if you'd like to join them.""")
+            They say yes and ask if you'd like to join them.""")
             print("""Do you wish to volunteer with them? (Y/N)""")
             yes = self.player_yn_to_bool()
             if yes:
@@ -178,11 +182,23 @@ class ChapterFour(LevelofStory):
                     return self.main_character, chapter_sector.name, "attend"
                 else:
                     print("""Why do you not want to attend the conference? 
-                     Type your answer below.""")
-                    response = input()
-                    self.main_character.expand_idea(response)
+                    
+                    a. Conferences are for nerds
+                    b. Knowledge is a solo pursuit 
+                    c. Other [type your own answer]
+                    
+                    Pick 'a', 'b' or 'c'.""")
+                    choice = self.player_multi_choice(['a', 'b', 'c'])
+                    if choice == 'a':
+                        reason = "conferences are for nerds."
+                    elif choice == 'b':
+                        reason = "knowledge is a solo pursuit."
+                    else:
+                        print("""Type your answer below.""")
+                        reason = input()
+                        self.main_character.expand_idea(reason)
                     print(f"""No thank-you, you reply, I think
-                    {response}""")
+                    {reason}""")
                     print("""Too bad, your friend replies, I guess we will see what tomorrow brings.""")
                     return self.main_character, chapter_sector.name, "skip"
         else:
@@ -198,10 +214,24 @@ class ChapterFour(LevelofStory):
                 return self.main_character, chapter_sector.name, "attend"
             else:
                 print("""Why do you not want to attend the conference? 
-                                     Type your answer below.""")
-                response = input()
-                self.main_character.expand_idea(response)
-                print(f"""No thank-you, you reply, I think
-                                    {response}""")
+
+                a. Conferences are for nerds
+                b. Knowledge is a solo pursuit 
+                c. Other [type your own answer]
+
+                Pick 'a', 'b' or 'c'.""")
+
+                choice = self.player_multi_choice(['a', 'b', 'c'])
+                if choice == 'a':
+                    reason = "conferences are for nerds."
+                elif choice == 'b':
+                    reason = "knowledge is a solo pursuit."
+                else:
+                    print("""Type your answer below.""")
+                    reason = input()
+
+                self.main_character.expand_idea(reason)
+                print(f"""No thank-you, you reply, I think {reason}""")
+                print("""""")
                 print("""Too bad, your friend replies, I guess we will see what tomorrow brings.""")
                 return self.main_character, chapter_sector.name, "skip"

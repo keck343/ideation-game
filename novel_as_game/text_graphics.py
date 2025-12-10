@@ -20,6 +20,25 @@ def growing_symbol_transition(symbol: str = "*", num_lines: int = 7, sleep_secon
         time.sleep(sleep_seconds)
 
 
+def player_yn_to_bool():
+    answer: str = input()
+    while not any(x in answer.lower() for x in ['y', 'n']):
+        print("Please try again! Type 'Y' or 'N'")
+        answer: str = input()
+
+    if answer.strip()[0].lower() == "y":
+        return True
+    else:
+        return False
+
+
+def transition_as_typewriter(transition_str, time_between: float = 0.05):
+    for transition in transition_str:
+        print(transition, end='', flush=True)
+        time.sleep(time_between)
+    print("\n")
+
+
 """
 Still Images
 """
@@ -122,6 +141,9 @@ chains_line = "⫘⫘⫘⫘⫘⫘"
 
 play_loop = """▶︎ •၊၊||၊|။|||||||၊|။|၊၊• ▶"""
 
+line_of_fish = "𓆝 𓆟 𓆞 𓆝 𓆟"
+
+moon_star_line = "⋆.˚ ☾⭒.˚"
 
 floating_heart_ghost = """
 ..... (¯`v´¯)♥

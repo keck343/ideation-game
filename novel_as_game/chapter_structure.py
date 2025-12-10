@@ -1,11 +1,12 @@
 from world_ideas import IdeaObjectified
+from text_graphics import growing_symbol_transition
 from typing import List, Dict
 import time
 
 
 class LevelofStory:
     def __init__(self, number: int, main_character: IdeaObjectified,
-                 supporting_characters: List[IdeaObjectified] = [],
+                 supporting_characters: List[str] = [],
                  starting_point: str = ""):
         self.number = number
         self.main_character = main_character
@@ -35,7 +36,7 @@ class LevelofStory:
         next_parameters = self.events()
         time.sleep(1)
         self.parting()
-        self.transition_as_typewriter(self.transition_str)
+        growing_symbol_transition(sleep_seconds=0.25)
         return next_parameters
 
     @staticmethod
@@ -66,7 +67,7 @@ class LevelofStory:
         return answer
 
     @staticmethod
-    def transition_as_typewriter(transition_str, time_between: float = 0.01):
+    def transition_as_typewriter(transition_str, time_between: float = 0.05):
         for transition in transition_str:
             print(transition, end='', flush=True)
             time.sleep(time_between)

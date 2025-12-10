@@ -31,13 +31,21 @@ class SectorObjectified:
             stated_camps += 1
 
 
+round_two_dict = {
+                "innovation": """≽≽≽≽ innovation. ≽≽≽≽""",
+                "crowd_asks": True,
+                "counter_question": """How do the members of our camp get tokens?""",
+            }
+
 class CampObjectified:
     def __init__(self, known_name: str, sector: SectorObjectified, summary_statement: str,
                  counter_sector_statement: str, tenants: List[str],
-                 stated_camp_core_belief: str, unstated_camp_core_belief: str, end_state_key: str,
+                 stated_camp_core_belief: str, unstated_camp_core_belief: str,
+                 end_state_key: str, round_one_dict,
                  pamphlet_slogans: List[str] = [], initial_crisis_headline: str = "",
                  initial_crisis_explanation: str = "", brochure_summary: str = "",
-                 second_crisis_explanation: str = ""):
+                 second_crisis_explanation: str = "",
+                 round_two_dict = round_two_dict):
         self.known_name = known_name
         self.sector = sector
         self.sector_core_belief = sector.core_belief
@@ -53,6 +61,8 @@ class CampObjectified:
         self.brochure_summary = brochure_summary
         self.second_crisis_explanation = second_crisis_explanation
         self.end_state_key = end_state_key
+        self.round_one_dict = round_one_dict
+        self.round_two_dict = round_two_dict
 
     def revise_summary(self, revision: str, append: bool = True):
         """
@@ -74,7 +84,7 @@ BeitSector = SectorObjectified(name="Beit",
                                     Some even claim that we come out of their thoughts, 
                                     as if we are not enough in and of ourselves. 
                                     As if something as foolish as attention could control our fate.""",
-                                   "disappearance": """The Eksterteranoj's plans must be advancing quickly.""",
+                                   "disappearance": """the elite's plans must be advancing quickly.""",
                                    "Beings counter point": """No one has ever seen a being.
                                     I believe in things I have done my own research on.""",
                                    "camp invitation": """You are correct to reject the nonsense of Beings.
@@ -88,12 +98,12 @@ GimelSector = SectorObjectified(name="Gimel",
                                 core_belief="Beings are probable to exist. There is a synthesis we do not yet know.",
                                 beings_exist=True,
                                 dinner_talking_points={
-                                    "sector": "The fact that Beings exist is widely accepted by most camps.",
+                                    "sector": "the fact that Beings exist is widely accepted by most camps.",
                                     "Beings": """Through careful research into the disappearance of our kind,
                                     most scientists Beings exist in a physical realm that we are connected to.
                                     Our origin story is still a matter of debate, but most agree there is an 
                                     attention mechanism that can explains 98% of our disappearance rates.""",
-                                    "disappearance": """Our top scientific camps are struggling 
+                                    "disappearance": """our top scientific camps are struggling 
                                     to find a pattern or cause, much less a solution.
                                     """,
                                     "Beings counter point": """How could so many camps, and even ones outside my sector
@@ -122,17 +132,24 @@ KonspiroCamp = CampObjectified(known_name="Konspiro",
                                is the key to knowing how the world works""",
                                unstated_camp_core_belief="""there is someone to blame, and it's not us.""",
                                end_state_key="b",
+                               round_one_dict={
+                                    "lecturer": """We must ·in·cen·tiv·ize· people are in our camp to find the powerful
+                                    elites who are behind a loss of Attention at this scale.""",
+                                    "counter_lecture": """But what happens to those who fall down the wrong research rabbit-hole? 
+                                If tokens alone determine resource allocation, won't those without tokens starve?""",
+                                    "chant": """Tokens will find the truth! Nothing else matters!"""
+                                },
                                pamphlet_slogans=["""Through rigorous self discipline and doing your own research,
                                you can find truth.""", """Everything you once knew is false"""],
                                initial_crisis_headline="""The new world order may be upon us.
                                Unprecedented Drop in Attention Rates""",
-                               initial_crisis_explanation="""the Eksterteranoj's rulers are bringing 
+                               initial_crisis_explanation="""the rulers are bringing 
                                their plan to fruition, nothing else could explain this scale.
                                We cannot survive without sufficient Attention.""",
                                brochure_summary="""to figure out what whoever is responsible for the drop in Attention wants.""",
-                               second_crisis_explanation="""We have failed to please Eksterteranoj's rulers or outsmart them.  
+                               second_crisis_explanation="""We have failed to please the rulers or outsmart them.
                                Attention drops even further,
-                               10 more reported disappeared."""
+                               10 more reported disappeared.""",
                                )
 
 BeitSector.add_camp(KonspiroCamp)
@@ -153,6 +170,15 @@ KristanaCamp = CampObjectified(known_name="Kristana",
                                stated_camp_core_belief="""the love of the One of Beings is salvation""",
                                unstated_camp_core_belief="""some are unworthy of the One's love and so crises result.""",
                                end_state_key="b",
+                               round_one_dict={
+                                    "lecturer": """We must ·in·cen·tiv·ize· everyone to find a personal relationships with the One of Beings.
+                                    Only when everyone is in right relationship with the One can this end.
+                                    We will can best decide amongst all the camps how to distribute what little is left in the name of the One.""",
+                                    "counter_lecture": """Can we really force our faith on everyone through making everyone's 
+                                    token allocation based on their professed alignment with us?
+                                    Do people who believe differently really deserve to starve?""",
+                                    "chant": """Tokens for the faithful! We do it in the name of the One of Beings!"""
+                                },
                                pamphlet_slogans=["""You too are loved by the One""",
                                                  """Beings perform the miracles of the One's will."""],
                                initial_crisis_headline="""Unprecedented Drop in Attention Rates,
@@ -182,7 +208,14 @@ NovaEpokoCamp = CampObjectified(known_name="Nova Epoko",
                                 stated_camp_core_belief="""through strict self-discipline we will become imprivable to disappearance""",
                                 unstated_camp_core_belief="""Those who disappeared lacked discipline, 
                                 real dedication to self-improvement could have saved them""",
-                                end_state_key="a",
+                                end_state_key="c",
+                                round_one_dict={
+                                    "lecturer": """We must ·in·cen·tiv·ize· everyone to find their highest self.
+                                    Only through each person's rigorous self-discipline can this crisis stop.""",
+                                    "counter_lecture": """Who are we to judge someone's highest self?
+                                    Even if we could, how could our highest selves let people who still haven't reach their full potential starve? """,
+                                    "chant": """Tokens belong to the best of us!"""
+                                },
                                 )
 
 BeitSector.add_camp(NovaEpokoCamp)
@@ -202,6 +235,13 @@ LongperspektivaCamp = CampObjectified(known_name="Longperspektiva",
                                       unstated_camp_core_belief="""as the innovator class,
                                       we deserve first crack at any remaining Attention and resources""",
                                       end_state_key="b",
+                                      round_one_dict={
+                                        "lecturer": """We must ·in·cen·tiv·ize· everyone to invent the technology that will optimize the Attention equations.
+                                        In times like these, we must make the hard choices to maximize value for our camp and those yet to be born.""",
+                                        "counter_lecture": """Who defines value? 
+                                        Who wins and who looses if this technology optimizes the Attention equations at all costs?""",
+                                        "chant": """Tokens for the innovators! Innovators will save us!"""
+                                      },
                                       )
 GimelSector.add_camp(LongperspektivaCamp)
 
@@ -209,36 +249,56 @@ GimelSector.add_camp(LongperspektivaCamp)
 NaciismoCamp = CampObjectified(known_name="Naciismo",
                                sector=BeitSector,
                                summary_statement="""in the face of the failures of the global Attention elites, 
-                               we must hold on to what we have""",
+                               we must create a world where we are safe""",
                                counter_sector_statement="""we are the victims, each camp must save themselves""",
                                tenants=["we can only be responsible for saving those in our camp",
                                         "other camps have attacked us in the past and it will never stop",
                                         "if others perish, it is unfortunate but that is not on us",
-                                        "we have a long and proud history that must continue"],
+                                        "we have a long and proud history that must continue",
+                                        "given historical legacies, we must annex a new place",
+                                        "it is our destiny and birthright to live in a new camp",
+                                        "this new place is the only way we will survive",
+                                        "people will always turn against us",
+                                        ],
                                stated_camp_core_belief="""as victims, we must preserve our way of life""",
-                               unstated_camp_core_belief="""we have suffered the most""",
-                               end_state_key='b'
+                               unstated_camp_core_belief="""we have suffered the most and 
+                               everyone else is destined to their fate""",
+                               end_state_key='b',
+                               round_one_dict={
+                                    "lecturer": """We must ·in·cen·tiv·ize· the people in this camp to save this camp 
+                                    and seize the remaining resources for ourselves. We are the victims!""",
+                                    "counter_lecture": """Why does our camp get to plunder and invade everywhere else?
+                                    """,
+                                    "chant": """We will not be weak! Tokens for the victors!"""
+                                },
                                )
 
 BeitSector.add_camp(NaciismoCamp)
 
 
-CionismoCamp = CampObjectified(known_name="Cionismo",
-                               sector=GimelSector,
-                               summary_statement="""we must create a camp where we are safe from others and Beings""",
-                               counter_sector_statement="""Beings and the others will always persecute us.
-                               this is the only way""",
-                               tenants=["given historical legacies, we must annex a new place",
-                                        "this new place is the only way we will survive",
-                                        "people will always turn against us",
-                                        "we have a long and proud history that must continue",
-                                        "it is our destiny and birthright to live in a new camp"],
-                               stated_camp_core_belief="""a new camp is the only way""",
-                               unstated_camp_core_belief="""the people who are already living 
-                               in the new camp are destined to their fate""",
-                               end_state_key='a'
+AnarkioCamp = CampObjectified(known_name="Anarkio",
+                              sector=GimelSector,
+                              summary_statement="""all hierarchy has caused the Attention imbalance,
+                              so we must abolish all hierarchies""",
+                              counter_sector_statement="""we are free thinkers""",
+                              tenants=["everyone must do what they think is right",
+                                       "all leaders are not to be trusted",
+                                       "ignorance is a personal failing",
+                                       "people's individual choices can right all wrongs"],
+                              stated_camp_core_belief="""each individual must chose their own path""",
+                              unstated_camp_core_belief="""no organization that can represent real collective action""",
+                              end_state_key='c',
+                              round_one_dict={
+                                    "lecturer": """We need a decentralized way to manage resources and alternative currency is the answer!
+                                    We can not trust any centralized authority and their tokens.
+                                     """,  # anracho-capitalism
+                                    "counter_lecture": """What is the use case for our currency?
+                                    Why should those without currency starve?""",
+                                    "chant": """Decentralize currency!"""
+                                },
                                )
-GimelSector.add_camp(CionismoCamp)
+
+GimelSector.add_camp(AnarkioCamp)
 
 
 BlankaSavismoCamp = CampObjectified(known_name="Blanka Savismo",
@@ -252,26 +312,46 @@ BlankaSavismoCamp = CampObjectified(known_name="Blanka Savismo",
                                     stated_camp_core_belief="""we, as the camp with the most well-funded research,
                                      must determine the best way to spend everyone's resources""",
                                     unstated_camp_core_belief="we alone can save everyone from themselves",
-                                    end_state_key='b'
+                                    end_state_key='b',
+                                    round_one_dict={
+                                        "lecturer": """We are the inheritors of knowledge and civility! 
+                                        We must ·in·cen·tiv·ize· those who will follow in our footsteps.""",
+                                        "counter_lecture": """Why must people starve if they do not follow in our footsteps
+                                        or worship the written word above all else?""",
+                                        "chant": """Tokens for civility and learning!"""
+                                    },
                                     )
 BeitSector.add_camp(BlankaSavismoCamp)
 
 
-KomunistoCamp = CampObjectified(known_name="Komunisto",
-                                sector=GimelSector,
-                                summary_statement="""through understanding the material conditions,
-                                We can create a system where resources are produced and distributed in a way 
-                                so we can all survive.""",
-                                counter_sector_statement="""
-                                Only through understanding the real struggle can we make real change.""",
-                                tenants=[
+SkalismoCamp = CampObjectified(known_name="Skalismo",
+                               sector=GimelSector,
+                               summary_statement="""through understanding the material conditions,
+                               We can create a system where resources are produced and distributed in a way so we can all survive.""",
+                               counter_sector_statement="""Only through understanding the real struggle can we make real change.""",
+                               tenants=[
                                     "History is ultimately the tale of class struggle",
                                     "Power is who controls the means of production",
                                     "Only a democratically managed economy can get us out of this mess."
                                 ],
-                                stated_camp_core_belief="""creation of a new system of resources production and distribution is how we can survive""",
-                                unstated_camp_core_belief="""We must convert the masses.""",
-                                end_state_key='d'
-                                )
+                               stated_camp_core_belief="""creation of a new system of resources production and distribution is how we can survive""",
+                               unstated_camp_core_belief="""We must unite the masses against their real enemy""",
+                               end_state_key='d',
+                               round_one_dict={
+                                    "lecturer": """A system where people are forced to innovate or starve will bring Attention back to us all!
+                                    Ideas will thrive in a market place!  It's the only way someone will solve the Attention equations!
+                                    """,
+                                    "counter_lecture": """No one person should unilaterally control all our wealth -
+                                    A market place the incentivizes the accumulation of tokens above all else 
+                                    will ultimately lead to single entities controlling everything.
+                                    """,
+                                   "counter_lecture_2": """Who has these tokens to begin with?
+                                   Who wins and who looses in this system?""",
+                                   # in this camp tokens are rejected, chant is against lecturer
+                                    "chant": """Democratically managed economy!
+                                    Everyone deserves to have their needs met and contribute according to their ability!""",
+                                   "lecturer_counter": """Utopian fools!"""
+                                },
+                               )
 
-GimelSector.add_camp(KomunistoCamp)
+GimelSector.add_camp(SkalismoCamp)

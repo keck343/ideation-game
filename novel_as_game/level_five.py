@@ -62,20 +62,15 @@ class ChapterFive(LevelofStory):
                     print("""Do you ask the other volunteers about their camps beliefs? (Y/N)""")
                     yes_other_camps = self.player_yn_to_bool()
                 else:
-                    print("""What do you think? Complete the sentence:
-                    My camp believes... """)
-                    response = input()
-                    print(f"""You tell them that your camp believes {response}""")
-                    print("""Another volunteer asks if that's your belief. 
-                    Is your camp's beliefs your beliefs? (Y/N)""")
+                    print(f"""You tell them that they are misrepresenting what your camp believes.""")
+                    print("""Another volunteer asks if your camp's beliefs are your beliefs? (Y/N)""")
                     yes_beliefs = self.player_yn_to_bool()
                     if yes_beliefs:
-                        self.main_character.expand_idea(response)
                         print("""You say proudly that it is.  
                         Everyone returns to setting up chairs.""")
                         yes_other_camps = False
                     else:
-                        print("""You say it's not what you believe, but what you've observed.
+                        print("""
                         Another volunteer says there's often a lot of confusion about what their camp believes.""")
                         print("""Do you ask the other volunteers about their camps beliefs? (Y/N)""")
                         yes_other_camps = self.player_yn_to_bool()
@@ -152,7 +147,7 @@ class ChapterFive(LevelofStory):
             if all_sessions_yes:
                 chapter_sector.tell_camps_beliefs(speaker_title="speaker", stated_and_unstated=False)
                 conference_camps = chapter_sector.camps[1:]
-                print("""You feel full of knowledge and mildly overwhelemed.""")
+                print("""You feel full of knowledge and mildly overwhelmed.""")
             else:
                 print("""You skip in and out of the conference and catch a couple speakers.""")
                 conference_camps = random.sample(chapter_sector.camps[1:], 2)
@@ -164,15 +159,15 @@ class ChapterFive(LevelofStory):
             if not change_sectors:
                 print(f"""Do you want to find your friend and discuss the sessions you heard? (Y/N)""")
                 find_yes = self.player_yn_to_bool()
-                if find_yes:
+                if find_yes and attendance == "volunteer":
                     print("""You find your friend and they apologize for oversleeping 
                     and ask you if made it in time to volunteer.""")
-                    if attendance == "volunteer":
-                        print("""You say you made it and helped with the chairs, 
-                        and ask what they thought of the conference.""")
-                    else:
-                        print("""You shrug and admit you went back to sleep, 
-                        and ask what they thought of the conference.""")
+                    print("""""")
+                    print("""You say you made it and helped with the chairs, 
+                    and ask what they thought of the conference.""")
+                elif find_yes:
+                    print("""You find your your friend and ask what they thought of the speakers.""")
+
             else:
                 print("""You have the urge to find your friend, but realize they wouldn't be at this sectors conference.
                 Do you want to search for the person who invited you? (Y/N)""")
@@ -214,6 +209,7 @@ class ChapterFive(LevelofStory):
                 {chapter_camp.stated_camp_core_belief} and
                 {chapter_camp.counter_sector_statement}""")
                 print(watch_fence_void)
+                self.main_character.add_camp(chapter_camp)
             elif choice == "b":
                 print("""You find a novel and quite enjoy reading it.""")
             else:
