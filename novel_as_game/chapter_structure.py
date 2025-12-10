@@ -2,6 +2,7 @@ from world_ideas import IdeaObjectified
 from text_graphics import growing_symbol_transition
 from typing import List, Dict
 import time
+from graphics import change_level_graphic
 
 
 class LevelofStory:
@@ -31,6 +32,14 @@ class LevelofStory:
         return next_parameters
 
     def run_level(self):
+        if self.number > 6:
+            if self.number % 2 == 0:
+                graphic_num = 6
+            else:
+                graphic_num = 7
+        else:
+            graphic_num = self.number
+        change_level_graphic(num=graphic_num)
         time.sleep(1)
         self.greeting()
         next_parameters = self.events()
