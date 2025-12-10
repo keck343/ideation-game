@@ -423,11 +423,6 @@ class ChapterSix(LevelofStory):
             print("""You are able to make it out alive before everything collapses.""")
 
         else:
-            round_two_dict = {
-                "innovation": """≽≽≽≽ innovation. ≽≽≽≽""",
-                "crowd_asks": True,
-                "counter_question": """ """,
-            }
             camp_lives: bool = False
             print(f"""round 2 for {chapter_camp.known_name} is to be written""")
             print(f"""fame = {fame}""")
@@ -475,9 +470,11 @@ class ChapterSix(LevelofStory):
             stay_yes = self.player_yn_to_bool()
             if stay_yes:
                 growing_symbol_transition(symbol=chains_line, num_lines=3)
-                print("""Soon people in the camp starved.  Some left to other camps,
+                print(f"""Soon people in the camp starved.  Some left to other camps,
             some tried to rise up against the lecturer,
             but he paid informants handsomely.
+            
+            No real {chapter_camp.round_two_dict["innovation"]} ever came.
             """)
                 growing_symbol_transition(symbol=chains_line, num_lines=3)
                 print("""Soon you too were forced to starve or flee.""")

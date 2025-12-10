@@ -31,6 +31,12 @@ class SectorObjectified:
             stated_camps += 1
 
 
+round_two_dict = {
+                "innovation": """≽≽≽≽ innovation. ≽≽≽≽""",
+                "crowd_asks": True,
+                "counter_question": """How do the members of our camp get tokens?""",
+            }
+
 class CampObjectified:
     def __init__(self, known_name: str, sector: SectorObjectified, summary_statement: str,
                  counter_sector_statement: str, tenants: List[str],
@@ -38,7 +44,8 @@ class CampObjectified:
                  end_state_key: str, round_one_dict,
                  pamphlet_slogans: List[str] = [], initial_crisis_headline: str = "",
                  initial_crisis_explanation: str = "", brochure_summary: str = "",
-                 second_crisis_explanation: str = ""):
+                 second_crisis_explanation: str = "",
+                 round_two_dict = round_two_dict):
         self.known_name = known_name
         self.sector = sector
         self.sector_core_belief = sector.core_belief
@@ -55,6 +62,7 @@ class CampObjectified:
         self.second_crisis_explanation = second_crisis_explanation
         self.end_state_key = end_state_key
         self.round_one_dict = round_one_dict
+        self.round_two_dict = round_two_dict
 
     def revise_summary(self, revision: str, append: bool = True):
         """
