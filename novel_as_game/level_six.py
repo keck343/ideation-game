@@ -1,7 +1,7 @@
 from chapter_structure import LevelofStory
 from constants import end_state_mappings, max_round
 from text_graphics import growing_symbol_transition, watch_fence_void, fence_void, \
-    line_of_fish, moon_star_line, chains_line
+    line_of_fish, moon_star_line, chains_line, floating_heart_ghost, speedy_snail
 from world_sectors_camps import BeitSector, GimelSector, CampObjectified, SkalismoCamp, AnarkioCamp
 import random
 import time
@@ -130,10 +130,12 @@ class ChapterSix(LevelofStory):
                                      
             The lecturer replied:
             
-            Their big banks are popping up everywhere, we must provide an alternative to tokens!""")
+            Their big banks are popping up everywhere, we must provide an alternative to tokens!
+            """)
 
         if chapter_camp != SkalismoCamp:
-            print("""You can see excitement rising in your friend and camp members.""")
+            print("""You can see excitement rising in your friend and camp members.
+            """)
             print("""Do you want to challenge the lecturer's doctrine? (Y/N) """)
             doctrine_yes = self.player_yn_to_bool()
             if doctrine_yes:
@@ -142,7 +144,8 @@ class ChapterSix(LevelofStory):
                 print("""You look around at your camp and realize you must say something.""")
                 growing_symbol_transition("(╥﹏╥)", num_lines=2)
                 print(f"""You address the crowd saying: 
-                {chapter_camp.round_one_dict["counter_lecture"]}""")
+                {chapter_camp.round_one_dict["counter_lecture"]}
+                """)
                 if chapter_camp != AnarkioCamp:
                     fame = True
                     print("""You look around at your camp and realize you must say something.""")
@@ -161,15 +164,16 @@ class ChapterSix(LevelofStory):
                                     """)
                     print("""What do you do?
 
-                                                    a. Join the lecturer and the camp on their new token path
-                                                    c. Leave the entire camp behind.
+                        a. Join the lecturer and the camp on their new token path
+                        c. Leave the entire camp behind.
 
-                                                    Type 'a' or 'b' """)
+                        Type 'a' or 'b' """)
                     choice = self.player_multi_choice(['a', 'b'])
                     if choice == 'b':
                         print(f"""You know in your heart you must leave and try to find new ways to exist 
                                         with {min(11 - self.number, 1) * 10}% of all the embodiments everywhere that are left.
-                                        You walk away from the crowd.""")
+                                        You walk away from the crowd.
+                                        """)
                         if last_round:
                             next_chapter_camp = chapter_camp
                         else:
@@ -355,6 +359,7 @@ class ChapterSix(LevelofStory):
         Skalismo --> democratically managed economy
         Anarkio and no_tokens --> chaos + disorder + invasion?
         """
+        remaining_percent = min(11 - self.number, 1) * 10
 
         if chapter_camp == SkalismoCamp:
             camp_lives: bool = True
@@ -376,7 +381,7 @@ class ChapterSix(LevelofStory):
                 print("""The scientist is someone who recently came from another camp and no one knows them.
                 """)
                 print("""You realize that as the only other person in the room, 
-                you could take credit for the breakthrough - could it be better if the breakthrough came from an original memeber of the camp?""")
+                you could take credit for the breakthrough - could it be better if the breakthrough came from an original member of the camp?""")
                 print("""Do you give the new scientist credit for the discovery? (Y/N)""")
                 credit_yes = self.player_yn_to_bool()
                 if credit_yes:
@@ -388,6 +393,8 @@ class ChapterSix(LevelofStory):
                     self.transition_as_typewriter("""The lie also caused fractures in the movement, 
                     but with you out of the picture, the camp recovers.
                     """)
+                    print("""Fame is fickle.""")
+                    print(floating_heart_ghost)
                 else:
                     fame = False
                     print("""The new scientist's breakthrough allows for the camp to set up a system 
@@ -398,20 +405,85 @@ class ChapterSix(LevelofStory):
 
                     print("""Even if your name is not in the history textbooks, 
                     you are proud of the role you played and the community you are part of.""")
+                    print(floating_heart_ghost)
 
         elif chapter_camp == AnarkioCamp and no_tokens:
             camp_lives: bool = False
-            print(f"""round 2 for {chapter_camp.known_name} is to be written""")
-            print(f"""fame = {fame}""")
-            print(f"""no_tokens = {no_tokens}""")
-
+            print("""You wake up to a new day with half your camp.  You try to figure out what to do.
+            """)
+            print("""Without a leadership structure, it's hard to work together, 
+            so you all decide to go off on your own to try to figure out the attention equations and what to do about resources.
+            """)
+            growing_symbol_transition(symbol=speedy_snail, num_lines=3)
+            print("""You all agree you hope things will be clearer in the morning.""")
+            growing_symbol_transition(symbol=speedy_snail, num_lines=3)
+            print("""Many days pass and the tokens side of the camp invaded.  
+            The days of dreaming of anti-hierarchical idea sharing are over and everyone that does not adopt tokens are forced to flee.""")
+            growing_symbol_transition(symbol=chains_line, num_lines=3)
+            print("""You are able to make it out alive before everything collapses.""")
 
         else:
+            round_two_dict = {
+                "innovation": """≽≽≽≽ innovation. ≽≽≽≽""",
+                "crowd_asks": True,
+                "counter_question": """ """,
+            }
             camp_lives: bool = False
             print(f"""round 2 for {chapter_camp.known_name} is to be written""")
             print(f"""fame = {fame}""")
             print(f"""no_tokens = {no_tokens}""")
+            print(f"""The lecturer convenes everyone the next morning to begin the implementation of tokens.
+            They explain the goal of accumulating wealth will provide the incentives needed for
+            {chapter_camp.round_two_dict["innovation"]}
+            
+            They are ready to begin operation of the stores where people can exchange tokens for resources.
+            """)
+            print("""Do you ask how the members of the camp get tokens? (Y/N)""")
+            question_yes = self.player_yn_to_bool()
+            if question_yes:
+                print(f"""The crowd murmurs in agreement, you raise your hand and ask:
+                
+                How do the members of our camp get tokens?
+                """)
 
+                print("""The lecturer responds that they already have the tokens,
+                and people only need to be hired for a role in their store or provide an innovation worthy of reward.
+                """)
+            elif {chapter_camp.round_two_dict["crowd_asks"]}:
+                print(f"""The crowd murmurs in agreement, someone raises their hand and asks:
+                
+                {chapter_camp.round_two_dict["counter_question"]}
+            """)
+
+                print("""The lecturer responds that they already have the tokens,
+                and will generously set up the store for only a modest fee.
+                """)
+
+            if {chapter_camp.round_two_dict["crowd_asks"]} or question_yes:
+                print("""Some unease spreads through the camp, but people begin to get to work witj the lecturer's instructions.""")
+            else:
+                print("""The crowd cheers, ready to get to work with the lecturer's instructions.""")
+
+            growing_symbol_transition(symbol=chains_line, num_lines=3)
+            print("""The store does not go as planned.
+            """)
+            print("""The lecturer did not have enough jobs for everyone, and many in the camp went hungry.
+            
+            Whenever anyone asked what they were to do, the lecturer said they needed to innovate and try harder.
+            """)
+            print("""Do you want to stay in the camp (Y/N)?""")
+            stay_yes = self.player_yn_to_bool()
+            if stay_yes:
+                growing_symbol_transition(symbol=chains_line, num_lines=3)
+                print("""Soon people in the camp starved.  Some left to other camps,
+            some tried to rise up against the lecturer,
+            but he paid informants handsomely.
+            """)
+                growing_symbol_transition(symbol=chains_line, num_lines=3)
+                print("""Soon you too were forced to starve or flee.""")
+                if last_round:
+                    print("""There were so few of the embodied left.
+                    No matter how many times you ran to the edge, no fence appeared.""")
 
         if last_round or chapter_camp == SkalismoCamp:
             next_chapter_camp = chapter_camp
