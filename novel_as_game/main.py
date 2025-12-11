@@ -62,11 +62,11 @@ def ending(end_camp: CampObjectified, PlayerIdea: IdeaObjectified, final_num_rou
     else:
         world_survived = False
 
-    # passcode_instructions: str = """Give the passcode 'all caffeine'
-    # to the bartender to get the diagram"""
+    passcode_instructions: str = """Give the passcode 'all caffeine'
+    to the bartender to get the diagram"""
 
-    passcode_instructions: str = """
-    Here is a diagram of how the world works"""
+    # passcode_instructions: str = """
+    # Here is a diagram of how the world works"""
 
     player_wins: bool = False
 

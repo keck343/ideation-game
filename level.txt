@@ -1,1 +1,1 @@
-images/level_6.png
+images/level_1.png
