@@ -232,7 +232,7 @@ class ChapterThree(LevelofStory):
                     return chapter_camp.known_name, "contrarian", desired_product
 
             else:
-                print("""You smile and begin helping them cut pamphlets.""")
+                print("""You smile to be polite and begin to help cut pamphlets someone just handed you.""")
                 print("""ﮩ٨ـﮩﮩ٨ـ♡ﮩ٨ـﮩﮩ٨ـ""")
                 print("""As you settle into a rhythm with cutting, 
                 you began to feel more at ease with your surroundings and companion.""")
