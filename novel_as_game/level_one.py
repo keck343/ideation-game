@@ -15,20 +15,15 @@ class ChapterOne(LevelofStory):
 ▐█▀▀▌───▄▀▌─▌─█─▌──▌─▌
 ▌▀▄─▐──▀▄─▐▄─▐▄▐▄─▐▄─▐▄
         """)
-        known_idea_name: str = "The Stranger"
         print("""You wake up in an unfamiliar town with no recollection of how you got here.""")
-        print("Do you want to walk around? (Y/N)")
-        yes: bool = self.player_yn_to_bool()
-        # anything that isn't a yes counts a no
-        if yes:
-            print("""You walk around, noting how this world is so many combinations of seemingly disparate things.""")
-            time.sleep(1)
-            print("""You find yourself synthesizing new meanings that make sense to you.
-            The world feels bigger than you ever could have imagined back home.""")
-            print("")
-
-        # nothing about trajectory changes if you don't walk around this time, you just have less information
-        print("""You run into a stranger.""")
+        print("""This world is so many combinations of seemingly disparate things.
+        """)
+        time.sleep(1)
+        print("""You find yourself synthesizing new meanings that make sense to you.
+            The world feels bigger than you ever could have imagined back home.
+            """)
+        print("")
+        print("""A stranger appears.""")
         time.sleep(1)
         print("""As a new comer in a strange land, you override any social anxiety and walk towards them.""")
         time.sleep(1)

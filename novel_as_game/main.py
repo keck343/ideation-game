@@ -13,6 +13,7 @@ from typing import Dict
 from chapter_structure import LevelofStory
 from text_graphics import growing_symbol_transition, welcome_art, transition_as_typewriter, heart_of_zeros
 from world_sectors_camps import BeitSector, GimelSector, CampObjectified, SkalismoCamp
+from graphics import change_end_graphic, change_back_graphic
 
 """ 
 Disambiguation
@@ -21,7 +22,7 @@ An existential crisis in the form of a python script. Enjoy!
 """
 
 # for debugging
-debugging: bool = True
+debugging: bool = False
 
 
 def game_step_up():
@@ -64,6 +65,9 @@ def ending(end_camp: CampObjectified, PlayerIdea: IdeaObjectified, final_num_rou
     passcode_instructions: str = """Give the passcode 'all caffeine'
     to the bartender to get the diagram"""
 
+    # passcode_instructions: str = """
+    # Here is a diagram of how the world works"""
+
     player_wins: bool = False
 
     if not world_survived:
@@ -85,6 +89,7 @@ def ending(end_camp: CampObjectified, PlayerIdea: IdeaObjectified, final_num_rou
                 player_wins: bool = True
 
         if player_wins:
+            change_end_graphic(num=1)
             growing_symbol_transition(symbol="+=={:::::::::::::::::>", num_lines=3)
             print(f"""Unlike the real world, there is a diagram for how this world works.
                 Sense you did achieve your goal,
@@ -93,12 +98,14 @@ def ending(end_camp: CampObjectified, PlayerIdea: IdeaObjectified, final_num_rou
             print(""" 
             Maybe you will want to play again with this new knowledge.""")
         else:
+            change_end_graphic(num=0)
             growing_symbol_transition(symbol="+=={:::::::::::::::::>", num_lines=3)
             print("""How the world works will remain a mystery,
                 but unlike real life,
                 you can choose to play this game again.""")
 
     if world_survived:
+        change_end_graphic(num=1)
         if PlayerIdea.desired_end_state_key in ['d', 'c']:
             player_wins: bool = True
         print("""
@@ -125,10 +132,14 @@ def ending(end_camp: CampObjectified, PlayerIdea: IdeaObjectified, final_num_rou
         {passcode_instructions}
         """)
 
+        time.sleep(120)
+        change_end_graphic(num=2)
+
 
 # Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    atexit.register(exit_handler)
+def play_game():
+    change_end_graphic(num=2)
+    change_back_graphic(num=0)
 
     if debugging:
         PlayerIdea: IdeaObjectified = IdeaObjectified(name="unknown",
@@ -181,6 +192,14 @@ if __name__ == '__main__':
     ending(end_camp=next_camp, PlayerIdea=PlayerIdea, final_num_rounds_in_camp=num_rounds_in_camp)
 
 
+if __name__ == '__main__':
+    atexit.register(exit_handler)
+
+    while True:
+        print("""Would you like to play? 
+    """)
+        start = input("Press any key to begin.")
+        play_game()
 
 
 

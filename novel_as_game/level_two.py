@@ -156,6 +156,7 @@ class ChapterTwo(LevelofStory):
             else:
                 print("""You say, while I appreciate this dialogue, I am firm in my stance on Beings.
                 Therefore I must accept the other invitation for the next cycle.
+                
                 The other guest nods saying, of course only you can choose what camp you visit,""")
                 next_sector = inviter_name
 

@@ -255,7 +255,7 @@ class ChapterSix(LevelofStory):
                 you could take credit for the breakthrough - could it be better if the breakthrough came from an original member of the camp?""")
                 print("""Do you give the new scientist credit for the discovery? (Y/N)""")
                 credit_yes = self.player_yn_to_bool()
-                if credit_yes:
+                if not credit_yes:
                     print("""You were only able to keep up the lie for a couple cycles. 
                     
                     Eventually the truth came out, you were disgraced and no one will work with you.""")

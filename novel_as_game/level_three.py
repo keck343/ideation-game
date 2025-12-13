@@ -231,15 +231,15 @@ class ChapterThree(LevelofStory):
                     growing_symbol_transition(symbol=".·°՞(ᗒ□ᗕ)՞°·.", num_lines=3)
                     return chapter_camp.known_name, "contrarian", desired_product
 
-                else:
-                    print("""You smile and begin helping them cut pamphlets.""")
-                    print("""ﮩ٨ـﮩﮩ٨ـ♡ﮩ٨ـﮩﮩ٨ـ""")
-                    print("""As you settle into a rhythm with cutting, 
-                    you began to feel more at ease with your surroundings and companion.""")
-                    print("""ﮩ٨ـﮩﮩ٨ـ♡ﮩ٨ـﮩﮩ٨ـ""")
-                    print("""Pleasant conversation ensues and you feel less alone with a new friend.""")
-                    growing_symbol_transition(symbol="""ﮩ٨ـﮩﮩ٨ـ♡ﮩ٨ـﮩﮩ٨ـ""", num_lines=3)
-                    return chapter_camp.known_name, "believer", desired_product
+            else:
+                print("""You smile to be polite and begin to help cut pamphlets someone just handed you.""")
+                print("""ﮩ٨ـﮩﮩ٨ـ♡ﮩ٨ـﮩﮩ٨ـ""")
+                print("""As you settle into a rhythm with cutting, 
+                you began to feel more at ease with your surroundings and companion.""")
+                print("""ﮩ٨ـﮩﮩ٨ـ♡ﮩ٨ـﮩﮩ٨ـ""")
+                print("""Pleasant conversation ensues and you feel less alone with a new friend.""")
+                growing_symbol_transition(symbol="""ﮩ٨ـﮩﮩ٨ـ♡ﮩ٨ـﮩﮩ٨ـ""", num_lines=3)
+                return chapter_camp.known_name, "believer", desired_product
 
         elif not cheer_yes:
             print("""You do not join in and feel uneasy surrounded by so many people 
