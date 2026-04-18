@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { SkipContext } from "./SkipContext";
 
 type Props = {
@@ -21,9 +21,10 @@ function fibLine(symbol: string, index: number): string {
 export function GrowingSymbol({ symbol, numLines, sleepSeconds }: Props) {
   const [lines, setLines] = useState<string[]>([symbol]);
   const skipTick = useContext(SkipContext);
+  const mountTickRef = useRef(skipTick);
 
   useEffect(() => {
-    if (skipTick === 0) return;
+    if (skipTick === mountTickRef.current) return;
     setLines((prev) => {
       if (prev.length >= numLines) return prev;
       const rest: string[] = [];

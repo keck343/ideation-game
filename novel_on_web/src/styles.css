@@ -424,12 +424,6 @@ body,
 .ending-overlay.tone-neutral { color: #d4d7da; }
 .ending-overlay.tone-warm { color: #ffe0d4; }
 
-.ending-card.epitaph {
-  color: #fff;
-  mix-blend-mode: difference;
-  text-shadow: none;
-}
-
 .ending-card {
   position: absolute;
   text-align: center;
@@ -447,15 +441,23 @@ body,
 }
 
 .ending-card.epitaph {
-  bottom: 16vh;
+  top: 50%;
+  transform: translate(-50%, -50%);
   font-size: clamp(15px, 1.6vw, 19px);
   letter-spacing: 0.02em;
-  padding: 0 6vw;
-  max-width: min(760px, 88vw);
+  padding: 1.4em clamp(18px, 5vw, 40px);
+  width: min(760px, 88vw);
+  min-height: 9em;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.72);
+  border-radius: 6px;
+  text-shadow: none;
 }
 
 .ending-card.epitaph.variant-large {
-  bottom: 20vh;
   font-size: clamp(20px, 2.6vw, 30px);
   letter-spacing: 0.04em;
   line-height: 1.45;
