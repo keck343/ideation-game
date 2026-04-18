@@ -1,4 +1,4 @@
-export type TextBeat = { kind: "text"; text: string };
+export type TextBeat = { kind: "text"; text: string; italic?: boolean };
 export type ArtBeat = { kind: "art"; text: string };
 export type TypewriterBeat = { kind: "typewriter"; text: string; cps?: number };
 export type GrowingSymbolBeat = {
@@ -52,13 +52,14 @@ export type Beat =
   | CreditsBeat
   | PlayAgainBeat;
 
-export type YesNoPrompt = { kind: "yn"; question: string };
+export type YesNoPrompt = { kind: "yn"; question: string; noRecap?: boolean };
 export type MultiChoicePrompt = {
   kind: "multi";
   question: string;
   options: { key: string; label: string }[];
+  noRecap?: boolean;
 };
-export type FreeTextPrompt = { kind: "free"; question: string };
+export type FreeTextPrompt = { kind: "free"; question: string; noRecap?: boolean };
 
 export type Prompt = YesNoPrompt | MultiChoicePrompt | FreeTextPrompt;
 

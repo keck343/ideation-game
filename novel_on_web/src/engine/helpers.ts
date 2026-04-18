@@ -96,19 +96,20 @@ export function imageEnd(num: number | null): ImageBeat {
   };
 }
 
-export function ynPrompt(question: string): Prompt {
-  return { kind: "yn", question };
+export function ynPrompt(question: string, opts?: { noRecap?: boolean }): Prompt {
+  return { kind: "yn", question, noRecap: opts?.noRecap };
 }
 
 export function multiPrompt(
   question: string,
-  options: { key: string; label: string }[]
+  options: { key: string; label: string }[],
+  opts?: { noRecap?: boolean },
 ): Prompt {
-  return { kind: "multi", question, options };
+  return { kind: "multi", question, options, noRecap: opts?.noRecap };
 }
 
-export function freePrompt(question: string): Prompt {
-  return { kind: "free", question };
+export function freePrompt(question: string, opts?: { noRecap?: boolean }): Prompt {
+  return { kind: "free", question, noRecap: opts?.noRecap };
 }
 
 export function expandIdea(state: PlayerState, expansion: string): PlayerState {
@@ -129,21 +130,28 @@ export function addSector(state: PlayerState, sector: string): PlayerState {
   return { ...state, sectors: [...state.sectors, sector] };
 }
 
-export function* askYn(question: string): Generator<Prompt, boolean, any> {
-  const answer = (yield ynPrompt(question)) as boolean;
+export function* askYn(
+  question: string,
+  opts?: { noRecap?: boolean },
+): Generator<Prompt, boolean, any> {
+  const answer = (yield ynPrompt(question, opts)) as boolean;
   return answer;
 }
 
 export function* askMulti(
   question: string,
-  options: { key: string; label: string }[]
+  options: { key: string; label: string }[],
+  opts?: { noRecap?: boolean },
 ): Generator<Prompt, string, any> {
-  const answer = (yield multiPrompt(question, options)) as string;
+  const answer = (yield multiPrompt(question, options, opts)) as string;
   return answer;
 }
 
-export function* askFree(question: string): Generator<Prompt, string, any> {
-  const answer = (yield freePrompt(question)) as string;
+export function* askFree(
+  question: string,
+  opts?: { noRecap?: boolean },
+): Generator<Prompt, string, any> {
+  const answer = (yield freePrompt(question, opts)) as string;
   return answer;
 }
 

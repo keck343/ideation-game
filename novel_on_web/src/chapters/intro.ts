@@ -22,7 +22,7 @@ export const intro: ChapterFactory = function* (_state, _handoff) {
   yield art(welcomeArt);
   yield text("Welcome to Disambiguation.");
   yield text(
-    "The blank canvas of creation is heaven or hell depending on your perspective."
+    "The blank canvas of creation is heaven or hell depending on your perspective.",
   );
   yield text("Pick the quote that most resonates with you:");
 
@@ -31,7 +31,8 @@ export const intro: ChapterFactory = function* (_state, _handoff) {
     Object.entries(quotes).map(([key, q]) => ({
       key,
       label: `From ${q.author}: "${q.quote}"`,
-    }))
+    })),
+    { noRecap: true },
   );
 
   const chosen = quotes[quoteKey];

@@ -243,6 +243,9 @@ export function SceneView({ state, onAnswer, onSkip, onReset }: Props) {
   const bodyBeats = titleBeat
     ? state.beats.filter((b) => b !== titleBeat)
     : state.beats;
+  const bodyRestoredCount = titleBeat
+    ? state.restoredCount - 1
+    : state.restoredCount;
 
   return (
     <div className="scene-view">
@@ -276,7 +279,11 @@ export function SceneView({ state, onAnswer, onSkip, onReset }: Props) {
           <div className="beats" aria-live="polite" aria-relevant="additions">
             <SkipContext.Provider value={skipTick}>
               {bodyBeats.map((b, i) => (
-                <BeatDisplay beat={b} key={i} />
+                <BeatDisplay
+                  beat={b}
+                  key={i}
+                  restored={i < bodyRestoredCount}
+                />
               ))}
             </SkipContext.Provider>
             {displayedPrompt && (

@@ -5,6 +5,7 @@ type Props = {
   symbol: string;
   numLines: number;
   sleepSeconds: number;
+  immediate?: boolean;
 };
 
 function fibLine(symbol: string, index: number): string {
@@ -18,8 +19,19 @@ function fibLine(symbol: string, index: number): string {
   return symbol.repeat(b);
 }
 
-export function GrowingSymbol({ symbol, numLines, sleepSeconds }: Props) {
-  const [lines, setLines] = useState<string[]>([symbol]);
+function allFibLines(symbol: string, numLines: number): string[] {
+  return Array.from({ length: numLines }, (_, i) => fibLine(symbol, i));
+}
+
+export function GrowingSymbol({
+  symbol,
+  numLines,
+  sleepSeconds,
+  immediate,
+}: Props) {
+  const [lines, setLines] = useState<string[]>(
+    immediate ? allFibLines(symbol, numLines) : [symbol],
+  );
   const skipTick = useContext(SkipContext);
   const mountTickRef = useRef(skipTick);
 

@@ -1,15 +1,17 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { SkipContext } from "./SkipContext";
 
-type Props = { text: string; cps?: number; onDone?: () => void };
+type Props = { text: string; cps?: number; onDone?: () => void; immediate?: boolean };
 
-export function Typewriter({ text, cps = 60, onDone }: Props) {
-  const [shown, setShown] = useState(0);
-  const [skipped, setSkipped] = useState(false);
+export function Typewriter({ text, cps = 60, onDone, immediate }: Props) {
+  const [shown, setShown] = useState(immediate ? text.length : 0);
+  const [skipped, setSkipped] = useState(immediate ?? false);
   const skipTick = useContext(SkipContext);
+  const mountTickRef = useRef(skipTick);
 
   useEffect(() => {
-    if (skipTick > 0) setSkipped(true);
+    if (skipTick === mountTickRef.current) return;
+    setSkipped(true);
   }, [skipTick]);
 
   useEffect(() => {

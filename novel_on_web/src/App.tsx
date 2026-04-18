@@ -1,10 +1,12 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useStory } from "./engine/useStory";
 import type { ChapterId } from "./engine/types";
 import type { ChapterFactory } from "./engine/helpers";
 import { preloadImages } from "./engine/preloadImages";
 import { SceneView } from "./ui/SceneView";
 import { ErrorBoundary } from "./ui/ErrorBoundary";
+import { ResumePrompt } from "./ui/ResumePrompt";
+import { readSave, clearSave, type SaveGame } from "./engine/saveState";
 import { intro } from "./chapters/intro";
 import { chapter01 } from "./chapters/chapter01";
 import { chapter02 } from "./chapters/chapter02";
@@ -27,19 +29,49 @@ const chapters: Record<ChapterId, ChapterFactory> = {
 };
 
 export default function App() {
-  const { state, answer, skip, reset, jumpTo } = useStory({ chapters });
-  useEndingJumper(jumpTo);
+  const [save] = useState(() => readSave());
+  const [choice, setChoice] = useState<"continue" | "new" | null>(
+    save ? null : "new",
+  );
+
   useEffect(() => {
     preloadImages();
   }, []);
+
+  if (choice === null) {
+    return (
+      <ErrorBoundary>
+        <ResumePrompt
+          onContinue={() => setChoice("continue")}
+          onNewGame={() => {
+            clearSave();
+            setChoice("new");
+          }}
+        />
+      </ErrorBoundary>
+    );
+  }
+
   return (
     <ErrorBoundary>
-      <SceneView
-        state={state}
-        onAnswer={answer}
-        onSkip={skip}
-        onReset={reset}
-      />
+      <Game savedGame={choice === "continue" ? save : undefined} />
     </ErrorBoundary>
+  );
+}
+
+function Game({ savedGame }: { savedGame?: SaveGame | null }) {
+  const { state, answer, skip, reset, jumpTo } = useStory({
+    chapters,
+    savedGame: savedGame ?? undefined,
+  });
+  useEndingJumper(jumpTo);
+
+  return (
+    <SceneView
+      state={state}
+      onAnswer={answer}
+      onSkip={skip}
+      onReset={reset}
+    />
   );
 }
