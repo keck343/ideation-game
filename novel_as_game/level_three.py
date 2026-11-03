@@ -54,16 +54,16 @@ class ChapterThree(LevelofStory):
 
         print(f"""You see the embodiment form the party. 
         Hoping they will continue to be a good host, you walk over and inquire, 
-        Do you know where I could find a {desired_product}?""")
+        'Do you know where I could find a {desired_product}?'""")
         print("(｡ᵕ ◞ _◟)")
         self.transition_as_typewriter(f"""They look up at you with a grim face.
-        You really haven't been around much have you?
+        'You really haven't been around much have you?
         There hasn't been {desired_product} in many cycles.
-        I guess you did conclude quote: '{self.main_character.description}' """)
+        I guess you did conclude quote: {self.main_character.description}' """)
 
         print(f"""
         They sigh and say: 
-        Come, let's meet with the others to figure out what do about the lack of {desired_product} these days.""")
+        'Come, let's meet with the others to figure out what do about the lack of {desired_product} these days.'""")
 
         print("""
         Do you follow them to meet with the others? (Y/N)
@@ -167,24 +167,24 @@ class ChapterThree(LevelofStory):
         with different diagrams, charts, and statistics.""")
         growing_symbol_transition(symbol="(╯ ͠° ͟ʖ ͡°)╯┻━┻", num_lines=3)
         self.transition_as_typewriter("""Someone turns to you, clutching their diagrams close to their chest.  They implore you,
-        What is to be done? 
+        'What is to be done?'
         """)
         if self.starting_point == "Gimel":
             lenin_opinion = "no "
         else:
             lenin_opinion = ""
         print(f"""Another person turns to them whispering,
-        Don't be like that traitor! Died at 53 in a coma and for {lenin_opinion}good reason.""")
+        'Don't be like that traitor! Losing your ability to speak for {lenin_opinion}good reason.'""")
         print("""They clutch their diagrams closer to their chest, fear in their eyes.""")
         growing_symbol_transition(symbol="⤷ ゛ ˎˊ˗", num_lines=2)
         print("""Emerging out of the chaos, one person climbs on a chairs and clears their throat.
         The stirring dies down as people turn towards them.""")
         self.transition_as_typewriter("""They begin to address the crowd saying:
         
-        Fellow camp members, these are unprecedented times.
+        'Fellow camp members, these are unprecedented times.
         We can not even eat breakfast as we used to.
         Where has all the coffee, tea, and sparkling water gone?
-        What will become of our way of life?
+        What will become of our way of life?'
         """)
         growing_symbol_transition(symbol="ᕙ(  •̀ ᗜ •́  )ᕗ", num_lines=3)
         self.transition_as_typewriter(f"""
@@ -209,7 +209,7 @@ class ChapterThree(LevelofStory):
                 They smile and invite you to help them cut up pamphlets.""")
                 print("""You inquire what the pamphlets are for.
                 They respond, 
-                Excellent Question!""")
+                'Excellent Question!'""")
                 print("(´｡• ◡ •｡`) ♡")
                 time.sleep(0.5)
                 print(f"""{chapter_camp.pamphlet_slogans[0]}""")
@@ -219,12 +219,12 @@ class ChapterThree(LevelofStory):
                 yes = self.player_yn_to_bool()
                 if yes:
                     print(f"""They seem less excited at your second question, and continue:
-                    Well of course, {chapter_camp.pamphlet_slogans[1]} """)
+                    'Well of course, {chapter_camp.pamphlet_slogans[1]}'""")
                     print("""You smile uneasily and point out that they are just reading what the pamphlet says.""")
                     print("∘ ∘ ∘ ( °ヮ° )")
                     print("""Another person interjects:
-                    Some people can only just read the propaganda.  
-                    Why don't we have an actual discussion over here?
+                    'Some people can only just read the propaganda.  
+                    Why don't we have an actual discussion over here?'
                     """)
                     print(".·°՞(ᗒ□ᗕ)՞°·.")
                     print("""You smile and follow them to their workbench.""")
