@@ -17,13 +17,13 @@ class LevelofStory:
         self.starting_point = starting_point
 
     def title(self):
-        return f"Level {self.number}"
+        return f"Cycle {self.number}"
 
     def greeting(self):
-        print(f"Welcome to Level {self.number}")
+        print(f"Welcome to Cycle {self.number}")
 
     def parting(self):
-        print(f"End of Level {self.number}")
+        print(f"End of Cycle {self.number}")
         time.sleep(1)
 
     def events(self):

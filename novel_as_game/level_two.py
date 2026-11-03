@@ -18,7 +18,7 @@ class ChapterTwo(LevelofStory):
         print(f"""You are at the dinner party.
         The characters that brought you here have long abandoned you for their friends.
         You are overwhelmed with social anxiety and questions about where you are and who you are.
-        What course of action will you take?""")
+        """)
         time.sleep(1)
         print("""Do you want approach a dinner party guest? (Y/N)""")
         yes: bool = self.player_yn_to_bool()
@@ -32,8 +32,9 @@ class ChapterTwo(LevelofStory):
             first_speaker = GimelSector
             second_speaker = BeitSector
             print("""You stare off into space a little while longer.  
-            A party guest approaches you and asks if you are new here. 
-            You say yes, and they invite you to join the conversation saying,
+            A party guest approaches you and invites you to join the conversation saying,
+            
+            *You must be new here.*
             """)
 
         first_talking_points = first_speaker.dinner_talking_points
@@ -164,16 +165,16 @@ class ChapterTwo(LevelofStory):
         growing_symbol_transition(symbol="( ｡ •̀ ``-`` •́ ｡ )", num_lines=1)
         print("""Do you respond with:
         
-        a. This is all made up
-        b. I don't care
+        a. I said what I meant about Beings.
+        b. I'm making a reasonable guess with the available information.
         c. Other [type your own answer]
         
         Enter 'a' 'b' or 'c'""")
         choice = self.player_multi_choice(['a', 'b', 'c'])
         if choice == 'a':
-            worldview = "this is all made up"
+            worldview = "Stick with beliefs"
         elif choice == 'b':
-            worldview = "I don't care"
+            worldview = "Reasonable guesses with the available information"
         else:
             worldview = self.player_long_answer()
         self.main_character.expand_idea(worldview)

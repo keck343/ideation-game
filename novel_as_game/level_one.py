@@ -29,7 +29,7 @@ class ChapterOne(LevelofStory):
         time.sleep(1)
         print("")
         print(f"""The stranger turns toward you smiling.  
-        I'm {self.supporting_characters[0]}.  What's your name?""")
+        'I'm {self.supporting_characters[0]}.  What's your name?'""")
         print(f"""
         Do you want to give {self.supporting_characters[0]} your name? (Y/N)""")
         yes = self.player_yn_to_bool()
@@ -38,38 +38,42 @@ class ChapterOne(LevelofStory):
         else:
             print("""You shake your head no.""")
 
-        print(f"""Not to worry, {self.supporting_characters[0]} says, a lot of new folks here do not yet have names.
+        print(f"""'Not to worry,' {self.supporting_characters[0]} says, 'most new folks here do not yet have names.'
         """)
 
         print(f"""A new person runs up to {self.supporting_characters[0]} saying,
-        I'm running late to worldview club and can not think of a quote to bring.
+        'I'm running late to Frame Club and can not think of a quote to bring.'
         """)
+
+        time.sleep(1)
 
         print(f"""{self.supporting_characters[0]} introduces the other person as {self.supporting_characters[1]} to you.
         They pause, and turn to you and ask you if you have a quote.""")
         print("""Do you have a quote to give them? (Y/N)""")
         yes = self.player_yn_to_bool()
         if yes:
-            print(f"""You smile and say, a quote that resonates with me was once said by {quotes[self.main_character.player_quote_key]['author']}:
+            print(f"""You smile and say, 'a quote that resonates with me was once said by {quotes[self.main_character.player_quote_key]['author']}:
             
-            '{quotes[self.main_character.player_quote_key]['quote']}'
+            {quotes[self.main_character.player_quote_key]['quote']}'
             """)
 
-            print(f"""{self.supporting_characters[1]}'s face lights up. 
-            I love that quote! They exclaim.
-            Worldview club's membership is currently closed, but we have a dinner party tonight. You should come!""")
+            print(f"""{self.supporting_characters[1]}'s face lights up and they exclaim,
+            'I love that quote!
+            Frame club's membership is currently closed, but we have a dinner party tonight. You should come!'""")
         else:
             print(f"""{self.supporting_characters[0]} apologies for putting you on the spot.  
             They turn to {self.supporting_characters[1]} and say:
-            My favorite quote is by {quotes[self.main_character.player_quote_key]['author']}:
+            'My favorite quote is by {quotes[self.main_character.player_quote_key]['author']}:
             
-            '{quotes[self.main_character.player_quote_key]['quote']}'""")
+            {quotes[self.main_character.player_quote_key]['quote']}'""")
 
             print("""""")
+            time.sleep(1)
             print("""A smile creeps on your face without you realizing it.""")
             print(f"""{self.supporting_characters[1]} says:
-            It must be a good quote if the new person likes it! I'll use it. 
-            Are you going to the after worldview-club dinner party tonight?  Everyone is invited!""")
+            'It must be a good quote if the new person likes it! I'll use it. 
+            Are you going to the post-Frame world dinner party tonight?  Everyone is invited!'
+""")
 
         print("""Do you wish to go to the dinner party? (Y/N)""")
         yes: bool = self.player_yn_to_bool()
@@ -89,7 +93,7 @@ class ChapterOne(LevelofStory):
             self.transition_as_typewriter(f"""
             'You look so lost, this will be the thing to lift your spirits! 
             When I first came here, it was important to listen to new ideas and make friends.
-            Plus there will be plenty of people who want to talk about {quotes[self.main_character.player_quote_key]["author"]}!
+            Plus there will be plenty of people who want to talk about {quotes[self.main_character.player_quote_key]["author"]}!'
             """)
             print(f"""Unable to come up with another excuse and thinking of {quotes[self.main_character.player_quote_key]["author"]},
             you agree to go for only an hour.
