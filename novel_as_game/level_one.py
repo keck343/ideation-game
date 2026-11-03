@@ -42,7 +42,7 @@ class ChapterOne(LevelofStory):
         """)
 
         print(f"""A new person runs up to {self.supporting_characters[0]} saying,
-        I'm running late to worldview club and can not think of a quote to bring.
+        I'm running late to Frame Club and can not think of a quote to bring.
         """)
 
         print(f"""{self.supporting_characters[0]} introduces the other person as {self.supporting_characters[1]} to you.
@@ -57,7 +57,7 @@ class ChapterOne(LevelofStory):
 
             print(f"""{self.supporting_characters[1]}'s face lights up. 
             I love that quote! They exclaim.
-            Worldview club's membership is currently closed, but we have a dinner party tonight. You should come!""")
+            Frame club's membership is currently closed, but we have a dinner party tonight. You should come!""")
         else:
             print(f"""{self.supporting_characters[0]} apologies for putting you on the spot.  
             They turn to {self.supporting_characters[1]} and say:
@@ -69,7 +69,7 @@ class ChapterOne(LevelofStory):
             print("""A smile creeps on your face without you realizing it.""")
             print(f"""{self.supporting_characters[1]} says:
             It must be a good quote if the new person likes it! I'll use it. 
-            Are you going to the after worldview-club dinner party tonight?  Everyone is invited!""")
+            Are you going to the post-Frame world dinner party tonight?  Everyone is invited!""")
 
         print("""Do you wish to go to the dinner party? (Y/N)""")
         yes: bool = self.player_yn_to_bool()
