@@ -46,7 +46,7 @@ def game_step_up():
         print(f"""Please try again! Type one of these selections '{", ".join(choices)}'""")
         player_quote_key: str = input().lower().strip()
 
-    growing_symbol_transition(sleep_seconds=0.5)
+    growing_symbol_transition(sleep_seconds=0.1)
     return player_quote_key
 
 
