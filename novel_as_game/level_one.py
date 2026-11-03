@@ -38,7 +38,7 @@ class ChapterOne(LevelofStory):
         else:
             print("""You shake your head no.""")
 
-        print(f"""Not to worry, {self.supporting_characters[0]} says, a lot of new folks here do not yet have names.
+        print(f"""Not to worry, {self.supporting_characters[0]} says, most new folks here do not yet have names.
         """)
 
         print(f"""A new person runs up to {self.supporting_characters[0]} saying,
