@@ -230,6 +230,10 @@ class ChapterThree(LevelofStory):
                     print("""You smile and follow them to their workbench.""")
                     growing_symbol_transition(symbol=".·°՞(ᗒ□ᗕ)՞°·.", num_lines=3)
                     return chapter_camp.known_name, "contrarian", desired_product
+                else:
+                    print("""You spend the rest of the day folding pamphlets, happy to have your hands busy.""")
+                    growing_symbol_transition(symbol=".·°՞(ᗒ□ᗕ)՞°·.", num_lines=3)
+                    return chapter_camp.known_name, "believer", desired_product
 
             else:
                 print("""You smile to be polite and begin to help cut pamphlets someone just handed you.""")
