@@ -33,7 +33,7 @@ class ChapterThree(LevelofStory):
         c. Soda Pop
         d. No need for stimulants - Refreshing Sparkling Water
         e. No need for bubbles - Purified Still Water
-        f. Just any caffeine please
+        f. Just any caffeine please!
         
         Type 'a' 'b' 'c' 'd' 'e' or 'f' to make your choice.
         """)
