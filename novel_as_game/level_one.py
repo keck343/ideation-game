@@ -45,6 +45,8 @@ class ChapterOne(LevelofStory):
         I'm running late to Frame Club and can not think of a quote to bring.
         """)
 
+        time.sleep(1)
+
         print(f"""{self.supporting_characters[0]} introduces the other person as {self.supporting_characters[1]} to you.
         They pause, and turn to you and ask you if you have a quote.""")
         print("""Do you have a quote to give them? (Y/N)""")
