@@ -97,17 +97,17 @@ export const chapter02: ChapterFactory = function* (state, _handoff) {
     "We have been disappearing across all camps and sectors at alarming rates."
   );
 
-  yield typewriter(
+  yield text(
     `${firstSpeaker.dinnerTalkingPoints.disappearance}\n\nThe second guest jumps in saying: This is ludicrous. Clearly ${secondSpeaker.dinnerTalkingPoints.disappearance}`
   );
 
   yield typewriter("You sense the anger rising up in both guests.");
   yield symbol({ symbol: "( ｡ •̀ ᴖ •́ ｡)", numLines: 3 });
-  yield typewriter(
+  yield text(
     `The second guest continues, ${secondSpeaker.dinnerTalkingPoints.beingsCounterPoint}`
   );
   yield symbol({ symbol: "୧(๑•̀ᗝ•́)૭", numLines: 2 });
-  yield typewriter(
+  yield text(
     `The first guest interjects, ${firstSpeaker.dinnerTalkingPoints.beingsCounterPoint}`
   );
   yield symbol({ symbol: "୧(๑•̀ᗝ•́)૭( ｡ •̀ ᴖ •́ ｡)", numLines: 1 });
@@ -120,8 +120,8 @@ export const chapter02: ChapterFactory = function* (state, _handoff) {
     yield text(
       "Without thinking you mutter under your breath: peer-reviewed statistics seem reasonable."
     );
-    yield typewriter(
-      "Both guests now turn their attention to you. One makes an audible sigh of frustration, but appears to be regaining their composure."
+    yield typewriter("Both guests now turn their attention to you.")
+    yield text( "One makes an audible sigh of frustration, but appears to be regaining their composure."
     );
     yield text("The other smiles and says:");
     yield text(gimelSector.dinnerTalkingPoints.campInvitation);
