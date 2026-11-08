@@ -15,7 +15,7 @@ import { newIdea01, newIdea02, quotes } from "../data/quotes";
 export const chapter01: ChapterFactory = function* (state, _handoff) {
   yield imageBg(1);
   yield imageFg(1);
-  yield section(1, "Level 1");
+  yield section(1, "Chapter 1");
 
   yield art(chapterOneArt);
   yield text("You wake up in an unfamiliar town with no recollection of how you got here.");
@@ -39,7 +39,7 @@ export const chapter01: ChapterFactory = function* (state, _handoff) {
   }
 
   yield text(
-    `Not to worry, ${newIdea01} says, a lot of new folks here do not yet have names.`
+    `Not to worry, ${newIdea01} says, most new folks here do not yet have names.`
   );
   yield text(
     `A new person runs up to ${newIdea01} saying, I'm running late to worldview club and can not think of a quote to bring.`
@@ -55,7 +55,7 @@ export const chapter01: ChapterFactory = function* (state, _handoff) {
       `You smile and say, a quote that resonates with me was once said by ${quote.author}:\n\n"${quote.quote}"`
     );
     yield text(
-      `${newIdea02}'s face lights up. I love that quote! They exclaim. Worldview club's membership is currently closed, but we have a dinner party tonight. You should come!`
+      `${newIdea02}'s face lights up. I love that quote! They exclaim. Frame club's membership is currently closed, but we have a dinner party tonight. You should come!`
     );
   } else {
     yield text(
@@ -63,7 +63,7 @@ export const chapter01: ChapterFactory = function* (state, _handoff) {
     );
     yield text("A smile creeps on your face without you realizing it.");
     yield text(
-      `${newIdea02} says: It must be a good quote if the new person likes it! I'll use it. Are you going to the after worldview-club dinner party tonight? Everyone is invited!`
+      `${newIdea02} says: It must be a good quote if the new person likes it! I'll use it. Are you going to the post-Frame world dinner party tonight? Everyone is invited!`
     );
   }
 

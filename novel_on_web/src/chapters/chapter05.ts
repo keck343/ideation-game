@@ -67,7 +67,7 @@ function sampleTwo<T>(arr: readonly T[]): T[] {
 export const chapter05: ChapterFactory = function* (stateIn, handoffIn) {
   yield imageBg(5);
   yield imageFg(5);
-  yield section(5, "Level 5");
+  yield section(5, "Chapter 5");
 
   const handoff = handoffIn as Handoff;
   let chapterSector = sectorByName(handoff.startingSectorName);

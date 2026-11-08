@@ -18,7 +18,7 @@ import { beitSector, gimelSector } from "../data/sectors";
 export const chapter02: ChapterFactory = function* (state, _handoff) {
   yield imageBg(2);
   yield imageFg(2);
-  yield section(2, "Level 2");
+  yield section(2, "Chapter 2");
 
   yield art(chapterTwoArt);
   yield text(
@@ -165,14 +165,14 @@ export const chapter02: ChapterFactory = function* (state, _handoff) {
   yield symbol({ symbol: "( ｡ •̀ ``-`` •́ ｡ )", numLines: 1 });
 
   const worldviewChoice = yield* askMulti("Do you respond with:", [
-    { key: "a", label: "This is all made up" },
-    { key: "b", label: "I don't care" },
+    { key: "a", label: "Stick with beliefs" },
+    { key: "b", label: "Reasonable guesses with the available information" },
     { key: "c", label: "Other [type your own answer]" },
   ]);
 
   let worldview: string;
-  if (worldviewChoice === "a") worldview = "this is all made up";
-  else if (worldviewChoice === "b") worldview = "I don't care";
+  if (worldviewChoice === "a") worldview = "Stick with beliefs";
+  else if (worldviewChoice === "b") worldview = "Reasonable guesses with the available information";
   else worldview = yield* askFree("Type your response:");
 
   const newState = expandIdea(state, worldview);

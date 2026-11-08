@@ -30,7 +30,7 @@ type Handoff = {
 export const chapter04: ChapterFactory = function* (state, handoffIn) {
   yield imageBg(4);
   yield imageFg(4);
-  yield section(4, "Level 4");
+  yield section(4, "Chapter 4");
 
   const handoff = handoffIn as Handoff;
   let chapterSector = sectorByName(handoff.startingSectorName);

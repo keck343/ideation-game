@@ -19,7 +19,7 @@ type Handoff = { startingSector: string };
 export const chapter03: ChapterFactory = function* (state, handoff) {
   yield imageBg(3);
   yield imageFg(3);
-  yield section(3, "Level 3");
+  yield section(3, "Chapter 3");
 
   const startingSectorName = (handoff as Handoff).startingSector ?? "Beit";
   const chapterSector = sectorByName(startingSectorName);
@@ -41,7 +41,7 @@ export const chapter03: ChapterFactory = function* (state, handoff) {
     { key: "c", label: "Soda Pop" },
     { key: "d", label: "No need for stimulants - Refreshing Sparkling Water" },
     { key: "e", label: "No need for bubbles - Purified Still Water" },
-    { key: "f", label: "Just any caffeine please" },
+    { key: "f", label: "Just any caffeine please!" },
   ]);
 
   const desiredProduct: string = (() => {

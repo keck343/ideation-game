@@ -599,7 +599,7 @@ export const chapter06: ChapterFactory = function* (stateIn, handoffIn) {
   while (round <= MAX_ROUND) {
     yield imageBg(graphicsForRound(round));
     yield imageFg(graphicsForRound(round));
-    yield section(round, `Level ${round}`);
+    yield section(round, `Chapter ${round}`);
 
     if (round === 6) {
       const keys = Object.keys(endStateMappings);
