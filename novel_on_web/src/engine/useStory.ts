@@ -305,7 +305,7 @@ export function useStory({
                 collectedBeats.push({
                   kind: "text",
                   text: formatRecap(v, pendingAnswer),
-                  italic: true,
+                  recap: true,
                 });
               }
               continue;
