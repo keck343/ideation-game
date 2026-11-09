@@ -1,6 +1,16 @@
-export type TextBeat = { kind: "text"; text: string; italic?: boolean };
+export type TextBeat = {
+  kind: "text";
+  text: string;
+  italic?: boolean;
+  recap?: boolean;
+};
 export type ArtBeat = { kind: "art"; text: string };
-export type TypewriterBeat = { kind: "typewriter"; text: string; cps?: number };
+export type TypewriterBeat = {
+  kind: "typewriter";
+  text: string;
+  cps?: number;
+  italic?: boolean;
+};
 export type GrowingSymbolBeat = {
   kind: "symbol";
   symbol?: string;

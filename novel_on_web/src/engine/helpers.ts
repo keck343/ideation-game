@@ -9,8 +9,10 @@ import type {
   Prompt,
 } from "./types";
 
-export function text(t: string): Beat {
-  return { kind: "text", text: t.trim() };
+export type TextOptions = { italic?: boolean };
+
+export function text(t: string, opts?: TextOptions): Beat {
+  return { kind: "text", text: t.trim(), italic: opts?.italic };
 }
 
 export function art(t: string): Beat {
