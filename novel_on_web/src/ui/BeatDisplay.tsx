@@ -1,6 +1,7 @@
 import type { Beat } from "../engine/types";
 import { Typewriter } from "./Typewriter";
 import { GrowingSymbol } from "./GrowingSymbol";
+import { RichText } from "./RichText";
 
 export function BeatDisplay({
   beat,
@@ -12,15 +13,24 @@ export function BeatDisplay({
   switch (beat.kind) {
     case "text":
       return (
-        <p className={`beat text${beat.italic ? " italic" : ""}`}>
-          {beat.text}
+        <p
+          className={`beat text${beat.italic ? " italic" : ""}${
+            beat.recap ? " recap" : ""
+          }`}
+        >
+          <RichText text={beat.text} />
         </p>
       );
     case "art":
       return <pre className="beat ascii-art">{beat.text}</pre>;
     case "typewriter":
       return (
-        <Typewriter text={beat.text} cps={beat.cps} immediate={restored} />
+        <Typewriter
+          text={beat.text}
+          cps={beat.cps}
+          immediate={restored}
+          italic={beat.italic}
+        />
       );
     case "symbol":
       return (

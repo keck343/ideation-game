@@ -147,7 +147,11 @@ body,
   white-space: pre-wrap;
 }
 
-.beat.text.italic {
+.beat.italic {
+  font-style: italic;
+}
+
+.beat.text.recap {
   font-style: italic;
   color: var(--muted);
 }

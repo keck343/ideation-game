@@ -89,22 +89,22 @@ class ChapterTwo(LevelofStory):
         if choice == 'a':
             print("""You smile and nod, zoning out on the conversation until you hear the first being say,""")
 
-        print("""We have been disappearing across all camps and sectors at alarming rates.""")
+        print("""'We have been disappearing across all camps and sectors at alarming rates.'""")
 
-        self.transition_as_typewriter(f"""{first_talking_points["disappearance"]}
+        print(f"""{first_talking_points["disappearance"]}""")
 
-        The second guest jumps in saying:
-        This is ludicrous.  
+        self.transition_as_typewriter("""The second guest jumps in saying""")
+        print("""This is ludicrous.  
         Clearly {second_talking_points["disappearance"]}""")
 
         time.sleep(1)
 
         self.transition_as_typewriter(f"""You sense the anger rising up in both guests.""")
         growing_symbol_transition(symbol="( ｡ •̀ ᴖ •́ ｡)", num_lines=3)
-        self.transition_as_typewriter(f"""The second guest continues, 
+        print(f"""The second guest continues, 
         {second_talking_points["Beings counter point"]}""")
         growing_symbol_transition(symbol="୧(๑•̀ᗝ•́)૭", num_lines=2)
-        self.transition_as_typewriter(f"""The first guest interjects, 
+        print(f"""The first guest interjects, 
         {first_talking_points["Beings counter point"]}""")
         growing_symbol_transition(symbol="୧(๑•̀ᗝ•́)૭( ｡ •̀ ᴖ •́ ｡)", num_lines=1)
 
@@ -117,8 +117,8 @@ class ChapterTwo(LevelofStory):
              peer-reviewed statistics seem reasonable.""")
             print("""""")
 
-            self.transition_as_typewriter("""Both guests now turn their attention to you.  
-            One makes an audible sigh of frustration, but appears to be regaining their composure.""")
+            self.transition_as_typewriter("""Both guests now turn their attention to you.""")
+            print("""One makes an audible sigh of frustration, but appears to be regaining their composure.""")
 
             print("""The other smiles and says:""")
             print(GimelSector.dinner_talking_points["camp invitation"])

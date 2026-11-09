@@ -19,7 +19,7 @@ type Handoff = { startingSector: string };
 export const chapter03: ChapterFactory = function* (state, handoff) {
   yield imageBg(3);
   yield imageFg(3);
-  yield section(3, "Level 3");
+  yield section(3, "Chapter 3");
 
   const startingSectorName = (handoff as Handoff).startingSector ?? "Beit";
   const chapterSector = sectorByName(startingSectorName);
@@ -41,7 +41,7 @@ export const chapter03: ChapterFactory = function* (state, handoff) {
     { key: "c", label: "Soda Pop" },
     { key: "d", label: "No need for stimulants - Refreshing Sparkling Water" },
     { key: "e", label: "No need for bubbles - Purified Still Water" },
-    { key: "f", label: "Just any caffeine please" },
+    { key: "f", label: "Just any caffeine please!" },
   ]);
 
   const desiredProduct: string = (() => {
@@ -59,9 +59,10 @@ export const chapter03: ChapterFactory = function* (state, handoff) {
     `You see the embodiment from the party. Hoping they will continue to be a good host, you walk over and inquire, Do you know where I could find a ${desiredProduct}?`
   );
   yield text("(｡ᵕ ◞ _◟)");
-  yield typewriter(
-    `They look up at you with a grim face. You really haven't been around much have you? There hasn't been ${desiredProduct} in many cycles. I guess you did conclude quote: '${state.ideaDescription}'`
+  yield text(
+    `They look up at you with a grim face. You really haven't been around much have you? There hasn't been ${desiredProduct} in many cycles. `
   );
+  yield typewriter( `I guess you did conclude quote: '${state.ideaDescription}`)
   yield text(
     `They sigh and say: Come, let's meet with the others to figure out what do about the lack of ${desiredProduct} these days.`
   );

@@ -7,26 +7,26 @@ max_round = 10
 # for new game set up and level 1
 quotes: dict = {
     "a": {
-        "author": "William S. Burroughs",
-        "quote": """Cut ups are for everyone. Anybody can make cut ups. All Writing is cut-ups.""",
-    },
-    "b": {
         "author": "Jose Ortega",
         "quote": """I am I and my circumstance; and, if I do not save it, I do not save myself.""",
     },
-    "c": {
+    "b": {
         "author": "Anne Bogart",
         "quote": """We create truths by describing, or by re-describing , our beliefs and observations. 
         Our task, and the task of every artist and scientist, is to re-describe our inherited assumptions 
         and invented fictions in order to create new paradigms for the future""",
     },
-    "d": {
+    "c": {
         "author": "Rosemarie Garland-Thompson",
         "quote": """The task of a misfit is not to try and fail endlessly to somehow fit, but to develop alternative methods.""",
     },
-    "e": {
+    "d": {
         "author": "the Shoe of Shoes, created by Julio Torres",
         "quote": """I am difficult to explain and hard to draw. I am alive.""",
+    },
+    "e": {
+        "author": "Banksy",
+        "quote": """The greatest crimes in the world are not committed by people breaking the rules but by people following the rules. It's people who follow orders that drop bombs and massacre villages.""",
     },
     # "f": {
     #     "author": "",

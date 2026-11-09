@@ -18,7 +18,7 @@ import { beitSector, gimelSector } from "../data/sectors";
 export const chapter02: ChapterFactory = function* (state, _handoff) {
   yield imageBg(2);
   yield imageFg(2);
-  yield section(2, "Level 2");
+  yield section(2, "Chapter 2");
 
   yield art(chapterTwoArt);
   yield text(
@@ -97,17 +97,17 @@ export const chapter02: ChapterFactory = function* (state, _handoff) {
     "We have been disappearing across all camps and sectors at alarming rates."
   );
 
-  yield typewriter(
+  yield text(
     `${firstSpeaker.dinnerTalkingPoints.disappearance}\n\nThe second guest jumps in saying: This is ludicrous. Clearly ${secondSpeaker.dinnerTalkingPoints.disappearance}`
   );
 
   yield typewriter("You sense the anger rising up in both guests.");
   yield symbol({ symbol: "( ｡ •̀ ᴖ •́ ｡)", numLines: 3 });
-  yield typewriter(
+  yield text(
     `The second guest continues, ${secondSpeaker.dinnerTalkingPoints.beingsCounterPoint}`
   );
   yield symbol({ symbol: "୧(๑•̀ᗝ•́)૭", numLines: 2 });
-  yield typewriter(
+  yield text(
     `The first guest interjects, ${firstSpeaker.dinnerTalkingPoints.beingsCounterPoint}`
   );
   yield symbol({ symbol: "୧(๑•̀ᗝ•́)૭( ｡ •̀ ᴖ •́ ｡)", numLines: 1 });
@@ -120,8 +120,8 @@ export const chapter02: ChapterFactory = function* (state, _handoff) {
     yield text(
       "Without thinking you mutter under your breath: peer-reviewed statistics seem reasonable."
     );
-    yield typewriter(
-      "Both guests now turn their attention to you. One makes an audible sigh of frustration, but appears to be regaining their composure."
+    yield typewriter("Both guests now turn their attention to you.")
+    yield text( "One makes an audible sigh of frustration, but appears to be regaining their composure."
     );
     yield text("The other smiles and says:");
     yield text(gimelSector.dinnerTalkingPoints.campInvitation);
@@ -165,14 +165,14 @@ export const chapter02: ChapterFactory = function* (state, _handoff) {
   yield symbol({ symbol: "( ｡ •̀ ``-`` •́ ｡ )", numLines: 1 });
 
   const worldviewChoice = yield* askMulti("Do you respond with:", [
-    { key: "a", label: "This is all made up" },
-    { key: "b", label: "I don't care" },
+    { key: "a", label: "Stick with beliefs" },
+    { key: "b", label: "Reasonable guesses with the available information" },
     { key: "c", label: "Other [type your own answer]" },
   ]);
 
   let worldview: string;
-  if (worldviewChoice === "a") worldview = "this is all made up";
-  else if (worldviewChoice === "b") worldview = "I don't care";
+  if (worldviewChoice === "a") worldview = "Stick with beliefs";
+  else if (worldviewChoice === "b") worldview = "Reasonable guesses with the available information";
   else worldview = yield* askFree("Type your response:");
 
   const newState = expandIdea(state, worldview);

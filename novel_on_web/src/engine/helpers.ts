@@ -9,15 +9,17 @@ import type {
   Prompt,
 } from "./types";
 
-export function text(t: string): Beat {
-  return { kind: "text", text: t.trim() };
+export type TextOptions = { italic?: boolean };
+
+export function text(t: string, opts?: TextOptions): Beat {
+  return { kind: "text", text: t.trim(), italic: opts?.italic };
 }
 
 export function art(t: string): Beat {
   return { kind: "art", text: t };
 }
 
-export function typewriter(t: string, cps = 60): Beat {
+export function typewriter(t: string, cps = 80): Beat {
   return { kind: "typewriter", text: t.trim(), cps };
 }
 
@@ -30,7 +32,7 @@ export function symbol(opts?: {
     kind: "symbol",
     symbol: opts?.symbol ?? "*",
     numLines: opts?.numLines ?? 7,
-    sleepSeconds: opts?.sleepSeconds ?? 0.5,
+    sleepSeconds: opts?.sleepSeconds ?? 0.3,
   };
 }
 

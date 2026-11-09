@@ -56,10 +56,10 @@ class ChapterThree(LevelofStory):
         Hoping they will continue to be a good host, you walk over and inquire, 
         'Do you know where I could find a {desired_product}?'""")
         print("(｡ᵕ ◞ _◟)")
-        self.transition_as_typewriter(f"""They look up at you with a grim face.
+        print(f"""They look up at you with a grim face.
         'You really haven't been around much have you?
-        There hasn't been {desired_product} in many cycles.
-        I guess you did conclude quote: {self.main_character.description}' """)
+        There hasn't been {desired_product} in many cycles. """)
+        self.transition_as_typewriter(f"""I guess you did conclude quote: {self.main_character.description}' """)
 
         print(f"""
         They sigh and say: 
